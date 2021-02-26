@@ -41,6 +41,8 @@
 			<input type="checkbox" class="form-check-input" id="check1">
 			<label class="form-check-label" for="check1">약관에 동의합니다</label>
 		</div>
-		<button type="submit" class="btn btn-primary">회원 가입</button>
+		<div class="d-grid gap-2">
+  			<button class="btn btn-primary" type="submit">회원 가입</button>
+		</div>
 	</form>
 </div>

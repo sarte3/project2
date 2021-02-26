@@ -8,4 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into member(userid, pwd, phone, email, age, name, joinday) 
 	values(#{userid}, #{pwd}, #{phone}, #{email}, #{age}, #{name}, now())
 </insert>
+<select id="login_ok" resultType="Integer">
+	select count(*) from member where userid=#{param1} and pwd=#{param2}
+</select>
 </mapper>
