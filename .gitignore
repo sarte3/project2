@@ -97,3 +97,4 @@ local.properties
 .classpath
 .project
 META-INF/
+.properties
