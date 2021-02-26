@@ -3,6 +3,7 @@
  <!-- 제외할 패턴 -->
  <excludes>
   <pattern>/auth.do</pattern>
+  <pattern>/index</pattern>
  </excludes>
  <!-- 기본 패턴 -->
  <decorator name="default" page="default.jsp">
@@ -13,5 +14,3 @@
   <pattern>/m.*.do</pattern> 
  </decorator>
 </decorators>
-
- 
