@@ -5,7 +5,6 @@
   <pattern>/auth.do</pattern>
   <pattern>/index</pattern>
   <pattern>/n_view</pattern>
-  <pattern>/n_view</pattern>
  </excludes>
  <!-- 기본 패턴 -->
  <decorator name="default" page="default.jsp">
