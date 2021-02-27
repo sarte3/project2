@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/WEB-INF/views/common">
+
  <!-- 제외할 패턴 -->
  <excludes>
   <pattern>/auth.do</pattern>
   <pattern>/index</pattern>
-  <pattern>/n_view</pattern>
+  <pattern>/n_view?food_code=?</pattern>
+
  </excludes>
  <!-- 기본 패턴 -->
  <decorator name="default" page="default.jsp">
