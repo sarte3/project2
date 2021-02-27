@@ -99,3 +99,4 @@ local.properties
 META-INF/
 .properties
 pom.properties
+*/META-INF/*
