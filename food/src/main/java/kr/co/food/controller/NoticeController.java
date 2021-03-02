@@ -64,7 +64,7 @@ public String list(HttpServletRequest request)
 	String notice_id=request.getParameter("notice_id");
 	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
 	ndao.readnum(notice_id);
-	return "redirect:/content?notice_id="+notice_id;
+	return "redirect:/notice/content?notice_id="+notice_id;
 }
 @RequestMapping("/notice/content")
 public String content(Model model,HttpServletRequest request)
