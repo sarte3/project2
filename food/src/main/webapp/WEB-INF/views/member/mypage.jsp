@@ -6,7 +6,7 @@
 		<tbody>
 			<tr>
 				<th scope="row">아이디</th>
-				<td>${dto.userid }</td>
+				<td>${dto.userid}</td>
 			</tr>
 		</tbody>
 	</table>

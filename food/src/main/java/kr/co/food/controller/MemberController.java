@@ -59,8 +59,18 @@ public class MemberController
 			return "redirect:/member/login?chk=1";
 		}
 		
+	}
+	
+	@RequestMapping("/member/mypage")
+	public String mypage(HttpSession session)
+	{
+		String userid=session.getAttribute("userid").toString();
 		
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		
+		dao.getUserInfo(userid);
+		
+		return "/member/mypage";
 	}
 	
 }

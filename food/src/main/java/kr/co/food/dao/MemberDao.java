@@ -7,4 +7,8 @@ public interface MemberDao {
 	public void join(MemberDto dto);
 
 	public Integer login_ok(String userid, String pwd);
+	
+	public MemberDto getUserInfo(String userid);
+	
+	
 }

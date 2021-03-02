@@ -11,4 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="login_ok" resultType="Integer">
 	select count(*) from member where userid=#{param1} and pwd=#{param2}
 </select>
+<select id="getUserInfo" reusltType="kr.co.food.dto.MemberDto">
+	select * from member where userid=#{param1}
+</select>
 </mapper>
