@@ -5,9 +5,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.co.food.dao.NoticeDao">
 <insert id="write_ok" parameterType="kr.co.food.dto.NoticeDto">
- insert into notice(notice_title,notice_content,notice_name,notice_file,notice_writeday)
-  values(#{notice_title},#{notice_content},#{notice_name},#{notice_file},now())
-  
+ insert into notice(notice_title,notice_content,notice_name,notice_type,notice_file,notice_writeday)
+  values(#{notice_title},#{notice_content},#{notice_name},#{notice_type},#{notice_file},now())
 </insert>
 
+<select id="list" resultType="kr.co.food.dto.NoticeDto">
+  select * from notice order by notice_id desc  
+</select>
+<update id="readnum">
+    update notice set notice_readnum=notice_readnum+1 where notice_id=#{param1}
+ </update>
+ <select id="content" resultType="kr.co.food.dto.NoticeDto">
+ 	select * from notice where notice_id=#{param1}
+ </select>
 </mapper>
