@@ -5,7 +5,7 @@
  <excludes>
   <pattern>/auth.do</pattern>
   <pattern>/index</pattern>
-  <pattern>/n_view?food_code=?</pattern>
+  <pattern>/n_view?food_code=*</pattern>
 
  </excludes>
  <!-- 기본 패턴 -->

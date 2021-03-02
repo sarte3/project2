@@ -21,18 +21,6 @@ public class NutrionController {
 	public SqlSession sqlSession;
 	
 
-	@RequestMapping("/")
-	public String home()
-	{
-		return "redirect:/index";
-	}
-   @RequestMapping("/index")
-   public String index() 
-   {
-      return "/index";
-      
-   }
-	
 	@RequestMapping("/list")
 	public String list(Model model) {
 		
