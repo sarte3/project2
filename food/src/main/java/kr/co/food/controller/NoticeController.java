@@ -22,7 +22,7 @@ public String write_ok(NoticeDto ndto)
 {
   NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
   ndao.write_ok(ndto);
-  return "redirect: /notice/list";
+  return "redirect:/notice/list";
   
 }
 

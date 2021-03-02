@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybats-3-mapper.dtd">
 
 <mapper namespace="kr.co.food.dao.NoticeDao">
-<insert name="write_ok" parameterType="kr.co.food.dto.NoticeDto">
- insert into notice (notice_title,notice_content,notice_name,notice_file,notice_writeday)
+<insert id="write_ok" parameterType="kr.co.food.dto.NoticeDto">
+ insert into notice(notice_title,notice_content,notice_name,notice_file,notice_writeday)
   values(#{notice_title},#{notice_content},#{notice_name},#{notice_file},now())
   
 </insert>
