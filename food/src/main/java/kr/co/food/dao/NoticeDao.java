@@ -9,4 +9,7 @@ public interface NoticeDao {
 	public ArrayList<NoticeDto>list();
 	public void readnum(String notice_id);
 	public NoticeDto content(String notice_id);
+	public NoticeDto update(String notice_id);
+	public void update_ok(NoticeDto ndto);
+	public void delete(String notice_id);
 }

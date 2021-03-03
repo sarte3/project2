@@ -18,4 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <select id="content" resultType="kr.co.food.dto.NoticeDto">
  	select * from notice where notice_id=#{param1}
  </select>
+ <select id="update" resultType="kr.co.food.dto.NoticeDto">
+ 	select * from notice where notice_id=#{param1}
+ </select>
+  <update id="update_ok" parameterType="kr.co.food.dto.NoticeDto">
+    update notice set notice_title=#{notice_title},notice_content=#{notice_content},notice_name=#{notice_name}
+    where notice_id=#{notice_id}
+ </update>
+ <delete id="delete">
+ 	delete from notice where notice_id=#{param1}
+ </delete>
 </mapper>
