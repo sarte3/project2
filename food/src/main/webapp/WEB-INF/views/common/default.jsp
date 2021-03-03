@@ -287,9 +287,9 @@
           </div>
         </div>
         <!-- /top navigation -->
-   <!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
-    
 <decorator:body/>
+
+<!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
     <!-- jQuery -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
