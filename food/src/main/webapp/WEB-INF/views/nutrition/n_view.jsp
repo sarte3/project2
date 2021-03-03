@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<div style="right_col" >
  <table width="600" align="center" border="1">
    <tr>
      <td>식품명</td> <td> ${ndto.food_name} </td>
@@ -28,3 +28,4 @@
      <td> 지방 </td> <td> ${ndto.food_fat} g</td>
    </tr>
 </table>   
+</div>
