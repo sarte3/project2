@@ -62,13 +62,13 @@ public class MemberController
 	}
 	
 	@RequestMapping("/member/mypage")
-	public String mypage(HttpSession session)
+	public String mypage(HttpSession session, Model model)
 	{
 		String userid=session.getAttribute("userid").toString();
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		
-		dao.getUserInfo(userid);
+		MemberDto dto = dao.getUserInfo(userid);
 		
 		return "/member/mypage";
 	}

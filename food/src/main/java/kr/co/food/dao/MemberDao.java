@@ -9,6 +9,5 @@ public interface MemberDao {
 	public Integer login_ok(String userid, String pwd);
 	
 	public MemberDto getUserInfo(String userid);
-	
-	
+
 }
