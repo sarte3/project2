@@ -14,4 +14,6 @@ public interface NoticeDao {
 	public NoticeDto update(String notice_id);
 	public void update_ok(NoticeDto ndto);
 	public void delete(String notice_id);
+	public ArrayList<NoticeDto> slist(String sear,String sword);//검색부분
+
 }

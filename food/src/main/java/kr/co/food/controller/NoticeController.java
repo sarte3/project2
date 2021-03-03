@@ -85,6 +85,23 @@ public String list(Model model,HttpServletRequest request)
 	if(pend>page_cnt)
 		pend=page_cnt;
 	
+	//검색단어가null인경우 처리
+	String sear;
+	String sword;
+	if(request.getParameter("sear")==null)
+	{	
+		sear="notice_title";
+		sword="";
+	}
+	else
+	{
+		sear=request.getParameter("sear");
+		sword=request.getParameter("sword");
+	}
+	//검색 필드와 검색 단어 가지고온다..
+	model.addAttribute("list",ndao.slist(sear,sword));
+	model.addAttribute("sear",sear);
+	model.addAttribute("sword",sword);
 	//총페이지를 쿼리에서 만들어서 가져오기
 	model.addAttribute("page_cnt2",ndao.get_page_cnt());
 	
@@ -96,6 +113,7 @@ public String list(Model model,HttpServletRequest request)
 	model.addAttribute("page_cnt",page_cnt);
 	return "/notice/list";
 }
+
 @RequestMapping("/notice/readnum")
 public String list(HttpServletRequest request)
 {

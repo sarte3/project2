@@ -1,8 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+	window.onload=function()
+	{
+		
+		document.jys.sear.value="${sear}";
+	}
+</script>
 <div class="right_col">
  <table width="700" height="900" align="center" boarder="1">
+ <tr>
+ 	<td align="right">
+ 		<form method="post" action="list" name="jys">
+ 		  <select name="sear">
+ 		    <option value="notice_title">제목</option>
+ 		    <option value="notice_content">내용</option>
+ 		    <option value="notice_name">작성자</option>
+ 		  </select>
+ 		  <input type="text" name="sword" value="${sword}">
+           <input type="submit" value="검색">
+
+ 		</form>
+ 	</td>
+ </tr>
  <tr>
  	<td>제목</td>
  	<td>조회수</td>
