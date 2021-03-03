@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.MemberDao;
@@ -30,7 +31,7 @@ public class MemberController
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		dao.join(dto);
 		
-		return "redirect:/login";
+		return "redirect:/member/login";
 	}
 	
 	@RequestMapping("/member/login")
@@ -64,13 +65,72 @@ public class MemberController
 	@RequestMapping("/member/mypage")
 	public String mypage(HttpSession session, Model model)
 	{
-		String userid=session.getAttribute("userid").toString();
+		String userid="";
+		
+		try 
+		{
+			userid=session.getAttribute("userid").toString();
+		}
+		catch(Exception e) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		
 		MemberDto dto = dao.getUserInfo(userid);
 		
+		model.addAttribute("dto", dto);
+		
 		return "/member/mypage";
+		
 	}
 	
+	@RequestMapping("/member/mypage_update")
+	public String mypage_update(HttpSession session, Model model)
+	{
+		String userid="";
+		
+		try 
+		{
+			userid=session.getAttribute("userid").toString();
+		}
+		catch(Exception e) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		
+		MemberDto dto = dao.getUserInfo(userid);
+		
+		model.addAttribute("dto", dto);
+		
+		return "/member/mypage_update";
+	}
+	
+	@RequestMapping("/member/mypage_update_ok")
+	public String mypage_update(HttpSession session, MemberDto dto)
+	{
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		
+		dao.mypage_update(dto);
+		
+		return "redirect:/member/mypage";
+	}
+	
+	
+	@RequestMapping("/member/member_out")
+	public String member_out(HttpSession session)
+	{
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		
+		dao.member_out(session.getAttribute("userid").toString());
+		
+		session.invalidate();
+		return "redirect:/index";
+	}
 }
+

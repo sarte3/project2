@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div id="section">
+
+<div id="section" class="right_col">
 	<h1>로그인</h1>
 	<form method="post" name="frm" action="login_ok">
 		<div class="mb-3">
@@ -19,7 +20,7 @@
 	  			아이디 혹은 비밀번호를 확인해주세요!
 			</div>
 		</c:if>
-		<div class="d-grid gap-2">
+		<div class="d-grid gap-2"  style="text-align:right;">
   			<button class="btn btn-primary" type="submit">로그인</button>
 		</div>
 	</form>

@@ -4,7 +4,6 @@
  <!-- 제외할 패턴 -->
  <excludes>
   <pattern>/auth.do</pattern>
-  <pattern>/index</pattern>
   <pattern>/n_view?food_code=*</pattern>
 
  </excludes>

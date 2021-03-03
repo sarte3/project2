@@ -10,4 +10,7 @@ public interface MemberDao {
 	
 	public MemberDto getUserInfo(String userid);
 
+	public void mypage_update(MemberDto dto);
+	
+	public void member_out(String userid);
 }

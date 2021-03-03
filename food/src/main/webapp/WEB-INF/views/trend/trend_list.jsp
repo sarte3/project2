@@ -3,8 +3,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="../resources/chartjs/dist/Chart.js"></script>
-
-
+<div id="section" class="right_col">
+<h1>음식 트렌드</h1>
+<canvas id="canvas" width="1000" height="400"></canvas>
+<table class="table">
+	<tbody>
+		<tr>
+			<th>음식명</th>
+			<th>월 검색량</th>
+			<th>월별 블로그 작성량</th>
+			<th>월별 View 작성량</th>
+		</tr>
+		<c:forEach var="dto" items="${list}">
+		<tr>
+			<td>${dto.trend_keyword }</td>
+			<td>${dto.trend_month_vol }</td>
+			<td>${dto.trend_blog_vol }</td>
+			<td>${dto.trend_view_vol }</td>
+		</tr>
+		</c:forEach>
+	</tbody>
+</table>
+</div>
 <script>
 window.chartColors = {
 		red: 'rgb(255, 99, 132)',
@@ -44,7 +64,6 @@ var barChartData = {
 	}]
 
 };
-window.onload = function() {
 	var ctx = document.getElementById('canvas').getContext('2d');
 	window.myBar = new Chart(ctx, {
 		type: 'bar',
@@ -69,27 +88,6 @@ window.onload = function() {
 			}
 		}
 	});
-};
+
 
 </script>
-
-<div id="section">
-<h1>음식 트렌드</h1>
-<canvas id="canvas" width="1000" height="400"></canvas>
-<table>
-	<tr>
-		<th>음식명</th>
-		<th>월 검색량</th>
-		<th>월별 블로그 작성량</th>
-		<th>월별 View 작성량</th>
-	</tr>
-	<c:forEach var="dto" items="${list}">
-	<tr>
-		<td>${dto.trend_keyword }</td>
-		<td>${dto.trend_month_vol }</td>
-		<td>${dto.trend_blog_vol }</td>
-		<td>${dto.trend_view_vol }</td>
-	</tr>
-	</c:forEach>
-</table>
-</div>
