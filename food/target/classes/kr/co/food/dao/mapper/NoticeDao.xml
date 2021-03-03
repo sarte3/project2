@@ -10,8 +10,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 
 <select id="list" resultType="kr.co.food.dto.NoticeDto">
-  select * from notice order by notice_id desc  
-</select>
+  <!--select * from board order by id desc  -->
+  <!-- 페이징처리 한 list --> 
+  select * from notice order by notice_id desc limit #{param},10;
+ </select>
+ <select id="get_record_cnt" resultType="Integer">
+  select count(*) from notice
+ </select>
+ <select id="get_page_cnt" resultType="Integer">
+  select ceil(count(*)/10) from notice
+ </select>
+ 
+ 
+ 
 <update id="readnum">
     update notice set notice_readnum=notice_readnum+1 where notice_id=#{param1}
  </update>
