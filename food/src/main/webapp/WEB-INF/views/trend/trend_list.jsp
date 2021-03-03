@@ -5,7 +5,7 @@
 <script src="../resources/chartjs/dist/Chart.js"></script>
 <div id="section" class="right_col">
 <h1>음식 트렌드</h1>
-<canvas id="canvas" width="1000" height="400"></canvas>
+<canvas id="canvas"></canvas>
 <table class="table">
 	<tbody>
 		<tr>

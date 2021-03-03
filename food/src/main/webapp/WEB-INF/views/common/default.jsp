@@ -49,7 +49,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="../index.html" class="site_title"><i class="fa fa-paw"></i> <span>All food</span></a>
+              <a href="<%=request.getContextPath()%>/index.html" class="site_title"><i class="fa fa-paw"></i> <span>All food</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -57,17 +57,25 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<%=request.getContextPath()%>/resources/img/profile.png" alt="..." class="img-circle profile_img">
               </div>
+              <c:if test="${name!=null }">
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>환영합니다</span>
+                <h2>${name} 님</h2>
               </div>
+              </c:if>
+              <c:if test="${name==null }">
+              <div class="profile_info">
+                <h2>로그인 해주세요</h2>
+              </div>
+              </c:if>
             </div>
             <!-- /menu profile quick info -->
 
             <br />
-
+			
+			<c:if test="${userid!='admin' }">
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
@@ -171,7 +179,53 @@
 
             </div>
             <!-- /sidebar menu -->
-
+			</c:if>
+			
+			<!-- 관리자 페이지 -->
+			<c:if test="${userid=='admin' }">
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>관리자 페이지</h3>
+                <ul class="nav side-menu">
+                  <li><a href="/food/admin/main"><i class="fa fa-home"></i>홈</a>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i>공지사항<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/notice_list">공지사항 리스트</a></li>
+                      <li><a href="/food/admin/notice_write">공지사항 입력</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-user"></i>회원 관리<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/member_list">회원 리스트</a></li>
+                      <li><a href="/food/admin/member_write">회원 입력</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i>음식 관리<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/food_list">음식 리스트</a></li>
+                      <li><a href="/food/admin/food_write">음식 입력</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i>트렌드 관리<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/trend_list">트렌드 리스트</a></li>
+                      <li><a href="/food/admin/trend_write">트렌드 입력</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>레시피 관리<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/recipe_list">레시피 리스트</a></li>
+                      <li><a href="/food/admin/recipe_write">레시피 입력</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+			</c:if>
+			
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -200,88 +254,24 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">
+              <c:if test="${userid==null}">
+                <li><a href="<%=request.getContextPath()%>/member/login">로그인</a></li>
+                <li><a href="<%=request.getContextPath()%>/member/member">회원가입</a></li>
+              </c:if>
+              <c:if test="${userid!=null}">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="<%=request.getContextPath()%>/resources/img/profile.png" alt="">${name }
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<%=request.getContextPath()%>/member/mypage">마이페이지</a></li>
+                    <li><a href="javascript:;">도움말</a></li>
+                    <li><a href="<%=request.getContextPath()%>/member/logout"><i class="fa fa-sign-out pull-right"></i>로그 아웃</a></li>
                   </ul>
                 </li>
-
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+				</c:if>
+                
               </ul>
             </nav>
           </div>

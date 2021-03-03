@@ -52,8 +52,17 @@ public class MemberController
 		
 		if(chk==1) 
 		{
+			MemberDto mdto=dao.getUserInfo(userid);
 			session.setAttribute("userid", userid);
-			return "redirect:/index";
+			session.setAttribute("name", mdto.getName());
+			
+			if(userid.equals("admin")) 
+			{
+				return "redirect:/admin/main";
+			}
+			else {
+				return "redirect:/index";
+			}
 		}
 		else 
 		{
@@ -130,6 +139,14 @@ public class MemberController
 		dao.member_out(session.getAttribute("userid").toString());
 		
 		session.invalidate();
+		return "redirect:/index";
+	}
+	
+	@RequestMapping("/member/logout")
+	public String logout(HttpSession session)
+	{
+		session.invalidate();
+		
 		return "redirect:/index";
 	}
 }
