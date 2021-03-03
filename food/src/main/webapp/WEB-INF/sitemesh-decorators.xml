@@ -4,7 +4,7 @@
  <!-- 제외할 패턴 -->
  <excludes>
   <pattern>/auth.do</pattern>
-  <pattern>/n_view?food_code=*</pattern>
+  <pattern>/nutrition/n_view?food_code=*</pattern>
 
  </excludes>
  <!-- 기본 패턴 -->

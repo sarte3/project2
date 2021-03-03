@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <script>
   function fetchPage(name){
     fetch(name).then(function(response){
@@ -15,8 +11,8 @@
     });
   }
   </script>
-</head>
-<body>
+
+<div class="right_col" >
 <table width="700" align="center" boarder="1">
  <tr>
     <td>음식이름</td>
@@ -35,5 +31,4 @@
   </article>
  
  </table>
-</body>
-</html>
+ </div>
