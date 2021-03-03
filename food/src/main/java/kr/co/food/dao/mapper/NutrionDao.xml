@@ -5,10 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.co.food.dao.NutrionDao">
  <select id="n_view" resultType="kr.co.food.dto.NutrionDto">
- 	select * from food_all where food_code=#{param1}
+ 	select * from food where food_code=#{param1}
  </select>
  <select id="list" resultType="kr.co.food.dto.NutrionDto">
- select * from food_all order by food_code desc
+ select * from food order by food_code desc
 
  </select>
 </mapper>

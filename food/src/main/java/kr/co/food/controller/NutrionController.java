@@ -21,21 +21,21 @@ public class NutrionController {
 	public SqlSession sqlSession;
 	
 
-	@RequestMapping("/list")
+	@RequestMapping("/nutrition/list")
 	public String list(Model model) {
 		
 		NutrionDao ndao=sqlSession.getMapper(NutrionDao.class);
 		ArrayList<NutrionDto> list=ndao.list();
 		model.addAttribute("list",list);
-		return "/list";
+		return "/nutrition/list";
 	}
-	@RequestMapping("/n_view")
+	@RequestMapping("/nutrition/n_view")
 	public String n_view(Model model,HttpServletRequest request) {
 		String food_code=request.getParameter("food_code");
 		NutrionDao ndao=sqlSession.getMapper(NutrionDao.class);
 		ndao.n_view(food_code);
 		NutrionDto ndto=ndao.n_view(food_code);
 		model.addAttribute("ndto",ndto);
-		return "/n_view";
+		return "/nutrition/n_view";
 	}
 }
