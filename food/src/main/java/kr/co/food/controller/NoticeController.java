@@ -32,7 +32,7 @@ public String write() {
 @RequestMapping("/notice/write_ok")
 public String pwrite_ok(HttpServletRequest request,NoticeDto ndto) throws IOException 
 {
-	String path=request.getRealPath("/resources/noticeimg");
+	String path=request.getRealPath("../resources/noticeimg");
 	int max=1024*1024*10;
 	MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());	
 	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
@@ -85,11 +85,22 @@ public String update(Model model,HttpServletRequest request)
 }
 
 @RequestMapping("/notice/update_ok")
-public String update_ok(NoticeDto ndto) 
+public String update_ok(HttpServletRequest request,NoticeDto ndto) throws IOException 
 {
-	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-	ndao.update_ok(ndto);
-	return "redirect:/notice/content?notice_id="+ndto.getNotice_id();
+	String notice_id=request.getParameter("notice_id");
+	String path=request.getRealPath("../resources/noticeimg");
+	int max=1024*1024*10;
+	MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());	
+	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
+	//request된 값을 dto클래스에 setNotice_ter하기
+	 ndto.setNotice_title(multi.getParameter("notice_title"));
+     ndto.setNotice_content(multi.getParameter("notice_content"));
+     ndto.setNotice_name(multi.getParameter("notice_name"));
+     ndto.setNotice_type(multi.getParameter("notice_type"));
+     ndto.setNotice_file(multi.getFilesystemName("notice_file"));
+	
+     ndao.write_ok(ndto);
+	return "redirect:/notice/content?notice_id="+notice_id;
 }
 @RequestMapping("/notice/delete")
 public String delete(HttpServletRequest request)
