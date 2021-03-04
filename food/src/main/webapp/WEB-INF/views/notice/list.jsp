@@ -14,7 +14,7 @@
  	<td align="right">
  		<form method="post" action="list" name="jys">
  		  <select name="sear">
- 		    <option value="notice_title">제목</option>
+ 		    <option value="notice_title" selected="selected">제목</option>
  		  </select>
  		  <input type="text" name="sword" value="${sword}">
            <input type="submit" value="검색">

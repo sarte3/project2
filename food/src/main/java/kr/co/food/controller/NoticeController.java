@@ -99,13 +99,10 @@ public String list(Model model,HttpServletRequest request)
 	
 	if(chong%10 !=0)
 		page_cnt++;
-		
-	
+
 	//pend(총 출력되는값) 값이 총 페이지보다 크다면 pend값을 총(마지막)페이지로 해야한다.
 	if(pend>page_cnt)
-		pend=page_cnt;
-	
-	
+		pend=page_cnt;	
 	//검색단어가null인경우 처리
 	String sear;
 	String sword;
@@ -115,29 +112,25 @@ public String list(Model model,HttpServletRequest request)
 		sword="";
 		ArrayList<NoticeDto> list=ndao.list(index);
 		model.addAttribute("list",list);
+		model.addAttribute("page_cnt2",ndao.get_page_cnt());
+		model.addAttribute("pend",pend);
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("page",page);
+		model.addAttribute("page_cnt",page_cnt);
+		
+		return "/notice/list";
 	}
 	else
 	{
 		sear=request.getParameter("sear");
 		sword=request.getParameter("sword");
-		model.addAttribute("list",ndao.slist(sear,sword));
-		
+		model.addAttribute("list",ndao.slist(sear,sword,index));
+		model.addAttribute("sear",sear);
+		model.addAttribute("sword",sword);
 		return "/notice/list";
+		
 	}
-	//검색 필드와 검색 단어 가지고온다..
-	
-	model.addAttribute("sear",sear);
-	model.addAttribute("sword",sword);
-	
-	//총페이지를 쿼리에서 만들어서 가져오기
-	model.addAttribute("page_cnt2",ndao.get_page_cnt());
-	
-	model.addAttribute("pend",pend);
-	model.addAttribute("pstart",pstart);
-	model.addAttribute("page",page);
-	model.addAttribute("page_cnt",page_cnt);
-	
-	return "/notice/list";
+
 }
 
 @RequestMapping("/notice/readnum")

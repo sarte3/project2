@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  <!-- 검색부분 -->
  <select id="slist" resultType="kr.co.food.dto.NoticeDto">
-  select * from notice where ${param1} like concat('%',#{param2},'%')
+  select * from notice where ${param1} like concat('%',#{param2},'%') order by notice_id desc limit #{param3},20;
  </select>
  
  
