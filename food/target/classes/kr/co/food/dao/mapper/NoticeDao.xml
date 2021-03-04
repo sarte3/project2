@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	select * from notice where notice_id=#{param1}
  </select>
   <update id="update_ok" parameterType="kr.co.food.dto.NoticeDto">
-    update notice set notice_title=#{notice_title},notice_content=#{notice_content},notice_name=#{notice_name}
+    update notice set notice_title=#{notice_title},notice_content=#{notice_content},notice_name=#{notice_name},notice_type=#{notice_type},notice_file=#{notice_file}
     where notice_id=#{notice_id}
  </update>
  <delete id="delete">

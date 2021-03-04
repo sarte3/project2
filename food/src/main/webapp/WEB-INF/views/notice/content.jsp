@@ -13,6 +13,9 @@
    <tr height="300">
      <td> 내용 </td> <td> ${ndto.notice_content} </td>
    </tr>
+   <tr height="100">
+     <td> 첨부 </td> <td> <img src="<%=request.getContextPath()%>/resources/noticeimg/${ndto.notice_file}" ></td>
+   </tr>
    <tr>
      <td> 조회수 </td> <td> ${ndto.notice_readnum} </td>
    </tr>

@@ -15,8 +15,6 @@
  		<form method="post" action="list" name="jys">
  		  <select name="sear">
  		    <option value="notice_title">제목</option>
- 		    <option value="notice_content">내용</option>
- 		    <option value="notice_name">작성자</option>
  		  </select>
  		  <input type="text" name="sword" value="${sword}">
            <input type="submit" value="검색">
