@@ -61,7 +61,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<a href="/food/admin/user_list">더 보기</a>
+					<a href="/food/admin/member_list">더 보기</a>
 				</div>
 			</div>
 		</div>

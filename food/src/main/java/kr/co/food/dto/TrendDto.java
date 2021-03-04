@@ -3,8 +3,14 @@ package kr.co.food.dto;
 public class TrendDto 
 {
 	private int trend_id, trend_month_vol, trend_blog_vol, trend_view_vol;
-	private String trend_keyword;
+	private String trend_keyword, food_code;
 	
+	public String getFood_code() {
+		return food_code;
+	}
+	public void setFood_code(String food_code) {
+		this.food_code = food_code;
+	}
 	public int getTrend_id() {
 		return trend_id;
 	}

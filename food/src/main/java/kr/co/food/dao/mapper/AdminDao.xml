@@ -16,6 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTrendCnt" resultType="Integer">
 		select count(*) from trend
 	</select>
+	<select id="getNoticeCnt" resultType="Integer">
+		select count(*) from notice
+	</select>
 	<select id="getUser5" resultType="kr.co.food.dto.MemberDto">
 		select * from member order by member_id desc limit 5
 	</select>
@@ -28,4 +31,59 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTrend5" resultType="kr.co.food.dto.TrendDto">
 		select * from trend order by trend_id desc limit 5
 	</select>
+	<select id="getNoticeList" resultType="kr.co.food.dto.NoticeDto">
+		select * from notice order by notice_id desc limit #{param1},10;
+	</select>
+	<select id="getUserList" resultType="kr.co.food.dto.MemberDto">
+		select * from member order by member_id desc limit #{param1},10;
+	</select>
+	<select id="getTrendList" resultType="kr.co.food.dto.TrendDto">
+		select * from trend order by trend_id desc limit #{param1},10;
+	</select>
+	<select id="getFoodList" resultType="kr.co.food.dto.NutrionDto">
+		select * from food order by food_no desc limit #{param1},10;
+	</select>
+	<delete id="memberOut">
+		delete from member where member_id=#{param1}
+	</delete>
+	<insert id="trendWrite" parameterType="kr.co.food.dto.TrendDto">
+		insert into trend(trend_keyword, trend_month_vol, trend_blog_vol, trend_view_vol, food_code) 
+		values(#{trend_keyword}, #{trend_month_vol}, #{trend_blog_vol}, #{trend_view_vol}, #{food_code})
+	</insert>
+	<select id="trendContent" resultType="kr.co.food.dto.TrendDto">
+		select * from trend where trend_id=#{param1}
+	</select>
+	<update id="trendUpdate" parameterType="kr.co.food.dto.TrendDto">
+		update trend set trend_keyword=#{trend_keyword}, trend_month_vol=#{trend_month_vol}, trend_blog_vol=#{trend_blog_vol}, trend_view_vol=#{trend_view_vol}, food_code=#{food_code} 
+		where trend_id=#{trend_id}
+	</update>
+	<delete id="trendDelete">
+		delete from trend where trend_id=#{param1}
+	</delete>
+	<insert id="foodWrite" parameterType="kr.co.food.dto.NutrionDto">
+		insert into food(food_name, food_cate2, food_serving, food_energy, food_carbo, food_pro, food_lipid, food_fiber, food_vitC, food_folic, food_ca, food_na, food_mg, food_zn) 
+		values(#{food_name}, #{food_cate2}, #{food_serving}, #{food_energy}, #{food_carbo}, #{food_pro}, #{food_lipid}, #{food_fiber}, #{food_vitC}, #{food_folic}, #{food_ca}, #{food_na}, #{food_mg}, #{food_zn})
+	</insert>
+	<select id="foodContent" resultType="kr.co.food.dto.NutrionDto">
+		select * from food where food_no=#{param1}
+	</select>
+	<update id="foodUpdate" parameterType="kr.co.food.dto.NutrionDto">
+		update food set food_name=#{food_name}, food_cate2=#{food_cate2}, food_serving=#{food_serving}, food_energy=#{food_energy}, food_carbo=#{food_carbo}, food_lipid=#{food_lipid}, food_fiber=#{food_fiber}, food_vitC=#{food_vitC}, food_folic=#{food_folic}, food_ca=#{food_ca}, food_na=#{food_na}, food_mg=#{food_mg}, food_zn=#{food_zn} 
+		where food_no=#{food_no}
+	</update>
+	<delete id="foodDelete">
+		delete from food where food_no=#{param1}
+	</delete>
+	<insert id="noticeWrite" parameterType="kr.co.food.dto.NoticeDto">
+		insert into notice(notice_title, notice_content, notice_name, notice_writeday) values(#{notice_title}, #{notice_content}, #{notice_name}, now())	
+	</insert>
+	<select id="noticeContent" resultType="kr.co.food.dto.NoticeDto">
+		select * from notice where notice_id=#{param1}
+	</select>
+	<update id="noticeUpdate" parameterType="kr.co.food.dto.NoticeDto">
+		update notice set notice_title=#{notice_title}, notice_content=#{notice_content}, notice_name=#{notice_name} where notice_id=#{notice_id}
+	</update>
+	<delete id="noticeDelete">
+		delete from notice where notice_id=#{param1}
+	</delete>
 </mapper>

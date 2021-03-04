@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<style>
+#canvas {
+	width:1100px;
+	margin:auto;
+}
+</style>
 <script src="../resources/chartjs/dist/Chart.js"></script>
 <div id="section" class="right_col">
 <h1>음식 트렌드</h1>
@@ -33,7 +39,8 @@ window.chartColors = {
 		green: 'rgb(75, 192, 192)',
 		blue: 'rgb(54, 162, 235)',
 		purple: 'rgb(153, 102, 255)',
-		grey: 'rgb(201, 203, 207)'
+		grey: 'rgb(201, 203, 207)',
+		deepgreen: '#73879c'
 	};
 
 var label = new Array();
@@ -51,7 +58,7 @@ var barChartData = {
 	labels: label,
 	datasets: [{
 		label: '월간 검색량',
-		backgroundColor: window.chartColors.red,
+		backgroundColor: window.chartColors.deepgreen,
 		data: trend_month_vol
 	}, {
 		label: '블로그 월간 작성량',

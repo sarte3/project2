@@ -847,7 +847,8 @@
 		green : 'rgb(75, 192, 192)',
 		blue : 'rgb(54, 162, 235)',
 		purple : 'rgb(153, 102, 255)',
-		grey : 'rgb(201, 203, 207)'
+		grey : 'rgb(201, 203, 207)',
+		deepgray: '#73879c'
 	};
 
 	var label = new Array();
@@ -865,7 +866,7 @@
 		labels : label,
 		datasets : [ {
 			label : '월간 검색량',
-			backgroundColor : window.chartColors.red,
+			backgroundColor : window.chartColors.deepgray,
 			data : trend_month_vol
 		}, {
 			label : '블로그 월간 작성량',
