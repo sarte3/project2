@@ -16,4 +16,5 @@ public interface NoticeDao {
 	public void delete(String notice_id);
 	public ArrayList<NoticeDto> slist(String sear,String sword,int index);//검색부분
 
+
 }

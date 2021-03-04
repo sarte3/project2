@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-  function fetchPage(name){
-    fetch(name).then(function(response){
-      response.text().then(function(text){
-        document.querySelector('article').innerHTML = text;
-      })
-    });
-  }
+/*영양성분 content*/
+function fetchPage(name){
+	    fetch(name).then(function(response){
+	      response.text().then(function(text){
+	        document.querySelector('nutrition').innerHTML = text;
+	      })
+	    });
+	  }
 window.onload=function()
 {
 	
 	document.sea.sear.value="${sear}";
 }
   </script>
-<style>
-.d1{float:left;}
-</style>
+
 <div class="right_col" >
 
-<table width="700" align="center" boarder="1">
+<table align="center" boarder="1">
  <tr>
  	<td colspan="2" align="right">
  		<form method="post" action="list" name="sea">
@@ -38,9 +37,6 @@ window.onload=function()
     <td>음식이름</td>
  </tr>
 
- <article>
- 
-  </article>
  <c:forEach items="${list }" var="ndto">
   <tr>
      <td>

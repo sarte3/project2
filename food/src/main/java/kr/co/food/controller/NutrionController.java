@@ -58,24 +58,24 @@ public class NutrionController {
 			sword="";
 			ArrayList<NutrionDto> list=ndao.list(index);
 			model.addAttribute("list",list);
+			model.addAttribute("page_cnt2",ndao.get_page_cnt());	
+			model.addAttribute("pend",pend);
+			model.addAttribute("pstart",pstart);
+			model.addAttribute("page",page);
+			model.addAttribute("page_cnt",page_cnt);
+			return "/nutrition/list";
 		}
 		else
 		{
 			sear=request.getParameter("sear");
 			sword=request.getParameter("sword");
 			model.addAttribute("list",ndao.slist(sear,sword,index));
+			model.addAttribute("sear",sear);
+			model.addAttribute("sword",sword); 
 			return "/nutrition/list";
 		}
-		model.addAttribute("sear",sear);
-		model.addAttribute("sword",sword);
-		 
-		//총페이지를 쿼리에서 만들어서 가져오기
-		model.addAttribute("page_cnt2",ndao.get_page_cnt());	
-		model.addAttribute("pend",pend);
-		model.addAttribute("pstart",pstart);
-		model.addAttribute("page",page);
-		model.addAttribute("page_cnt",page_cnt);
-		return "/nutrition/list";
+		
+
 	}
 	@RequestMapping("/nutrition/n_view")
 	public String n_view(Model model,HttpServletRequest request) {

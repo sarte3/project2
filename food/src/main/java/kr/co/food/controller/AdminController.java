@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.AdminDao;
 import kr.co.food.dao.MemberDao;
-import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.MemberDto;
 import kr.co.food.dto.NoticeDto;
 import kr.co.food.dto.NutrionDto;
