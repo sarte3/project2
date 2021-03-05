@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.AdminDao;
+import kr.co.food.dao.FnqDao;
 import kr.co.food.dao.MemberDao;
+import kr.co.food.dto.FnqDto;
 import kr.co.food.dto.MemberDto;
 import kr.co.food.dto.NoticeDto;
 import kr.co.food.dto.NutrionDto;
@@ -205,6 +207,102 @@ public class AdminController {
 		
 		return "redirect:/admin/member_list";
 	}
+	
+	@RequestMapping("/admin/fnq_write")
+	public String fnq_write()
+	{
+		return "/admin/fnq_write";
+	}
+	
+	@RequestMapping("/admin/fnq_write_ok")
+	public String fnq_write_ok(FnqDto dto)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		dao.write(dto);
+		
+		return "redirect:/admin/fnq_list";
+	}
+	
+	@RequestMapping("/admin/fnq_content")
+	public String fnq_content(HttpServletRequest req, Model model)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		FnqDto dto = dao.getContent(req.getParameter("fnq_id"));
+		
+		model.addAttribute("dto", dto);
+		return "/admin/fnq_content";
+	}
+	
+	@RequestMapping("/admin/fnq_update")
+	public String fnq_update(HttpServletRequest req, Model model)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		FnqDto dto = dao.getContent(req.getParameter("fnq_id"));
+		
+		model.addAttribute("dto", dto);
+		return "/admin/fnq_update";
+	}
+	
+	@RequestMapping("/admin/fnq_update_ok")
+	public String fnq_update_ok(FnqDto dto)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		dao.update(dto);
+		
+		return "redirect:/admin/fnq_content?fnq_id="+dto.getFnq_id();
+	}
+	
+	@RequestMapping("/admin/fnq_delete")
+	public String fnq_delete(HttpServletRequest req)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		dao.delete(req.getParameter("fnq_id"));
+		
+		return "redirect:/admin/fnq_list";
+	}
+	
+	@RequestMapping("/admin/fnq_list")
+	public String fnq_list(Model model, HttpServletRequest req)
+	{
+		FnqDao dao = sqlSession.getMapper(FnqDao.class);
+		int page,index;
+		if(req.getParameter("page")==null)
+		{
+			index=0;
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(req.getParameter("page"));
+			index=(page-1)*10;
+		}
+
+		int pstart=page/10;
+		if(page%10 ==0)
+			pstart=pstart-1;
+		pstart=(pstart*10)+1;
+		int pend=pstart+9;
+
+		int chong=dao.getCnt();
+		int page_cnt=chong/10;
+		
+		if(chong%10 !=0)
+			page_cnt++;
+		
+		if(pend>page_cnt)
+			pend=page_cnt;
+		
+		ArrayList<FnqDto> list=dao.getList(index);
+		model.addAttribute("list",list);
+		model.addAttribute("pend",pend);
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("page",page);
+		model.addAttribute("page_cnt",page_cnt);
+
+		return "/admin/fnq_list";
+	}
+	
+	
 	
 	@RequestMapping("/admin/trend_list")
 	public String trend_list(Model model, HttpServletRequest req)
