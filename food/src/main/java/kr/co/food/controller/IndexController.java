@@ -33,7 +33,7 @@ public class IndexController {
 		
 		/*공지사항*/
 		NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
-		ArrayList<NoticeDto> list = ndao.list(1);
+		ArrayList<NoticeDto> list = ndao.list(null, 0);
 		model.addAttribute("list", list);
 		
 		return "/index";

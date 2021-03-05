@@ -22,60 +22,50 @@ public class NutrionController {
 	
 
 	@RequestMapping("/nutrition/list")
-	public String list(Model model,HttpServletRequest request)
+	public String trend_list(Model model, HttpServletRequest req)
 	{
-		NutrionDao ndao=sqlSession.getMapper(NutrionDao.class);
+		NutrionDao ndao = sqlSession.getMapper(NutrionDao.class);
 		int page,index;
-
-		if(request.getParameter("page")==null)
+		if(req.getParameter("page")==null)
 		{
 			index=0;
 			page=1;
 		}
 		else
 		{
-			page=Integer.parseInt(request.getParameter("page"));
+			page=Integer.parseInt(req.getParameter("page"));
 			index=(page-1)*10;
 		}
+
 		int pstart=page/10;
 		if(page%10 ==0)
 			pstart=pstart-1;
 		pstart=(pstart*10)+1;
 		int pend=pstart+9;
-		int chong=ndao.get_record_cnt();
-		int page_cnt=chong/10;//페이지의 갯수
+
+		String sword=req.getParameter("sword");
+		if(sword==null)sword="";
+		
+		int chong=ndao.getCnt(sword);
+		int page_cnt=chong/10;
+		
 		
 		if(chong%10 !=0)
 			page_cnt++;
+		
 		if(pend>page_cnt)
 			pend=page_cnt;
 		
-		String sear;
-		String sword;
-		if(request.getParameter("sear")==null)
-		{	
-			sear="food_name";
-			sword="";
-			ArrayList<NutrionDto> list=ndao.list(index);
-			model.addAttribute("list",list);
-			model.addAttribute("page_cnt2",ndao.get_page_cnt());	
-			model.addAttribute("pend",pend);
-			model.addAttribute("pstart",pstart);
-			model.addAttribute("page",page);
-			model.addAttribute("page_cnt",page_cnt);
-			return "/nutrition/list";
-		}
-		else
-		{
-			sear=request.getParameter("sear");
-			sword=request.getParameter("sword");
-			model.addAttribute("list",ndao.slist(sear,sword,index));
-			model.addAttribute("sear",sear);
-			model.addAttribute("sword",sword); 
-			return "/nutrition/list";
-		}
+		ArrayList<NutrionDto> list=ndao.list(sword, index);
+		model.addAttribute("list",list);
+		model.addAttribute("pend",pend);
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("page",page);
+		model.addAttribute("page_cnt",page_cnt);
+		model.addAttribute("sword",sword);
 		
-
+		
+		return "/nutrition/list";
 	}
 	@RequestMapping("/nutrition/n_view")
 	public String n_view(Model model,HttpServletRequest request) {

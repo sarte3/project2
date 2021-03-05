@@ -15,7 +15,9 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.food.dao.NoticeDao;
+import kr.co.food.dao.TrendDao;
 import kr.co.food.dto.NoticeDto;
+import kr.co.food.dto.TrendDto;
 
 
 @Controller
@@ -63,74 +65,50 @@ public String pwrite_ok(HttpServletRequest request,NoticeDto ndto) throws IOExce
 	return "redirect:/notice/list";
 }
 @RequestMapping("/notice/list")
-public String list(Model model,HttpServletRequest request)
+public String trend_list(Model model, HttpServletRequest req)
 {
-	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-	
-	//list메소드에 보낼 index값을 구해야 된다.
-	//사용자가 원하는 페이지에 따라 index값은 바뀐다.
-	//1페이지=> 0~9 , 2페이지=> 10~19
+	NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
 	int page,index;
-	if(request.getParameter("page")==null)
+	if(req.getParameter("page")==null)
 	{
 		index=0;
 		page=1;
 	}
 	else
 	{
-		page=Integer.parseInt(request.getParameter("page"));
+		page=Integer.parseInt(req.getParameter("page"));
 		index=(page-1)*10;
-		
-		
 	}
-	//pstart,pend구하기 =>사용자가 클릭하는 부분
+
 	int pstart=page/10;
 	if(page%10 ==0)
 		pstart=pstart-1;
 	pstart=(pstart*10)+1;
 	int pend=pstart+9;
+
+	String sword=req.getParameter("sword");
+	if(sword==null)sword="";
 	
-	//view에 사용자가 원하는 페이
-	//1페이지 혹은 10페이지 단위의
+	int chong=ndao.getCnt(sword);
+	int page_cnt=chong/10;
 	
-	//총페이지수를 구해서 전달=>마지막페이지
-	int chong=ndao.get_record_cnt();
-	int page_cnt=chong/10;//페이지의 갯수
 	
 	if(chong%10 !=0)
 		page_cnt++;
-
-	//pend(총 출력되는값) 값이 총 페이지보다 크다면 pend값을 총(마지막)페이지로 해야한다.
+	
 	if(pend>page_cnt)
-		pend=page_cnt;	
-	//검색단어가null인경우 처리
-	String sear;
-	String sword;
-	if(request.getParameter("sear")==null)
-	{	
-		sear="notice_title";
-		sword="";
-		ArrayList<NoticeDto> list=ndao.list(index);
-		model.addAttribute("list",list);
-		model.addAttribute("page_cnt2",ndao.get_page_cnt());
-		model.addAttribute("pend",pend);
-		model.addAttribute("pstart",pstart);
-		model.addAttribute("page",page);
-		model.addAttribute("page_cnt",page_cnt);
-		
-		return "/notice/list";
-	}
-	else
-	{
-		sear=request.getParameter("sear");
-		sword=request.getParameter("sword");
-		model.addAttribute("list",ndao.slist(sear,sword,index));
-		model.addAttribute("sear",sear);
-		model.addAttribute("sword",sword);
-		return "/notice/list";
-		
-	}
-
+		pend=page_cnt;
+	
+	ArrayList<NoticeDto> list=ndao.list(sword, index);
+	model.addAttribute("list",list);
+	model.addAttribute("pend",pend);
+	model.addAttribute("pstart",pstart);
+	model.addAttribute("page",page);
+	model.addAttribute("page_cnt",page_cnt);
+	model.addAttribute("sword",sword);
+	
+	
+	return "/notice/list";
 }
 
 @RequestMapping("/notice/readnum")
