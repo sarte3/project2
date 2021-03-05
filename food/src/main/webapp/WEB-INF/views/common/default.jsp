@@ -103,8 +103,8 @@
                   </li>  
                   <li><a><i class="fa fa-bar-chart-o"></i> 음식 트렌드 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">음식 트렌드 차트</a></li>
-                      <li><a href="chartjs2.html">모든 트렌드 현황 확인</a></li>
+                      <li><a href="/food/trend/trend_list">음식 트렌드 차트</a></li>
+                      <li><a href="/food/trend/trend_all_list">모든 트렌드 현황 확인</a></li>
                       <!--  <li><a href="morisjs.html">Moris JS</a></li>
                       <li><a href="echarts.html">ECharts</a></li>
                       <li><a href="other_charts.html">Other Charts</a></li>-->
