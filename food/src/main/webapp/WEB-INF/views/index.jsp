@@ -260,8 +260,8 @@
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				<div class="x_content" id="nutrition">
-					
+				<div class="x_content" >
+					<span>여기다가 영양성분 검색 넣어야함</span>
 				</div>
 			</div>
 		</div>
@@ -739,19 +739,6 @@
 			}
 		}
 	});
-	/*영양성분list*/
-	$(document).ready(function(){
-
-	    $("#nutrition").load("<%=request.getContextPath()%>/nutrition/list");
-
-	});
-	/*영양성분 content*/
-	  function fetchPage(name){
-		    fetch(name).then(function(response){
-		      response.text().then(function(text){
-		        document.querySelector('nutrition').innerHTML = text;
-		      })
-		    });
-		  }
+	
 	
 </script>
