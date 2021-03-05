@@ -4,7 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybats-3-mapper.dtd">
 
 <mapper namespace="kr.co.food.dao.TrendDao">
- 	<select id="getList" resultType="kr.co.food.dto.TrendDto">
- 		select * from trend order by (trend_month_vol+trend_blog_vol+trend_view_vol) desc limit 5
- 	</select>
+	<select id="getList" resultType="kr.co.food.dto.TrendDto">
+		select * from trend order by (trend_month_vol+trend_blog_vol+trend_view_vol)
+		desc limit 5
+	</select>
+	<select id="getTrendList" resultType="kr.co.food.dto.TrendDto">
+		select * from trend where trend_keyword like concat('%',#{param1},'%') order by
+		trend_id desc limit #{param2},10;
+	</select>
+	<select id="getTrendCnt" resultType="Integer">
+		select count(*) from trend where trend_keyword like concat('%', #{param1}, '%')
+	</select>
 </mapper>
