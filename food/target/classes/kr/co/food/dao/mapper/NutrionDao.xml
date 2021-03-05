@@ -19,4 +19,8 @@ select count(*) from food where food_name like concat('%', #{param1}, '%')
  <select id="slist" resultType="kr.co.food.dto.NutrionDto">
   select * from food where ${param1} like concat('%',#{param2},'%') order by food_code desc limit #{param3},15;
  </select>
+ 
+ <select id="e_list" resultType="kr.co.food.dto.EnutritionDto">
+  select * from e_nutrition order by e_nutrition_id asc  
+ </select>
 </mapper>

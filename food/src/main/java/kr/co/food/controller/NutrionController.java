@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.NutrionDao;
+import kr.co.food.dto.EnutritionDto;
 import kr.co.food.dto.NutrionDto;
 
 
@@ -76,4 +77,16 @@ public class NutrionController {
 		model.addAttribute("ndto",ndto);
 		return "/nutrition/n_view";
 	}
+	
+	@RequestMapping("/nutrition/e_list")
+	public String e_list(Model model)
+	{
+		NutrionDao edao = sqlSession.getMapper(NutrionDao.class);
+		ArrayList<EnutritionDto> e_list=edao.e_list();
+		model.addAttribute("e_list",e_list);
+
+
+		return "/nutrition/e_list";
+	}
+	
 }
