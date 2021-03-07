@@ -1,5 +1,9 @@
 package kr.co.food.dao;
 
-public class DietDao {
+import kr.co.food.dto.PeopleDto;
 
+public interface DietDao {
+	
+	public PeopleDto get_people_nut(int nut_id);
+	
 }
