@@ -1,13 +1,37 @@
 package kr.co.food.etc;
 
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.co.food.dao.DietDao;
+import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.PeopleDto;
 
 public class DietMaker {
+	public static SqlSession sqlSession;
+	
 	public static void main(String[] args) {
 		
 		
 	}
-	
+	public static ArrayList<ArrayList<FoodDto>> get_100_foods(DietDao ddao){
+		ArrayList<FoodDto> cate1 = ddao.get_100_foods("반찬1");
+		ArrayList<FoodDto> cate2 = ddao.get_100_foods("주식");
+		ArrayList<FoodDto> cate3 = ddao.get_100_foods("국물");
+		ArrayList<FoodDto> cate4 = ddao.get_100_foods("반찬2");
+		ArrayList<FoodDto> cate5 = ddao.get_100_foods("반찬3");
+		ArrayList<FoodDto> cate6 = ddao.get_100_foods("부식");
+		ArrayList<ArrayList<FoodDto>> food_list = new ArrayList<ArrayList<FoodDto>>();
+		food_list.add(cate1);
+		food_list.add(cate2);
+		food_list.add(cate3);
+		food_list.add(cate4);
+		food_list.add(cate5);
+		food_list.add(cate6);
+		return food_list;
+		
+	}
 		
 	public double[] get_nut_lb(PeopleDto pdto) {
 		double[] nut_lb = {pdto.getEnergy()*0.9,

@@ -23,4 +23,18 @@
 		</tr>
 	</tbody>
 </table>
+
+<h3>음식불러오기</h3>
+<table class="table">
+	<tbody>
+		<tr>
+			<th>반찬1</th>
+			<th>반찬2</th>
+		</tr>
+		<tr>
+			<th>${result[0][0]}</th>
+			<th>${result[1][0]}</th>
+		</tr>
+	</tbody>
+</table>
 </div>
