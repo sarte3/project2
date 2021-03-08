@@ -1,6 +1,9 @@
 package kr.co.food.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.food.dao.DietDao;
 import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.PeopleDto;
+import kr.co.food.etc.DietMaker;
 
 @Controller
 public class DietController {
@@ -20,13 +24,19 @@ public class DietController {
 	
 	@RequestMapping("/diet/reco_index")
 	public String reco_index(Model model) {
-		DietDao ddao = sqlSession.getMapper(DietDao.class);
-		PeopleDto pdto = ddao.get_people_nut(3);
-		model.addAttribute("pdto", pdto);
-		
-		ArrayList<FoodDto> flist = ddao.get_100_foods("반찬1");
-		model.addAttribute("flist", flist);
+
 		return "/diet/reco_index";
 	}
+	@RequestMapping("/diet/reco_view")
+	public String get_nut_list(HttpServletRequest request, Model model) {
+		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
+		DietDao ddao = sqlSession.getMapper(DietDao.class);
+		PeopleDto pdto = ddao.get_people_nut(nut_id);
+		model.addAttribute("pdto", pdto);	
+		return "/diet/reco_view";
+	}
+		
+	
+	
 	
 }

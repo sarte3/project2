@@ -11,5 +11,6 @@ public interface DietDao {
 	
 	public ArrayList<FoodDto> get_100_foods(String cate3);
 	
+	
 
 }
