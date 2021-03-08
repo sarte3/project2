@@ -17,6 +17,78 @@ public class DietMaker {
 		
 		
 	}
+	
+	public static void get_meal(DietDao ddao) {
+		Meal meal = new Meal();
+		meal.food_list = get_100_foods(ddao);
+		get_food(meal, 1);
+		
+		
+	}
+	
+	public static FoodDto get_food(Meal meal, int nut_idx) {
+		Boolean[] cur_cate = meal.cur_cate;
+		int cate_idx = -1;
+		ArrayList<FoodDto> temp = new ArrayList<FoodDto>();
+		for (int i=0; i < cur_cate.length; i++) {
+			if(cur_cate[i]) {
+				continue;
+			} else {
+				temp = meal.food_list.get(i);
+				cate_idx = i;
+				break;
+			}
+		}
+		int max_value = -1;
+		int max_idx = -1;
+		for (int i=0; i< temp.size(); i++) {
+			if (getFoodNutByIndex(temp.get(i), nut_idx) > max_value) {
+				max_idx = i;
+			}
+		}
+		return temp.get(max_idx);
+		
+		
+		
+	
+		
+	}
+	public static double getFoodNutByIndex(FoodDto fdto, int idx) {
+		switch(idx) {
+		case 0: return fdto.getFood_energy();
+		case 1: return fdto.getFood_carbo();
+		case 2: return fdto.getFood_fiber();
+		case 3: return fdto.getFood_lipid();
+		case 4: return fdto.getFood_linoleic_acid();
+		case 5: return fdto.getFood_a_linoleic_acid();
+		case 6: return fdto.getFood_pro();
+		case 7: return fdto.getFood_vitA();
+		case 8: return fdto.getFood_vitD();
+		case 9: return fdto.getFood_vitE();
+		case 10: return fdto.getFood_vitK();
+		case 11: return fdto.getFood_vitC();
+		case 12: return fdto.getFood_thia();
+		case 13: return fdto.getFood_ribo();
+		case 14: return fdto.getFood_vitB6();
+		case 15: return fdto.getFood_folic();
+		case 16: return fdto.getFood_vitB12();
+		case 17: return fdto.getFood_panto();
+		case 18: return fdto.getFood_bio();
+		case 19: return fdto.getFood_ca();
+		case 20: return fdto.getFood_p();
+		case 21: return fdto.getFood_na();
+		case 22: return fdto.getFood_k();
+		case 23: return fdto.getFood_mg();
+		case 24: return fdto.getFood_fe();
+		case 25: return fdto.getFood_zn();
+		case 26: return fdto.getFood_cu();
+		default:
+			return 0.0;
+		}
+		
+	}
+	
+	
 	public static ArrayList<ArrayList<FoodDto>> get_100_foods(DietDao ddao){
 		ArrayList<FoodDto> cate1 = ddao.get_100_foods("반찬1");
 		ArrayList<FoodDto> cate2 = ddao.get_100_foods("주식");
@@ -74,4 +146,5 @@ public class DietMaker {
 		        pdto.getFe_UB(), pdto.getZn_UB(), pdto.getCu_UB()};
 		return nut_ub;
 	}
+	
 }

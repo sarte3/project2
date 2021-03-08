@@ -15,6 +15,7 @@ import kr.co.food.dao.DietDao;
 import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.PeopleDto;
 import kr.co.food.etc.DietMaker;
+import kr.co.food.etc.Meal;
 
 @Controller
 public class DietController {
@@ -45,6 +46,8 @@ public class DietController {
 		model.addAttribute("nut_ub", DietMaker.get_nut_ub(pdto));
 		model.addAttribute("nut_list", DietMaker.nut_list);
 		
+		// 영양소 인덱스, 현재카테고리 배열을 입력받아 가장 높은 값의 음식과 카테고리 인덱스 반환
+		DietMaker.get_meal(ddao);
 		
 		return "/diet/reco_view";
 	}
