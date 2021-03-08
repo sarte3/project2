@@ -2,14 +2,16 @@ package kr.co.food.etc;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.session.SqlSession;
 
 import kr.co.food.dao.DietDao;
 import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.PeopleDto;
 
 public class DietMaker {
-	public static SqlSession sqlSession;
+	public static String[] nut_list = {"칼로리","탄수화물","식이섬유","지방","리놀레산","a-리놀레산","단백질",
+            "비타민A","비타민D","비타민E","비타민K","비타민C","티아민",
+            "리보플라빈","비타민B6","엽산","비타민B12","판토텐산","비오틴",
+            "칼슘","인","나트륨","칼륨","마그네슘","철","아연","구리"};
 	
 	public static void main(String[] args) {
 		
@@ -33,7 +35,7 @@ public class DietMaker {
 		
 	}
 		
-	public double[] get_nut_lb(PeopleDto pdto) {
+	public static double[] get_nut_lb(PeopleDto pdto) {
 		double[] nut_lb = {pdto.getEnergy()*0.9,
 				pdto.getCarbo_LB(), pdto.getFiber_LB(), pdto.getLipid_LB(),
 				pdto.getLinoleic_acid_LB(), pdto.getA_linoleic_acid_LB(),
@@ -46,7 +48,7 @@ public class DietMaker {
 				pdto.getFe_LB(), pdto.getZn_LB(), pdto.getCu_LB()};
 		return nut_lb;
 	}
-	public double[] get_nut_ia(PeopleDto pdto) {
+	public static double[] get_nut_ia(PeopleDto pdto) {
 		double[] nut_ia = {pdto.getEnergy()*1.0,
 		        pdto.getCarbo_IA(), pdto.getFiber_IA(), pdto.getLipid_IA(),
 		        pdto.getLinoleic_acid_IA(), pdto.getA_linoleic_acid_IA(),
@@ -59,7 +61,7 @@ public class DietMaker {
 		        pdto.getFe_IA(), pdto.getZn_IA(), pdto.getCu_IA()};
 		return nut_ia;
 	}
-	public double[] get_nut_ub(PeopleDto pdto) {
+	public static double[] get_nut_ub(PeopleDto pdto) {
 		double[] nut_ub = {pdto.getEnergy()*1.1,
 		        pdto.getCarbo_UB(), pdto.getFiber_UB(), pdto.getLipid_UB(),
 		        pdto.getLinoleic_acid_UB(), pdto.getA_linoleic_acid_UB(),
