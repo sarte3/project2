@@ -55,16 +55,63 @@
 	</tbody>
 </table>
 
-<h3>음식불러오기</h3>
+<h3>나의 식단</h3>
 <table class="table">
 	<tbody>
 		<tr>
-			<th>반찬1</th>
-			<th>반찬2</th>
+			<th>구분</th>
+			<th>음식명</th>
+			<c:forEach var="i" begin="0" end="${fn:length(nut_list)-1}">
+			<th>${nut_list[i]}</th>
+			</c:forEach>
 		</tr>
 		<tr>
-			<th>${result[0][0]}</th>
-			<th>${result[1][0]}</th>
+			<td>${meal_1_cate}</td>
+			<td>${meal_1_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_1[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td>${meal_2_cate}</td>
+			<td>${meal_2_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_2[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td>${meal_3_cate}</td>
+			<td>${meal_3_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_3[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td>${meal_4_cate}</td>
+			<td>${meal_4_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_4[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td>${meal_5_cate}</td>
+			<td>${meal_5_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_5[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td>${meal_6_cate}</td>
+			<td>${meal_6_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_6[i]}</td>
+			</c:forEach>
+		</tr>
+		<tr>
+			<td colspan=2>합계</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
+			<td>${meal_1[i]+meal_2[i]+meal_3[i]+meal_4[i]+meal_5[i]+meal_6[i]}</td>
+			</c:forEach>
 		</tr>
 	</tbody>
 </table>

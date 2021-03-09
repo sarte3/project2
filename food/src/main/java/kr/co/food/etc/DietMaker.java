@@ -18,18 +18,19 @@ public class DietMaker {
 		
 	}
 	
-	public static void get_meal(DietDao ddao, PeopleDto pdto) {
+	public static ArrayList<FoodDto> get_meal(DietDao ddao, PeopleDto pdto) {
 		Meal meal = new Meal();
 		double[] nut_lb = get_nut_lb(pdto);
 		double[] nut_ub = get_nut_ub(pdto);
 		meal.food_list = get_100_foods(ddao);
 		int i = 0;
 		while (true) {
-			if (i==500) {
+			if (i==5000) {
 				break;
 			}
-			if (i % 10 == 0) {
+			if (i % 100 == 0) {
 				meal.meals = new ArrayList<FoodDto>();
+				meal.food_list = get_100_foods(ddao);
 				meal.cur_nut = new double[27];
 				meal.cnt_rejection = new int[27];
 				meal.cur_cate = new Boolean[6];
@@ -42,7 +43,13 @@ public class DietMaker {
 			check_nut(nut_lb, meal, nut_ub);
 			i += 1;
 		}
+		return meal.meals;
 
+	}
+	public static PeopleDto divideByPercent(PeopleDto pdto, int percent) {
+		pdto.setEnergy((int)(pdto.getEnergy()*percent/100.0));
+		return pdto;
+		
 	}
 	
 	
@@ -229,7 +236,7 @@ public class DietMaker {
 	}
 		
 	public static double[] get_nut_lb(PeopleDto pdto) {
-		double[] nut_lb = {pdto.getEnergy()*0.9,
+		double[] nut_lb = {pdto.getEnergy()*0.8,
 				pdto.getCarbo_LB(), pdto.getFiber_LB(), pdto.getLipid_LB(),
 				pdto.getLinoleic_acid_LB(), pdto.getA_linoleic_acid_LB(),
 				pdto.getPro_LB(), pdto.getVitA_LB(), pdto.getVitD_LB(),
@@ -255,7 +262,7 @@ public class DietMaker {
 		return nut_ia;
 	}
 	public static double[] get_nut_ub(PeopleDto pdto) {
-		double[] nut_ub = {pdto.getEnergy()*1.1,
+		double[] nut_ub = {pdto.getEnergy()*1.3,
 		        pdto.getCarbo_UB(), pdto.getFiber_UB(), pdto.getLipid_UB(),
 		        pdto.getLinoleic_acid_UB(), pdto.getA_linoleic_acid_UB(),
 		        pdto.getPro_UB(), pdto.getVitA_UB(), pdto.getVitD_UB(),
