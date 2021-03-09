@@ -53,53 +53,12 @@ public class DietController {
 		// 영양소 인덱스, 현재카테고리 배열을 입력받아 가장 높은 값의 음식과 카테고리 인덱스 반환
 		ArrayList<FoodDto> meals = DietMaker.get_meal(ddao, pdto);
 		model.addAttribute("meals",meals);
-		model.addAttribute("meal_1_name",meals.get(0).getFood_name());
-		model.addAttribute("meal_2_name",meals.get(1).getFood_name());
-		model.addAttribute("meal_3_name",meals.get(2).getFood_name());
-		model.addAttribute("meal_4_name",meals.get(3).getFood_name());
-		model.addAttribute("meal_5_name",meals.get(4).getFood_name());
-		model.addAttribute("meal_6_name",meals.get(5).getFood_name());
-		
-		model.addAttribute("meal_1_cate",meals.get(0).getFood_cate3());
-		model.addAttribute("meal_2_cate",meals.get(1).getFood_cate3());
-		model.addAttribute("meal_3_cate",meals.get(2).getFood_cate3());
-		model.addAttribute("meal_4_cate",meals.get(3).getFood_cate3());
-		model.addAttribute("meal_5_cate",meals.get(4).getFood_cate3());
-		model.addAttribute("meal_6_cate",meals.get(5).getFood_cate3());
-		//DietMaker.getFoodNutByIndex();
-		
-	
-		Double[] meal_1 = new Double[27];
-		Double[] meal_2 = new Double[27];
-		Double[] meal_3 = new Double[27];
-		Double[] meal_4 = new Double[27];
-		Double[] meal_5 = new Double[27];
-		Double[] meal_6 = new Double[27];	
-		for (int i=0; i < 27; i++) {
-			meal_1[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(0), i)*100)/100.0;
+		for (int i=0; i<6; i++) {
+			model.addAttribute("meal_"+(i+1)+"_name",meals.get(i).getFood_name());
+			model.addAttribute("meal_"+(i+1)+"_cate",meals.get(i).getFood_cate3());
+			model.addAttribute("meal_"+(i+1), DietMaker.transFdtoToDouble(meals, i));
 		}
-		for (int i=0; i < 27; i++) {
-			meal_2[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(1), i)*100)/100.0;
-		}
-		for (int i=0; i < 27; i++) {
-			meal_3[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(2), i)*100)/100.0;
-		}
-		for (int i=0; i < 27; i++) {
-			meal_4[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(3), i)*100)/100.0;
-		}
-		for (int i=0; i < 27; i++) {
-			meal_5[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(4), i)*100)/100.0;
-		}
-		for (int i=0; i < 27; i++) {
-			meal_6[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(5), i)*100)/100.0;
-		}
-		model.addAttribute("meal_1",meal_1);
-		model.addAttribute("meal_2",meal_2);
-		model.addAttribute("meal_3",meal_3);
-		model.addAttribute("meal_4",meal_4);
-		model.addAttribute("meal_5",meal_5);
-		model.addAttribute("meal_6",meal_6);
-		
+
 		return "/diet/reco_view";
 	}
 		

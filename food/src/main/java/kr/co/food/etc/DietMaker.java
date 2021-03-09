@@ -52,6 +52,14 @@ public class DietMaker {
 		
 	}
 	
+	public static Double[] transFdtoToDouble(ArrayList<FoodDto> meals, int idx) {
+		Double[] meal = new Double[27];
+		for (int i=0; i < 27; i++) {
+			meal[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(idx), i)*100)/100.0;
+		}
+		return meal; 
+	}
+	
 	
 	
 	public static void out_meal(Meal meal) {
