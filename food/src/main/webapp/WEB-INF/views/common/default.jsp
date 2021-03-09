@@ -84,7 +84,7 @@
                   <li><a><i class="fa fa-table"></i> 식단 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=#>필수영양성분표</a></li>
-                      <li><a href="index2.html">식단추천</a></li>
+                      <li><a href="/food/diet/reco_index">식단추천</a></li>
                       <li><a href="index3.html">식단짜기</a></li>
                       <li><a href="index3.html">나의 식단보기</a></li>
                     </ul>
