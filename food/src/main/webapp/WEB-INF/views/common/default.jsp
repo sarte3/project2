@@ -110,10 +110,10 @@
                       <li><a href="other_charts.html">Other Charts</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clone"></i>고객관련 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                      <li><a href="<%=request.getContextPath()%>/notice/list">공지사항</a></li>
+                      <li><a href="fixed_footer.html">자주묻는 질문</a></li>
                     </ul>
                   </li>
                 </ul>
