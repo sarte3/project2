@@ -29,10 +29,12 @@
 				type="text" class="form-control" id="sub3"
 				name="sub3">
 		</div>
-		<jsp:include page="calendar.jsp"></jsp:include>
+
 		
 		<div class="d-grid gap-2" style="text-align: right;">
-			<button class="btn btn-primary" type="submit">자주 묻는 질문과 답 입력</button>
+			<button class="btn btn-primary" type="submit">식단 저장</button>
 		</div>
 	</form>
-</div></html>
+</div>
+<!-- CSS , JS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

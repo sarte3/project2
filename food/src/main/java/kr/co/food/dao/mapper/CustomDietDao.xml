@@ -4,4 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybats-3-mapper.dtd">
 
 <mapper namespace="kr.co.food.dao.CustomDietDao">
+	<select id="getFoodName" resultType="String">
+		select food_name from food where food_cate3=#{param1} and food_name like concat('%',#{param2},'%')
+	</select>
 </mapper>

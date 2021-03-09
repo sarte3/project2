@@ -264,6 +264,7 @@
 <!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
     <!-- jQuery -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Bootstrap -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -303,5 +304,9 @@
     <!-- Custom Theme Scripts -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap//build/js/custom.min.js"></script>
 	
-  </body>
+	<!-- 자동완성 -->
+	<script src="/food/resources/js/autocomplete.js"></script>
+   </body>
+
 </html>
+
