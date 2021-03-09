@@ -1,8 +1,48 @@
-/*
-| ------------------------------------------------------------------------------
-| Calendar plugin (rough draft)
-| ------------------------------------------------------------------------------
-*/
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<div class="right_col">
+	<div class="container">
+
+		<h1 class="page-header">
+			<i class="fa fa-calendar"></i> 식단 달력
+		</h1>
+
+		<div class="calendar" id="calendar">
+
+			<!-- Calendar toolbar -->
+			<div class="calendar-toolbar">
+
+				<!-- Calendar "today" button -->
+				<button data-toggle="calendar" data-action="today"
+					class="btn btn-default">Today</button>
+
+				<!-- Calendar "prev" button -->
+				<button data-toggle="calendar" data-action="prev"
+					class="btn btn-default">
+					<i class="fa fa-chevron-left"></i>
+				</button>
+
+				<!-- Calendar "date-indicator" span -->
+				<div class="calendar-current-date" data-day-format="MM/DD/YYYY"
+					data-week-format="MM/DD/YYYY" data-month-format="MMMM, YYYY">
+					(placeholder)</div>
+
+				<!-- Calendar "next" button -->
+				<button data-toggle="calendar" data-action="next"
+					class="btn btn-default">
+					<i class="fa fa-chevron-right"></i>
+				</button>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<link href="/food/resources/css/calendar.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
 
 (function($){
   
@@ -215,10 +255,7 @@
   
 })(jQuery);
 
-/*
-| ------------------------------------------------------------------------------
-| Installation
-| ------------------------------------------------------------------------------
-*/
 
 $('#calendar').calendar();
+
+</script>

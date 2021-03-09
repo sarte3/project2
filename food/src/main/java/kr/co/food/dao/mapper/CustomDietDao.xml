@@ -7,4 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getFoodName" resultType="String">
 		select food_name from food where food_cate3=#{param1} and food_name like concat('%',#{param2},'%')
 	</select>
+	<insert id="write" parameterType="kr.co.food.dto.CustomDietDto">
+		insert into custom_diet(userid, diet_day, diet_type, main, soup, sub1, sub2, sub3, sub4)  
+		values(#{userid}, #{diet_day}, #{diet_type}, #{main}, #{soup}, #{sub1}, #{sub2}, #{sub3}, #{sub4})
+	</insert>
 </mapper>
