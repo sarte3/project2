@@ -45,6 +45,9 @@
 
     <!-- Custom Theme Style -->
     <link href="<%=request.getContextPath()%>/resources/bootstrap/build/css/custom.min.css" rel="stylesheet">
+    
+    <!-- 파비콘 추가 -->
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/img/logo_con2.ico">
   </head>
 <decorator:head/>
    <body class="nav-md">
