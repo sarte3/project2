@@ -32,11 +32,11 @@ public class DietController {
 	public String reco_view(HttpServletRequest request, Model model) {
 		// 사람 아이디 받아 필요 열량소 넘기는 영역
 		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
-		int percent = Integer.parseInt(request.getParameter("percent"));
 		DietDao ddao = sqlSession.getMapper(DietDao.class);
 		PeopleDto pdto = ddao.get_people_nut(nut_id);
-		
-		pdto = DietMaker.divideByPercent(pdto, percent);
+		PeopleDto pdto1 = DietMaker.divideByPercent(pdto, 30);
+		PeopleDto pdto2 = DietMaker.divideByPercent(pdto, 40);
+		PeopleDto pdto3 = DietMaker.divideByPercent(pdto, 30);
 		
 		model.addAttribute("pdto", pdto);	
 		
@@ -51,12 +51,26 @@ public class DietController {
 		model.addAttribute("nut_list", DietMaker.nut_list);
 		
 		// 영양소 인덱스, 현재카테고리 배열을 입력받아 가장 높은 값의 음식과 카테고리 인덱스 반환
-		ArrayList<FoodDto> meals = DietMaker.get_meal(ddao, pdto);
-		model.addAttribute("meals",meals);
+		ArrayList<FoodDto> mealsA = DietMaker.get_meal(ddao, pdto1);
+		model.addAttribute("mealsA",mealsA);
 		for (int i=0; i<6; i++) {
-			model.addAttribute("meal_"+(i+1)+"_name",meals.get(i).getFood_name());
-			model.addAttribute("meal_"+(i+1)+"_cate",meals.get(i).getFood_cate3());
-			model.addAttribute("meal_"+(i+1), DietMaker.transFdtoToDouble(meals, i));
+			model.addAttribute("meal_A"+(i+1)+"_name",mealsA.get(i).getFood_name());
+			model.addAttribute("meal_A"+(i+1)+"_cate",mealsA.get(i).getFood_cate3());
+			model.addAttribute("meal_A"+(i+1), DietMaker.transFdtoToDouble(mealsA, i));
+		}
+		ArrayList<FoodDto> mealsB = DietMaker.get_meal(ddao, pdto2);
+		model.addAttribute("mealsB",mealsB);
+		for (int i=0; i<6; i++) {
+			model.addAttribute("meal_B"+(i+1)+"_name",mealsB.get(i).getFood_name());
+			model.addAttribute("meal_B"+(i+1)+"_cate",mealsB.get(i).getFood_cate3());
+			model.addAttribute("meal_B"+(i+1), DietMaker.transFdtoToDouble(mealsB, i));
+		}
+		ArrayList<FoodDto> mealsC = DietMaker.get_meal(ddao, pdto3);
+		model.addAttribute("mealsC",mealsC);
+		for (int i=0; i<6; i++) {
+			model.addAttribute("meal_C"+(i+1)+"_name",mealsC.get(i).getFood_name());
+			model.addAttribute("meal_C"+(i+1)+"_cate",mealsC.get(i).getFood_cate3());
+			model.addAttribute("meal_C"+(i+1), DietMaker.transFdtoToDouble(mealsC, i));
 		}
 
 		return "/diet/reco_view";

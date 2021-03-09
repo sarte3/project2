@@ -27,14 +27,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td>비율정하기</td>
-			<td>
-				<input type="radio" name="percent" value="30">3
-				<input type="radio" name="percent" value="40">4
-				<input type="radio" name="percent" value="50">5
-			</td>
-		</tr>
-		<tr>
 			<td colspan="3" align="center">
 				<input type="submit" value="가입하기">
 			</td>

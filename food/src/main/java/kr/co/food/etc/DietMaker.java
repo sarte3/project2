@@ -48,6 +48,7 @@ public class DietMaker {
 	}
 	public static PeopleDto divideByPercent(PeopleDto pdto, int percent) {
 		pdto.setEnergy((int)(pdto.getEnergy()*percent/100.0));
+		
 		return pdto;
 		
 	}

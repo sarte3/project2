@@ -66,52 +66,52 @@
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_1_cate}</td>
-			<td>${meal_1_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_1[i]}</td>
+			<td>${meal_A1_cate}</td>
+			<td>${meal_A1_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A1[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_2_cate}</td>
-			<td>${meal_2_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_2[i]}</td>
+			<td>${meal_A2_cate}</td>
+			<td>${meal_A2_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A2[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_3_cate}</td>
-			<td>${meal_3_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_3[i]}</td>
+			<td>${meal_A3_cate}</td>
+			<td>${meal_A3_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A3[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_4_cate}</td>
-			<td>${meal_4_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_4[i]}</td>
+			<td>${meal_A4_cate}</td>
+			<td>${meal_A4_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A4[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_5_cate}</td>
-			<td>${meal_5_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_5[i]}</td>
+			<td>${meal_A5_cate}</td>
+			<td>${meal_A5_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A5[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
-			<td>${meal_6_cate}</td>
-			<td>${meal_6_name}</td>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_6[i]}</td>
+			<td>${meal_A6_cate}</td>
+			<td>${meal_A6_name}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${meal_A6[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<th>합계</th>
 			<th>아침식사</th>
-			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${Math.round((meal_1[i]+meal_2[i]+meal_3[i]+meal_4[i]+meal_5[i]+meal_6[i])*100)/100.0}</td>
+			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
+			<td>${Math.round((meal_A1[i]+meal_A2[i]+meal_A3[i]+meal_A4[i]+meal_A5[i]+meal_A6[i])*100)/100.0}</td>
 			</c:forEach>
 		</tr>
 	</tbody>
