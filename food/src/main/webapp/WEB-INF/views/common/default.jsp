@@ -5,6 +5,10 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>    
 
 <html lang="en">
+<style>
+#logo_container{height:100px; padding:10px 0px 10px 48px;}
+#logo_dietmite{width:150px; }
+</style>
 <script>
   function fetchPage(name){
     fetch(name).then(function(response){
@@ -49,7 +53,9 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<%=request.getContextPath()%>/index.html" class="site_title"><i class="fa fa-paw"></i> <span>All food</span></a>
+              <a href="<%=request.getContextPath()%>/index.html" class="site_title"  id="logo_container">
+              <span><img id="logo_dietmite" src="<%=request.getContextPath()%>/resources/img/logo3.png"></span>
+              </a>
             </div>
 
             <div class="clearfix"></div>
