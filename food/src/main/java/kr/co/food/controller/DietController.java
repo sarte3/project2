@@ -47,7 +47,7 @@ public class DietController {
 		model.addAttribute("nut_list", DietMaker.nut_list);
 		
 		// 영양소 인덱스, 현재카테고리 배열을 입력받아 가장 높은 값의 음식과 카테고리 인덱스 반환
-		DietMaker.get_meal(ddao);
+		DietMaker.get_meal(ddao, pdto);
 		
 		return "/diet/reco_view";
 	}

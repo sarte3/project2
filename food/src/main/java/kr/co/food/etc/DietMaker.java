@@ -1,7 +1,7 @@
 package kr.co.food.etc;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 import kr.co.food.dao.DietDao;
 import kr.co.food.dto.FoodDto;
@@ -13,39 +13,168 @@ public class DietMaker {
             "리보플라빈","비타민B6","엽산","비타민B12","판토텐산","비오틴",
             "칼슘","인","나트륨","칼륨","마그네슘","철","아연","구리"};
 	
+	
 	public static void main(String[] args) {
 		
 		
 	}
 	
-	public static void get_meal(DietDao ddao) {
+	public static void get_meal(DietDao ddao, PeopleDto pdto) {
 		Meal meal = new Meal();
+		double[] nut_lb = get_nut_lb(pdto);
+		double[] nut_ub = get_nut_lb(pdto);
 		meal.food_list = get_100_foods(ddao);
-		get_food(meal, 1);
-		
-		
+		int i = 0;
+		while (true) {
+			if (i==500) {
+				break;
+			}
+			if (i % 10 == 0) {
+				meal.food_list = get_100_foods(ddao);
+				meal.meals = new ArrayList<FoodDto>();
+				meal.cur_nut = new double[27];
+				meal.cnt_rejection = new int[27];
+				meal.cur_cate = new Boolean[6];
+				Arrays.fill(meal.cur_cate, false);
+			}
+			if (is_finish(meal)) {
+				out_meal(meal);
+				break;
+			}
+			check_nut(nut_lb, meal, nut_ub);
+			i += 1;
+		}
+
 	}
 	
-	public static FoodDto get_food(Meal meal, int nut_idx) {
-		Boolean[] cur_cate = meal.cur_cate;
-		int cate_idx = -1;
-		ArrayList<FoodDto> temp = new ArrayList<FoodDto>();
-		for (int i=0; i < cur_cate.length; i++) {
-			if(cur_cate[i]) {
+	
+	
+	public static void out_meal(Meal meal) {
+		System.out.println("=================오늘의 식단=================");
+		for (FoodDto fdto: meal.meals) {
+			System.out.println(fdto.getFood_cate3()+" "+fdto.getFood_name());
+		}
+	}
+	
+	public static boolean is_finish(Meal meal) {
+		for (boolean b : meal.cur_cate) {
+			if (b==false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean check_nut(double[] nut_lb, Meal meal, double[] nut_ub) {
+		for (int i=0; i<nut_lb.length; i++) {
+			if(meal.cur_nut[i]>=nut_lb[i]) {
+				continue;
+			}
+			FoodDto food = get_food(meal, i);
+			System.out.println("후보음식: "+ food.getFood_name());
+			if (is_under_ub(meal, food, nut_ub)) {
+				System.out.println("영양성분 만족 ====>"+food.getFood_name()+food.getFood_cate3());
+				add_food(meal, food, meal.cate_idx);
+				return true;
+			} else if (meal.meals.size()==0) {
+				del_from_foodlist(food, meal, meal.cate_idx);
 				continue;
 			} else {
-				temp = meal.food_list.get(i);
-				cate_idx = i;
+				del_from_foodlist(food, meal, meal.cate_idx);
+				System.out.println(nut_list[i]+"초과===>"+(meal.cnt_rejection[i]+1)+"회 거절");
+				add_rejection(meal, i);
+				continue;
+			}
+		}
+		return false;
+	}
+	
+
+	public static void del_from_foodlist(FoodDto fdto, Meal meal, int cate_idx) {
+		meal.food_list.get(cate_idx).remove(fdto);
+		System.out.println("$$$$$$$$$$$$$$$$$$$");
+	}
+
+	
+	public static void add_rejection(Meal meal, int nut_idx) {
+		meal.cnt_rejection[nut_idx] += 1;
+		if(meal.cnt_rejection[nut_idx]==4) {
+			if(meal.meals.size()==0) {
+				meal.cnt_rejection = new int[27];
+				return;
+			}
+			ArrayList<FoodDto> temp = meal.meals;
+			double max_value = -1.0;
+			int max_idx = -1;
+			for (int i=0; i< temp.size(); i++) {
+				if (getFoodNutByIndex(temp.get(i), nut_idx) > max_value) {
+					max_value = getFoodNutByIndex(temp.get(i), nut_idx);
+					max_idx = i;
+				}
+			}
+			FoodDto topfood = temp.get(max_idx);
+			meal.meals.remove(topfood);
+			for (int i=0; i<meal.cur_nut.length; i++) {
+				meal.cur_nut[i] -= getFoodNutByIndex(topfood,i);
+			}
+			String[] food_cates = {"반찬1","주식","국물","반찬2","반찬3","부식"};
+			//int cate_idx = Arrays.binarySearch(food_cates, topfood.getFood_cate3());
+			int cate_idx = 0;
+			for (String cate : food_cates) {
+				if (cate.equals(topfood.getFood_cate3())) {
+					break;
+				}
+				cate_idx += 1;
+			}
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cate_idx);
+			meal.cur_cate[cate_idx] = false;
+			meal.cnt_rejection[nut_idx] = 0;
+			System.out.println(nut_list[nut_idx]+", 4회초과"+topfood.getFood_name()+"삭제");
+		}
+	}
+	
+	public static void add_food(Meal meal, FoodDto fdto, int cate_idx) {
+		for (int i=0; i<meal.cur_nut.length; i++) {
+			meal.cur_nut[i] += getFoodNutByIndex(fdto,i);
+		}
+		meal.meals.add(fdto);
+		meal.cur_cate[cate_idx] = true;
+		meal.food_list.get(cate_idx).remove(fdto);
+	}
+	
+	public static boolean is_under_ub(Meal meal, FoodDto fdto, double[] nut_ub) {
+		for(int i=0; i<meal.cur_nut.length; i++) {
+			if(nut_ub[i]==0) {
+				continue;
+			} 
+			if(meal.cur_nut[i]+ getFoodNutByIndex(fdto,i)> nut_ub[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	public static FoodDto get_food(Meal meal, int nut_idx) {
+		ArrayList<FoodDto> temp = new ArrayList<FoodDto>();
+		for (int i=0; i < meal.cur_cate.length; i++) {
+			if(meal.cur_cate[i]) {
+				continue;
+			} else {
+				temp.addAll(meal.food_list.get(i));
+				meal.cate_idx = i;
 				break;
 			}
 		}
-		int max_value = -1;
-		int max_idx = -1;
+		double max_value = -1.0;
+		int max_idx = 0;
 		for (int i=0; i< temp.size(); i++) {
 			if (getFoodNutByIndex(temp.get(i), nut_idx) > max_value) {
+				max_value = getFoodNutByIndex(temp.get(i), nut_idx);
 				max_idx = i;
 			}
 		}
+		System.out.println(temp.get(max_idx).getFood_name());
 		return temp.get(max_idx);
 		
 		
