@@ -16,13 +16,12 @@ public class DietMaker {
 	
 	public static void main(String[] args) {
 		
-		
 	}
 	
 	public static void get_meal(DietDao ddao, PeopleDto pdto) {
 		Meal meal = new Meal();
 		double[] nut_lb = get_nut_lb(pdto);
-		double[] nut_ub = get_nut_lb(pdto);
+		double[] nut_ub = get_nut_ub(pdto);
 		meal.food_list = get_100_foods(ddao);
 		int i = 0;
 		while (true) {
@@ -30,7 +29,6 @@ public class DietMaker {
 				break;
 			}
 			if (i % 10 == 0) {
-				//meal.food_list = get_100_foods(ddao);
 				meal.meals = new ArrayList<FoodDto>();
 				meal.cur_nut = new double[27];
 				meal.cnt_rejection = new int[27];
@@ -114,14 +112,10 @@ public class DietMaker {
 			}
 			FoodDto topfood = temp.get(max_idx);
 			meal.meals.remove(topfood);
-//			if (meal.meals.get(0) == null) {
-//				meal.meals = new ArrayList<FoodDto>();
-//			}
 			for (int i=0; i<meal.cur_nut.length; i++) {
 				meal.cur_nut[i] -= getFoodNutByIndex(topfood,i);
 			}
 			String[] food_cates = {"반찬1","주식","국물","반찬2","반찬3","부식"};
-			//int cate_idx = Arrays.binarySearch(food_cates, topfood.getFood_cate3());
 			int cate_idx = 0;
 			for (String cate : food_cates) {
 				if (cate.equals(topfood.getFood_cate3())) {
@@ -129,7 +123,6 @@ public class DietMaker {
 				}
 				cate_idx += 1;
 			}
-			//System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cate_idx);
 			meal.cur_cate[cate_idx] = false;
 			meal.cnt_rejection[nut_idx] = 0;
 			System.out.println(nut_list[nut_idx]+", 4회초과"+topfood.getFood_name()+"삭제");
@@ -169,7 +162,6 @@ public class DietMaker {
 				break;
 			}
 		}
-		System.out.println("0@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+meal.cate_idx);
 		double max_value = -1.0;
 		int max_i = 0;
 		for (int i=0; i< temp.size(); i++) {
@@ -182,17 +174,9 @@ public class DietMaker {
 		for (int i=0;i<meal.cur_cate.length; i++) {
 			System.out.println(meal.cur_cate[i]);
 		}
-		System.out.println("1@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+temp.size());
-		System.out.println("2@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+max_i);
-		System.out.println("4@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+temp);
-		//System.out.println(temp.get(max_i).getFood_name());
 		return temp.get(max_i);
-		
-		
-		
-	
-		
 	}
+	
 	public static double getFoodNutByIndex(FoodDto fdto, int idx) {
 		switch(idx) {
 		case 0: return fdto.getFood_energy();
@@ -225,9 +209,7 @@ public class DietMaker {
 		default:
 			return 0.0;
 		}
-		
 	}
-	
 	
 	public static ArrayList<ArrayList<FoodDto>> get_100_foods(DietDao ddao){
 		ArrayList<FoodDto> cate1 = ddao.get_100_foods("반찬1");
@@ -244,7 +226,6 @@ public class DietMaker {
 		food_list.add(cate5);
 		food_list.add(cate6);
 		return food_list;
-		
 	}
 		
 	public static double[] get_nut_lb(PeopleDto pdto) {
