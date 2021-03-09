@@ -30,7 +30,7 @@ public class DietMaker {
 				break;
 			}
 			if (i % 10 == 0) {
-				meal.food_list = get_100_foods(ddao);
+				//meal.food_list = get_100_foods(ddao);
 				meal.meals = new ArrayList<FoodDto>();
 				meal.cur_nut = new double[27];
 				meal.cnt_rejection = new int[27];
@@ -114,6 +114,9 @@ public class DietMaker {
 			}
 			FoodDto topfood = temp.get(max_idx);
 			meal.meals.remove(topfood);
+//			if (meal.meals.get(0) == null) {
+//				meal.meals = new ArrayList<FoodDto>();
+//			}
 			for (int i=0; i<meal.cur_nut.length; i++) {
 				meal.cur_nut[i] -= getFoodNutByIndex(topfood,i);
 			}
@@ -126,7 +129,7 @@ public class DietMaker {
 				}
 				cate_idx += 1;
 			}
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cate_idx);
+			//System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cate_idx);
 			meal.cur_cate[cate_idx] = false;
 			meal.cnt_rejection[nut_idx] = 0;
 			System.out.println(nut_list[nut_idx]+", 4회초과"+topfood.getFood_name()+"삭제");
@@ -161,21 +164,29 @@ public class DietMaker {
 			if(meal.cur_cate[i]) {
 				continue;
 			} else {
-				temp.addAll(meal.food_list.get(i));
+				temp = meal.food_list.get(i);
 				meal.cate_idx = i;
 				break;
 			}
 		}
+		System.out.println("0@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+meal.cate_idx);
 		double max_value = -1.0;
-		int max_idx = 0;
+		int max_i = 0;
 		for (int i=0; i< temp.size(); i++) {
 			if (getFoodNutByIndex(temp.get(i), nut_idx) > max_value) {
 				max_value = getFoodNutByIndex(temp.get(i), nut_idx);
-				max_idx = i;
+				max_i = i;
+				
 			}
 		}
-		System.out.println(temp.get(max_idx).getFood_name());
-		return temp.get(max_idx);
+		for (int i=0;i<meal.cur_cate.length; i++) {
+			System.out.println(meal.cur_cate[i]);
+		}
+		System.out.println("1@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+temp.size());
+		System.out.println("2@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+max_i);
+		System.out.println("4@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+temp);
+		//System.out.println(temp.get(max_i).getFood_name());
+		return temp.get(max_i);
 		
 		
 		
