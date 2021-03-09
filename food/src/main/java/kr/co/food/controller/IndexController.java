@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.food.dao.IndexDao;
 import kr.co.food.dao.NoticeDao;
 import kr.co.food.dao.TrendDao;
 import kr.co.food.dto.NoticeDto;
@@ -31,10 +32,19 @@ public class IndexController {
 		ArrayList<TrendDto> tlist = dao.getList();
 		model.addAttribute("tlist", tlist);
 		
-		/*공지사항*/
-		NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
-		ArrayList<NoticeDto> list = ndao.list(null, 0);
-		model.addAttribute("list", list);
+		/*Total현황*/
+		IndexDao idao = sqlSession.getMapper(IndexDao.class);
+		int food=idao.getFoodCnt();
+		int user=idao.getUserCnt();
+		int recipe=idao.getRecipeCnt();
+		int trend=idao.getTrendCnt();
+		int price=idao.getPriceCnt();
+		
+		model.addAttribute("food", food);
+		model.addAttribute("user", user);
+		model.addAttribute("recipe", recipe);
+		model.addAttribute("trend", trend);
+		model.addAttribute("price", price);
 		
 		return "/index";
 
