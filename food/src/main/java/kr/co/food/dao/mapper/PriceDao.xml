@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+
+<mapper namespace="kr.co.food.dao.PriceDao">
+  <select id="getTop5" resultType="kr.co.food.dto.PriceDto">
+    select * from Price where price_date="2021-03-04" order by price_percent limit 5;
+  </select>
+</mapper>
