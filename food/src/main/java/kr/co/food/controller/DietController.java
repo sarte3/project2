@@ -29,7 +29,7 @@ public class DietController {
 		return "/diet/reco_index";
 	}
 	@RequestMapping("/diet/reco_view")
-	public String get_nut_list(HttpServletRequest request, Model model) {
+	public String reco_view(HttpServletRequest request, Model model) {
 		// 사람 아이디 받아 필요 열량소 넘기는 영역
 		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
 		int percent = Integer.parseInt(request.getParameter("percent"));
@@ -59,6 +59,7 @@ public class DietController {
 		model.addAttribute("meal_4_name",meals.get(3).getFood_name());
 		model.addAttribute("meal_5_name",meals.get(4).getFood_name());
 		model.addAttribute("meal_6_name",meals.get(5).getFood_name());
+		
 		model.addAttribute("meal_1_cate",meals.get(0).getFood_cate3());
 		model.addAttribute("meal_2_cate",meals.get(1).getFood_cate3());
 		model.addAttribute("meal_3_cate",meals.get(2).getFood_cate3());
@@ -75,22 +76,22 @@ public class DietController {
 		Double[] meal_5 = new Double[27];
 		Double[] meal_6 = new Double[27];	
 		for (int i=0; i < 27; i++) {
-			meal_1[i] = DietMaker.getFoodNutByIndex(meals.get(0), i);
+			meal_1[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(0), i)*100)/100.0;
 		}
 		for (int i=0; i < 27; i++) {
-			meal_2[i] = DietMaker.getFoodNutByIndex(meals.get(1), i);
+			meal_2[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(1), i)*100)/100.0;
 		}
 		for (int i=0; i < 27; i++) {
-			meal_3[i] = DietMaker.getFoodNutByIndex(meals.get(2), i);
+			meal_3[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(2), i)*100)/100.0;
 		}
 		for (int i=0; i < 27; i++) {
-			meal_4[i] = DietMaker.getFoodNutByIndex(meals.get(3), i);
+			meal_4[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(3), i)*100)/100.0;
 		}
 		for (int i=0; i < 27; i++) {
-			meal_5[i] = DietMaker.getFoodNutByIndex(meals.get(4), i);
+			meal_5[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(4), i)*100)/100.0;
 		}
 		for (int i=0; i < 27; i++) {
-			meal_6[i] = DietMaker.getFoodNutByIndex(meals.get(5), i);
+			meal_6[i] = Math.round(DietMaker.getFoodNutByIndex(meals.get(5), i)*100)/100.0;
 		}
 		model.addAttribute("meal_1",meal_1);
 		model.addAttribute("meal_2",meal_2);

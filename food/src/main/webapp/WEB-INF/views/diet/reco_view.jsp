@@ -108,9 +108,10 @@
 			</c:forEach>
 		</tr>
 		<tr>
-			<td colspan=2>합계</td>
+			<th>합계</th>
+			<th>아침식사</th>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_1)-1}">
-			<td>${meal_1[i]+meal_2[i]+meal_3[i]+meal_4[i]+meal_5[i]+meal_6[i]}</td>
+			<td>${Math.round((meal_1[i]+meal_2[i]+meal_3[i]+meal_4[i]+meal_5[i]+meal_6[i])*100)/100.0}</td>
 			</c:forEach>
 		</tr>
 	</tbody>

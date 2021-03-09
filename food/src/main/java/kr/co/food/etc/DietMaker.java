@@ -178,9 +178,7 @@ public class DietMaker {
 				
 			}
 		}
-		for (int i=0;i<meal.cur_cate.length; i++) {
-			System.out.println(meal.cur_cate[i]);
-		}
+
 		return temp.get(max_i);
 	}
 	
