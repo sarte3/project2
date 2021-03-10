@@ -11,4 +11,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into custom_diet(userid, diet_day, diet_type, main, soup, sub1, sub2, sub3, sub4)  
 		values(#{userid}, #{diet_day}, #{diet_type}, #{main}, #{soup}, #{sub1}, #{sub2}, #{sub3}, #{sub4})
 	</insert>
+	<select id="getList" resultType="kr.co.food.dto.CustomDietDto">
+		select * from custom_diet where userid=#{param1}
+	</select>
+	<select id="getDayList" resultType="kr.co.food.dto.CustomDietDto">
+		select * from custom_diet where userid=#{param1} and diet_day=#{param2}
+	</select>
+	<select id="content" resultType="kr.co.food.dto.CustomDietDto">
+		select * from custom_diet where id=#{param1}
+	</select>
+	<update id="update" parameterType="kr.co.food.dto.CustomDietDto">
+		update custom_diet set diet_day=#{diet_day}, diet_type=#{diet_type}, main=#{main}, sub1=#{sub1}, sub2=#{sub2}, sub3=#{sub3}, sub4=#{sub4} where id=#{id}
+	</update>
+	<delete id="delete">
+		delete from custom_diet where id=#{id}
+	</delete>
 </mapper>

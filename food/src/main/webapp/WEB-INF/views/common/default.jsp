@@ -94,8 +94,8 @@
                     <ul class="nav child_menu">
                       <li><a href="<%=request.getContextPath()%>/nutrition/e_list">필수영양성분표</a></li>
                       <li><a href="/food/diet/reco_index">식단추천</a></li>
-                      <li><a href="index3.html">식단짜기</a></li>
-                      <li><a href="index3.html">나의 식단보기</a></li>
+                      <li><a href="/food/custom_diet/write">식단짜기</a></li>
+                      <li><a href="/food/custom_diet/list">나의 식단보기</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 가격정보 <span class="fa fa-chevron-down"></span></a>
