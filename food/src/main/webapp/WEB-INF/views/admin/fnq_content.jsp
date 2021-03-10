@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="section" class="right_col">
 <h1>자주묻는 질문 상세보기</h1>
 	<table class="table">
@@ -26,12 +27,14 @@
 			</tr>
 			<tr>
 			<td colspan="2">
+			<c:if test="${userid=='admin'}">
 			<div id="btn">
 			<button type="button" class="btn btn-primary"
 							onclick="location='/food/admin/fnq_update?fnq_id=${dto.fnq_id}'">수정</button>
 						<button type="button" class="btn btn-danger"
 							onclick="location='/food/admin/fnq_delete?fnq_id=${dto.fnq_id}'">삭제</button>
 			</div>
+			</c:if>
 			</td>
 			</tr>
 		</tbody>

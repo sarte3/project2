@@ -24,6 +24,23 @@ public class PriceController {
 		ArrayList<PriceDto> list=pdao.getTop5();
 		model.addAttribute("list", list);
 		
+		ArrayList foodlist=new ArrayList();
+		for(int i=0;i<list.size();i++) {
+			String foodname=list.get(i).getFood_name();
+			foodlist.add(foodname);
+		}
+		//System.out.println(foodlist);
+		ArrayList<PriceDto> food1=pdao.getPrice(foodlist.get(0).toString());
+		model.addAttribute("food1",food1);
+		ArrayList<PriceDto> food2=pdao.getPrice(foodlist.get(1).toString());
+		model.addAttribute("food2",food2);
+		ArrayList<PriceDto> food3=pdao.getPrice(foodlist.get(2).toString());
+		model.addAttribute("food3",food3);
+		ArrayList<PriceDto> food4=pdao.getPrice(foodlist.get(3).toString());
+		model.addAttribute("food4",food4);
+		ArrayList<PriceDto> food5=pdao.getPrice(foodlist.get(4).toString());
+		model.addAttribute("food5",food5);
+		
 		return "/price/price_chart";
 	}
 }

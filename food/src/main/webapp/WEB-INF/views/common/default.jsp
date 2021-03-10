@@ -10,7 +10,7 @@
 #logo_dietmite{width:150px; }
 </style>
 <script>
-  function fetchPage(name){
+  function fetchPage(name){ 
     fetch(name).then(function(response){
       response.text().then(function(text){
         document.querySelector('article').innerHTML = text;
@@ -93,9 +93,9 @@
                   <li><a><i class="fa fa-table"></i> 식단 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<%=request.getContextPath()%>/nutrition/e_list">필수영양성분표</a></li>
-                      <li><a href="/food/diet/test_index">식단추천</a></li>
-                      <li><a href="index3.html">식단짜기</a></li>
-                      <li><a href="index3.html">나의 식단보기</a></li>
+                      <li><a href="/food/diet/reco_index">식단추천</a></li>
+                      <li><a href="/food/custom_diet/write">식단짜기</a></li>
+                      <li><a href="/food/custom_diet/list">나의 식단보기</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 가격정보 <span class="fa fa-chevron-down"></span></a>
@@ -122,53 +122,12 @@
                   <li><a><i class="fa fa-clone"></i>고객관련 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<%=request.getContextPath()%>/notice/list">공지사항</a></li>
-                      <li><a href="fixed_footer.html">자주묻는 질문</a></li>
+                      <li><a href="/food/admin/fnq_list">자주묻는 질문</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-              <div class="menu_section">
-                <h3>Live On</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="project_detail.html">Project Detail</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
-                      <li><a href="profile.html">Profile</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      <li><a href="page_404.html">404 Error</a></li>
-                      <li><a href="page_500.html">500 Error</a></li>
-                      <li><a href="plain_page.html">Plain Page</a></li>
-                      <li><a href="login.html">Login Page</a></li>
-                      <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Level One</a>
-                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="level2.html">Level Two</a>
-                            </li>
-                            <li><a href="#level2_1">Level Two</a>
-                            </li>
-                            <li><a href="#level2_2">Level Two</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="#level1_2">Level One</a>
-                        </li>
-                    </ul>
-                  </li>                  
-                  <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
-                </ul>
-              </div>
+              
 
             </div>
             <!-- /sidebar menu -->
