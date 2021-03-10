@@ -106,7 +106,7 @@
 			<td>${meal_A6[i]}</td>
 			</c:forEach>
 		</tr>
-		<tr>
+		<tr> 
 			<th>합계</th>
 			<th>아침식사</th>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
@@ -114,7 +114,7 @@
 			</c:forEach>
 		</tr>
 	</tbody>
-</table>
+</table> 
 <table class="table">
 	<tbody>
 		<tr>

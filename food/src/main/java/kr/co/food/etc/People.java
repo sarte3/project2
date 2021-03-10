@@ -2,7 +2,7 @@ package kr.co.food.etc;
 
 import kr.co.food.dto.PeopleDto;
 
-public class People {
+public class People { 
 	public double[] nut_lb = new double[27];
 	public double[] nut_ia = new double[27];
 	public double[] nut_ub = new double[27];

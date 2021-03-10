@@ -38,7 +38,7 @@ public class DietControllerSecond {
 		model.addAttribute("nut_ia",people_tot.nut_ia);
 		model.addAttribute("nut_ub",people_tot.nut_ub);
 		model.addAttribute("nut_list",DietMakerSecond.nut_list);
-		
+		  
 		People people_A = new People(pdto, 0.3);
 		DietMakerSecond dm1 = new DietMakerSecond();
 		ArrayList<FoodDto> mealsA = dm1.get_meal(people_A, ddao);
