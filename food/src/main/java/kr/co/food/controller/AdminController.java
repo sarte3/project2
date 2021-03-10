@@ -297,11 +297,6 @@ public class AdminController {
 	@RequestMapping("/admin/fnq_content")
 	public String fnq_content(HttpServletRequest req, Model model, HttpSession session)
 	{
-		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
-		{
-			return "redirect:/member/login";
-		}
-		
 		FnqDao dao = sqlSession.getMapper(FnqDao.class);
 		FnqDto dto = dao.getContent(req.getParameter("fnq_id"));
 		
@@ -355,10 +350,7 @@ public class AdminController {
 	@RequestMapping("/admin/fnq_list")
 	public String fnq_list(Model model, HttpServletRequest req, HttpSession session)
 	{
-		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
-		{
-			return "redirect:/member/login";
-		}
+		
 		
 		FnqDao dao = sqlSession.getMapper(FnqDao.class);
 		int page,index;
