@@ -5,8 +5,7 @@
 <script src="../resources/chartjs/dist/Chart.js"></script>
 
 <div id="section" class="right_col">
-  <canvas id="canvas" width="400"></canvas>
-  
+  <canvas id="canvas" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
   <table class="table">
     <tbody>
 		<tr>
@@ -27,71 +26,60 @@
   </table>
 </div>
 <script>
-	function newDate(days) {
-		return moment().add(days, 'd').toDate();
-	}
+var label = new Array();
+var food1_price = new Array();
+var food1_name= new Set();
+<c:forEach var="food1" items="${food1}">
+	label.push("${food1.price_date}");
+	food1_price.push("${food1.food_price}");
+	food1_name.add("${food1.food_name}");
+</c:forEach>
+food1_price=food1_price.reverse();
+label=label.reverse();
 
-	var color = Chart.helpers.color;
-	var config = {
-		type: 'line',
-		data: {
-			labels: [ // Date Objects
-				"2021-02-23",
-				"2021-02-24",
-				"2021-02-25",
-				"2021-02-26",
-				"2021-03-02",
-				"2021-03-03",
-				"2021-03-04"
-			],
-			datasets: [
-				{
-				label: 'My First dataset',
-				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.red,
-				fill: false,
-				data: [1,2,3,4,5,6,7]
-				}, 
-				{
-				label: 'My Second dataset',
-				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.blue,
-				fill: false,
-				data: [7,6,5,4,3,2,1]
-				}
-				]
-		},
-		options: {
-			title: {
-				text: 'Chart.js Time Scale'
-			},
-			scales: {
-				xAxes: [{
-					type: 'time',
-					time: {
-						parser: timeFormat,
-						// round: 'day'
-						tooltipFormat: 'll HH:mm'
-					},
-					scaleLabel: {
-						display: true,
-						labelString: 'Date'
-					}
-				}],
-				yAxes: [{
-					scaleLabel: {
-						display: true,
-						labelString: 'value'
-					}
-				}]
-			},
-		}
-	};
+var food2_price = new Array();
+var food2_name= new Set();
+<c:forEach var="food2" items="${food2}">
+	food2_price.push("${food2.food_price}");
+	food2_name.add("${food2.food_name}");
+</c:forEach>
+food2_price=food2_price.reverse();
 
-	window.onload = function() {
-		var ctx = document.getElementById('canvas').getContext('2d');
-		window.myLine = new Chart(ctx, config);
+var food3_price = new Array();
+var food3_name= new Set();
+<c:forEach var="food3" items="${food3}">
+	food3_price.push("${food3.food_price}");
+	food3_name.add("${food3.food_name}");
+</c:forEach>
+food3_price=food3_price.reverse();
 
-	};
+var food4_price = new Array();
+var food4_name= new Set();
+<c:forEach var="food4" items="${food4}">
+	food4_price.push("${food4.food_price}");
+	food4_name.add("${food4.food_name}");
+</c:forEach>
+food4_price=food4_price.reverse();
 
+var food5_price = new Array();
+var food5_name= new Set();
+<c:forEach var="food5" items="${food5}">
+	food5_price.push("${food5.food_price}");
+	food5_name.add("${food5.food_name}");
+</c:forEach>
+food5_price=food5_price.reverse();
+
+new Chart(document.getElementById("canvas"),
+		{"type":"line",
+		"data":{"labels":label,
+			"datasets":[{"label":food1_name.values().next().value,"data":food1_price,"fill":false,"borderColor":"blue","lineTension":0.1},
+			{"label":food2_name.values().next().value,"data":food2_price,"fill":false,"borderColor":"red","lineTension":0.1},
+			{"label":food3_name.values().next().value,"data":food3_price,"fill":false,"borderColor":"yellow","lineTension":0.1},
+			{"label":food4_name.values().next().value,"data":food4_price,"fill":false,"borderColor":"green","lineTension":0.1},
+			{"label":food5_name.values().next().value,"data":food5_price,"fill":false,"borderColor":"grey","lineTension":0.1},
+			]},
+		"options":{responsive:false}});
+	/* window.onload=function aa(){
+		alert(food1_name.size);
+	}  */
 </script>	

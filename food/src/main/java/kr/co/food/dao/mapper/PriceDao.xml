@@ -7,4 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="getTop5" resultType="kr.co.food.dto.PriceDto">
     select * from Price where price_date="2021-03-04" order by price_percent limit 5;
   </select>
+  
+  <select id="getPrice" parameterType="String" resultType="kr.co.food.dto.PriceDto">
+    select * from price where food_name=#{param1} ORDER BY price_date desc LIMIT 14;
+  </select>
 </mapper>
