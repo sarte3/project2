@@ -30,17 +30,16 @@ public class CustomDietController {
 	public SqlSession sqlsession;
 	
 	@RequestMapping("/custom_diet/write")
-	public String write()
+	public String write(HttpSession session)
 	{
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
+		
 		return "/custom_diet/write";
 	}
-	
-	@RequestMapping("/custom_diet/calendar")
-	public String calendar()
-	{
-		return "/custom_diet/calendar";
-	}
-	
+		
 	@RequestMapping(value = "/custom_diet/json", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	@ResponseBody
 	public String json(Locale locale, Model model, HttpServletRequest req) {    
@@ -62,8 +61,13 @@ public class CustomDietController {
 	}
 	
 	@RequestMapping("/custom_diet/write_ok")
-	public String write_ok(CustomDietDto dto) 
+	public String write_ok(CustomDietDto dto, HttpSession session) 
 	{
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
+		
 		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
 		
 		dao.write(dto);
@@ -73,6 +77,11 @@ public class CustomDietController {
 	
 	@RequestMapping("/custom_diet/list")
 	public String calendar(HttpSession session, Model model, HttpServletRequest request, DateData dateData){
+		
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
 		
 		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
 		
@@ -199,8 +208,13 @@ public class CustomDietController {
 	}
 	
 	@RequestMapping("/custom_diet/update")
-	public String update(Model model, HttpServletRequest req)
+	public String update(Model model, HttpServletRequest req, HttpSession session)
 	{
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
+		
 		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
 		CustomDietDto dto = dao.content(req.getParameter("id"));
 		
@@ -209,8 +223,13 @@ public class CustomDietController {
 	}
 	
 	@RequestMapping("/custom_diet/update_ok")
-	public String update_ok(CustomDietDto dto)
+	public String update_ok(CustomDietDto dto, HttpSession session)
 	{
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
+		
 		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
 		dao.update(dto);
 		
@@ -218,8 +237,13 @@ public class CustomDietController {
 	}
 
 	@RequestMapping("/custom_diet/delete")
-	public String delete(HttpServletRequest req)
+	public String delete(HttpServletRequest req, HttpSession session)
 	{
+		if(session.getAttribute("userid")==null) 
+		{
+			return "redirect:/member/login";
+		}
+		
 		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
 		dao.delete(req.getParameter("id"));
 		

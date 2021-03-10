@@ -174,8 +174,8 @@ A:hover {
 </head>
 <body>
 	<div id="section" class="right_col">
-		<h1>식단 달력</h1>
-		<div class="col-md-6">
+		<h1>나의 식단 보기</h1>
+		<div class="col-md-5">
 
 			<!--날짜 네비게이션  -->
 			<div class="navigation">
@@ -285,7 +285,7 @@ A:hover {
 
 			</table>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-7">
 			<c:if test="${dayList!=null}">
 
 				<table class="table">
