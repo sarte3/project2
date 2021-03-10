@@ -12,15 +12,20 @@ public class DietMakerSecond {
             "비타민A","비타민D","비타민E","비타민K","비타민C","티아민",
             "리보플라빈","비타민B6","엽산","비타민B12","판토텐산","비오틴",
             "칼슘","인","나트륨","칼륨","마그네슘","철","아연","구리"};
-	public static Boolean[] cur_cate = {false, false, false, false, false, false};
-	public static double[] cur_nut = new double[27];
-	public static int[] cnt_rejection = new int[27];
+	public static Boolean[] cur_cate = {false,false,false,false,false,false};
+	public static double[] cur_nut;
+	public static int[] cnt_rejection;
 	public static ArrayList<ArrayList<FoodDto>> food_list = new ArrayList<ArrayList<FoodDto>>(6);;
-	public static int cate_idx = 0;
+	public static int cate_idx;
 	public static ArrayList<FoodDto> meals = new ArrayList<FoodDto>(6);
 	
-	public static void main(String[] args) {
-		
+	public DietMakerSecond() {
+		Arrays.fill(this.cur_cate, false);
+		this.cur_nut = new double[27];
+		this.cnt_rejection = new int[27];
+		this.food_list = new ArrayList<ArrayList<FoodDto>>(6);
+		this.cate_idx = 0;
+		this.meals = new ArrayList<FoodDto>(6);
 	}
 	
 	public static ArrayList<FoodDto> get_meal(People people,DietDao ddao){

@@ -467,7 +467,7 @@
 					<div class="x_panel">
 						<div class="x_title">
 							<h2>
-								To Do List <small>Sample tasks</small>
+								빠른 식단 <small>나에게 꼭 맞는 추천식단</small>
 							</h2>
 							<ul class="nav navbar-right panel_toolbox">
 								<li><a class="collapse-link"><i
@@ -489,56 +489,46 @@
 								<ul class="to_do">
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Schedule meeting
-											with new client
+											<input type="checkbox" class="flat"> 성장기 어린이
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Create email
-											address for new intern
+											<input type="checkbox" class="flat"> 활동량 많은 청소년
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Have IT fix the
-											network printer
+											<input type="checkbox" class="flat"> 성인 젊은 남성
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Copy backups to
-											offsite location
+											<input type="checkbox" class="flat"> 성인 젊은 여성
+									</li>
+									<li>
+										<p>
+											<input type="checkbox" class="flat"> 저염식
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Food truck fixie
-											locavors mcsweeney
+											<input type="checkbox" class="flat"> 임신부
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Food truck fixie
-											locavors mcsweeney
+											<input type="checkbox" class="flat"> 고단백 저칼로리
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Create email
-											address for new intern
+											<input type="checkbox" class="flat"> 노인 건강식
 										</p>
 									</li>
 									<li>
 										<p>
-											<input type="checkbox" class="flat"> Have IT fix the
-											network printer
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> Copy backups to
-											offsite location
+											<input type="checkbox" class="flat"> 유기농 야채식
 										</p>
 									</li>
 								</ul>
@@ -553,7 +543,7 @@
 					<div class="x_panel">
 						<div class="x_title">
 							<h2>
-								Daily active users <small>Sessions</small>
+								주간 식단표 <small>한눈에 알아보기</small>
 							</h2>
 							<ul class="nav navbar-right panel_toolbox">
 								<li><a class="collapse-link"><i
@@ -570,6 +560,7 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
+							<!-- 
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="temperature">
@@ -577,6 +568,7 @@
 									</div>
 								</div>
 							</div>
+							
 							<div class="row">
 								<div class="col-sm-4">
 									<div class="weather-icon">
@@ -591,6 +583,7 @@
 									</div>
 								</div>
 							</div>
+							 
 							<div class="col-sm-12">
 								<div class="weather-text pull-right">
 									<h3 class="degrees">23</h3>
@@ -598,16 +591,18 @@
 							</div>
 
 							<div class="clearfix"></div>
-
+							-->
 							<div class="row weather-days">
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Mon</h2>
 										<h3 class="degrees">25</h3>
 										<canvas id="clear-day" width="32" height="32"></canvas>
-										<h5>
-											15 <i>km/h</i>
-										</h5>
+										<h6>팥밥</h6>
+										<h6>돼지고기김치찌개</h6>
+										<h6>고등어구이</h6>
+										<h6>무말랭이무침</h6>
+										<h6>오징어젓갈</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -615,9 +610,7 @@
 										<h2 class="day">Tue</h2>
 										<h3 class="degrees">25</h3>
 										<canvas height="32" width="32" id="rain"></canvas>
-										<h5>
-											12 <i>km/h</i>
-										</h5>
+
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -625,9 +618,6 @@
 										<h2 class="day">Wed</h2>
 										<h3 class="degrees">27</h3>
 										<canvas height="32" width="32" id="snow"></canvas>
-										<h5>
-											14 <i>km/h</i>
-										</h5>
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -635,9 +625,7 @@
 										<h2 class="day">Thu</h2>
 										<h3 class="degrees">28</h3>
 										<canvas height="32" width="32" id="sleet"></canvas>
-										<h5>
-											15 <i>km/h</i>
-										</h5>
+
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -645,9 +633,7 @@
 										<h2 class="day">Fri</h2>
 										<h3 class="degrees">28</h3>
 										<canvas height="32" width="32" id="wind"></canvas>
-										<h5>
-											11 <i>km/h</i>
-										</h5>
+	
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -655,9 +641,7 @@
 										<h2 class="day">Sat</h2>
 										<h3 class="degrees">26</h3>
 										<canvas height="32" width="32" id="cloudy"></canvas>
-										<h5>
-											10 <i>km/h</i>
-										</h5>
+
 									</div>
 								</div>
 								<div class="clearfix"></div>
