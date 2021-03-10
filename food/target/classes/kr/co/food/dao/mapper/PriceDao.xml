@@ -3,9 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybats-3-mapper.dtd">
 
+<!-- 최근 날짜 기준으로  가격 감소율이 높은 5가지 식품 가져오기 -->
 <mapper namespace="kr.co.food.dao.PriceDao">
   <select id="getTop5" resultType="kr.co.food.dto.PriceDto">
-    select * from Price where price_date="2021-03-04" order by price_percent limit 5;
+    select * from Price where price_date=(select price_date from Price where price_date&lt;=NOW() order by price_date desc LIMIT 1) order by price_percent limit 5;
   </select>
   
   <select id="getPrice" parameterType="String" resultType="kr.co.food.dto.PriceDto">
