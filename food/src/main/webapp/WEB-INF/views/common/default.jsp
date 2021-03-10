@@ -5,6 +5,10 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>    
 
 <html lang="en">
+<style>
+#logo_container{height:100px; padding:10px 0px 10px 48px;}
+#logo_dietmite{width:150px; }
+</style>
 <script>
   function fetchPage(name){
     fetch(name).then(function(response){
@@ -21,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Food All!! </title>
+    <title>DietMite</title>
 
     <!-- Bootstrap -->
     <link href="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,6 +45,9 @@
 
     <!-- Custom Theme Style -->
     <link href="<%=request.getContextPath()%>/resources/bootstrap/build/css/custom.min.css" rel="stylesheet">
+    
+    <!-- 파비콘 추가 -->
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/img/logo_con2.ico">
   </head>
 <decorator:head/>
    <body class="nav-md">
@@ -49,7 +56,9 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<%=request.getContextPath()%>/index.html" class="site_title"><i class="fa fa-paw"></i> <span>All food</span></a>
+              <a href="<%=request.getContextPath()%>/index.html" class="site_title"  id="logo_container">
+              <span><img id="logo_dietmite" src="<%=request.getContextPath()%>/resources/img/logo3.png"></span>
+              </a>
             </div>
 
             <div class="clearfix"></div>
@@ -110,10 +119,10 @@
                       <li><a href="other_charts.html">Other Charts</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clone"></i>고객관련 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                      <li><a href="<%=request.getContextPath()%>/notice/list">공지사항</a></li>
+                      <li><a href="fixed_footer.html">자주묻는 질문</a></li>
                     </ul>
                   </li>
                 </ul>

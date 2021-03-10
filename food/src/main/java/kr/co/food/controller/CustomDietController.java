@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import kr.co.food.dao.CustomDietDao;
+import kr.co.food.dto.CustomDietDto;
 
 @Controller
 public class CustomDietController {
@@ -55,4 +56,22 @@ public class CustomDietController {
 	    return gson.toJson(array);
 	}
 	
+	@RequestMapping("/custom_diet/write_ok")
+	public String write_ok(CustomDietDto dto) 
+	{
+		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
+		
+		dao.write(dto);
+		
+		return "redirect:/custom_diet/list";
+	}
+	
+	@RequestMapping("/custom_diet/list")
+	public String list() 
+	{
+		CustomDietDao dao = sqlsession.getMapper(CustomDietDao.class);
+		
+			
+		return "/custom_diet/list";
+	}
 }
