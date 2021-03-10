@@ -25,33 +25,29 @@ public class DietMaker {
 		meal.food_list = get_100_foods(ddao);
 		int i = 0;
 		while (true) {
-			if (i==5000) {
+			if (i==10000000) {
 				break;
 			}
-			if (i % 100 == 0) {
+
+			if (i % 10 == 0) {
 				meal.meals = new ArrayList<FoodDto>();
-				meal.food_list = get_100_foods(ddao);
 				meal.cur_nut = new double[27];
 				meal.cnt_rejection = new int[27];
 				meal.cur_cate = new Boolean[6];
 				Arrays.fill(meal.cur_cate, false);
+				//System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"+i);
 			}
 			if (is_finish(meal)) {
 				out_meal(meal);
 				break;
 			}
-			check_nut(nut_lb, meal, nut_ub);
+			check_nut(nut_lb, meal, nut_ub, ddao);
 			i += 1;
 		}
 		return meal.meals;
 
 	}
-	public static PeopleDto divideByPercent(PeopleDto pdto, int percent) {
-		pdto.setEnergy((int)(pdto.getEnergy()*percent/100.0));
-		
-		return pdto;
-		
-	}
+
 	
 	public static Double[] transFdtoToDouble(ArrayList<FoodDto> meals, int idx) {
 		Double[] meal = new Double[27];
@@ -79,7 +75,7 @@ public class DietMaker {
 		return true;
 	}
 	
-	public static boolean check_nut(double[] nut_lb, Meal meal, double[] nut_ub) {
+	public static boolean check_nut(double[] nut_lb, Meal meal, double[] nut_ub, DietDao ddao) {
 		for (int i=0; i<nut_lb.length; i++) {
 			if(meal.cur_nut[i]>=nut_lb[i]) {
 				continue;
@@ -91,10 +87,10 @@ public class DietMaker {
 				add_food(meal, food, meal.cate_idx);
 				return true;
 			} else if (meal.meals.size()==0) {
-				del_from_foodlist(food, meal, meal.cate_idx);
+				meal = del_from_foodlist(food, meal, meal.cate_idx, ddao);
 				continue;
 			} else {
-				del_from_foodlist(food, meal, meal.cate_idx);
+				meal = del_from_foodlist(food, meal, meal.cate_idx, ddao);
 				System.out.println(nut_list[i]+"초과===>"+(meal.cnt_rejection[i]+1)+"회 거절");
 				add_rejection(meal, i);
 				continue;
@@ -104,9 +100,13 @@ public class DietMaker {
 	}
 	
 
-	public static void del_from_foodlist(FoodDto fdto, Meal meal, int cate_idx) {
+	public static Meal del_from_foodlist(FoodDto fdto, Meal meal, int cate_idx, DietDao ddao) {
 		meal.food_list.get(cate_idx).remove(fdto);
-		System.out.println("$$$$$$$$$$$$$$$$$$$");
+		if(meal.food_list.get(cate_idx).size()<10) {
+			meal.food_list = get_100_foods(ddao);
+		}
+		//System.out.println("$$$$$$$$$$$$$$$$$$$"+meal.food_list.get(cate_idx).get(0).getFood_cate3());
+		return meal;
 	}
 
 	
@@ -156,7 +156,7 @@ public class DietMaker {
 	
 	public static boolean is_under_ub(Meal meal, FoodDto fdto, double[] nut_ub) {
 		for(int i=0; i<meal.cur_nut.length; i++) {
-			if(nut_ub[i]==0) {
+			if(nut_ub[i]<0.1) {
 				continue;
 			} 
 			if(meal.cur_nut[i]+ getFoodNutByIndex(fdto,i)> nut_ub[i]) {
@@ -174,6 +174,8 @@ public class DietMaker {
 				continue;
 			} else {
 				temp = meal.food_list.get(i);
+				//System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"+temp.size());
+				//System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"+temp.get(i).getFood_cate3());
 				meal.cate_idx = i;
 				break;
 			}
@@ -280,6 +282,92 @@ public class DietMaker {
 		        pdto.getNa_UB(), pdto.getK_UB(), pdto.getMg_UB(), 
 		        pdto.getFe_UB(), pdto.getZn_UB(), pdto.getCu_UB()};
 		return nut_ub;
+	}
+	public static PeopleDto divideByPercent(PeopleDto pdto, int percent) {
+		PeopleDto temPdto = new PeopleDto();
+		temPdto = pdto;
+		pdto.setEnergy((int)(pdto.getEnergy()*percent/100.0));
+		pdto.setCarbo_LB((int)(pdto.getCarbo_LB()*percent/100.0));
+		pdto.setCarbo_IA((int)(pdto.getCarbo_IA()*percent/100.0));
+		pdto.setCarbo_UB((int)(pdto.getCarbo_UB()*percent/100.0));
+		pdto.setFiber_LB((int)(pdto.getFiber_LB()*percent/100.0));
+		pdto.setFiber_IA((int)(pdto.getFiber_IA()*percent/100.0)); 
+		pdto.setFiber_UB((int)(pdto.getFiber_UB()*percent/100.0));
+		pdto.setLipid_LB((int)(pdto.getLipid_LB()*percent/100.0));
+		pdto.setLipid_IA((int)(pdto.getLipid_IA()*percent/100.0)); 
+		pdto.setLipid_UB((int)(pdto.getLipid_UB()*percent/100.0));
+		pdto.setLinoleic_acid_LB((int)(pdto.getLinoleic_acid_LB()*percent/100.0));
+		pdto.setLinoleic_acid_IA((int)(pdto.getLinoleic_acid_IA()*percent/100.0));
+		pdto.setLinoleic_acid_UB((int)(pdto.getLinoleic_acid_UB()*percent/100.0));
+		pdto.setA_linoleic_acid_LB((int)(pdto.getA_linoleic_acid_LB()*percent/100.0));
+		pdto.setA_linoleic_acid_IA((int)(pdto.getA_linoleic_acid_IA()*percent/100.0));
+		pdto.setA_linoleic_acid_UB((int)(pdto.getA_linoleic_acid_UB()*percent/100.0));
+		pdto.setPro_LB((int)(pdto.getPro_LB()*percent/100.0));
+		pdto.setPro_IA((int)(pdto.getPro_IA()*percent/100.0));
+		pdto.setPro_UB((int)(pdto.getPro_UB()*percent/100.0));
+		pdto.setVitA_LB ((int)(pdto.getVitA_LB()*percent/100.0));
+		pdto.setVitA_IA ((int)(pdto.getVitA_IA()*percent/100.0));
+		pdto.setVitA_UB ((int)(pdto.getVitA_UB()*percent/100.0));
+		pdto.setVitD_LB ((int)(pdto.getVitD_LB()*percent/100.0));
+		pdto.setVitD_IA ((int)(pdto.getVitD_IA()*percent/100.0));
+		pdto.setVitD_UB ((int)(pdto.getVitD_UB()*percent/100.0));
+		pdto.setVitE_LB ((int)(pdto.getVitE_LB()*percent/100.0));
+		pdto.setVitE_IA ((int)(pdto.getVitE_IA()*percent/100.0));
+		pdto.setVitE_UB ((int)(pdto.getVitE_UB()*percent/100.0));
+		pdto.setVitK_LB ((int)(pdto.getVitK_LB()*percent/100.0));
+		pdto.setVitK_IA ((int)(pdto.getVitK_IA()*percent/100.0));
+		pdto.setVitK_UB ((int)(pdto.getVitK_UB()*percent/100.0));
+		pdto.setVitC_LB ((int)(pdto.getVitC_LB()*percent/100.0));
+		pdto.setVitC_IA ((int)(pdto.getVitC_IA()*percent/100.0));
+		pdto.setVitC_UB ((int)(pdto.getVitC_UB()*percent/100.0));
+		pdto.setThia_LB ((int)(pdto.getThia_LB()*percent/100.0));
+		pdto.setThia_IA ((int)(pdto.getThia_IA()*percent/100.0));
+		pdto.setThia_UB ((int)(pdto.getThia_UB()*percent/100.0));
+		pdto.setRibo_LB ((int)(pdto.getRibo_LB()*percent/100.0));
+		pdto.setRibo_IA ((int)(pdto.getRibo_IA()*percent/100.0));
+		pdto.setRibo_UB ((int)(pdto.getRibo_UB()*percent/100.0));
+		pdto.setVitB6_LB((int)(pdto.getVitB6_LB()*percent/100.0));
+		pdto.setVitB6_IA((int)(pdto.getVitB6_IA()*percent/100.0));
+		pdto.setVitB6_UB((int)(pdto.getVitB6_UB()*percent/100.0));
+		pdto.setFolic_LB((int)(pdto.getFolic_LB()*percent/100.0));
+		pdto.setFolic_IA((int)(pdto.getFolic_IA()*percent/100.0));
+		pdto.setFolic_UB((int)(pdto.getFolic_UB()*percent/100.0));
+		pdto.setVitB12_LB((int)(pdto.getVitB12_LB()*percent/100.0));
+		pdto.setVitB12_IA((int)(pdto.getVitB12_IA()*percent/100.0));
+		pdto.setVitB12_UB((int)(pdto.getVitB12_UB()*percent/100.0));
+		pdto.setPanto_LB((int)(pdto.getPanto_LB()*percent/100.0));
+		pdto.setPanto_IA((int)(pdto.getPanto_IA()*percent/100.0));
+		pdto.setPanto_UB((int)(pdto.getPanto_UB()*percent/100.0));
+		pdto.setBio_LB((int)(pdto.getBio_LB()*percent/100.0));
+		pdto.setBio_IA((int)(pdto.getBio_IA()*percent/100.0));
+		pdto.setBio_UB((int)(pdto.getBio_UB()*percent/100.0));
+		pdto.setCa_LB((int)(pdto.getCa_LB()*percent/100.0));
+		pdto.setCa_IA((int)(pdto.getCa_IA()*percent/100.0));
+		pdto.setCa_UB((int)(pdto.getCa_UB()*percent/100.0));
+		pdto.setP_LB((int)(pdto.getP_LB()*percent/100.0));
+		pdto.setP_IA((int)(pdto.getP_IA()*percent/100.0));
+		pdto.setP_UB((int)(pdto.getP_UB()*percent/100.0));
+		pdto.setNa_LB((int)(pdto.getNa_LB()*percent/100.0));
+		pdto.setNa_IA((int)(pdto.getNa_IA()*percent/100.0));
+		pdto.setNa_UB((int)(pdto.getNa_UB()*percent/100.0));
+		pdto.setK_LB((int)(pdto.getK_LB()*percent/100.0));
+		pdto.setK_IA((int)(pdto.getK_IA()*percent/100.0));
+		pdto.setK_UB((int)(pdto.getK_UB()*percent/100.0));
+		pdto.setMg_LB((int)(pdto.getMg_LB()*percent/100.0));
+		pdto.setMg_IA((int)(pdto.getMg_IA()*percent/100.0));
+		pdto.setMg_UB((int)(pdto.getMg_UB()*percent/100.0));
+		pdto.setFe_LB((int)(pdto.getFe_LB()*percent/100.0));
+		pdto.setFe_IA((int)(pdto.getFe_IA()*percent/100.0));
+		pdto.setFe_UB((int)(pdto.getFe_UB()*percent/100.0));
+		pdto.setZn_LB((int)(pdto.getZn_LB()*percent/100.0));
+		pdto.setZn_IA((int)(pdto.getZn_IA()*percent/100.0));
+		pdto.setZn_UB((int)(pdto.getZn_UB()*percent/100.0));
+		pdto.setCu_LB((int)(pdto.getCu_LB()*percent/100.0));
+		pdto.setCu_IA((int)(pdto.getCu_IA()*percent/100.0));
+		pdto.setCu_UB((int)(pdto.getCu_UB()*percent/100.0));
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@"+pdto.getEnergy());
+		return temPdto;
+		
 	}
 	
 }

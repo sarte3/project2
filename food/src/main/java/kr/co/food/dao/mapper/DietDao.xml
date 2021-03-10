@@ -10,6 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="get_100_foods" resultType="kr.co.food.dto.FoodDto">
 		select * from food where food_cate1= '음식' and food_cate3 = #{param1} order by
-		rand() limit 100
+		rand() limit 300
 	</select>
 </mapper>

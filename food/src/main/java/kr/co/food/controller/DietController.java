@@ -25,8 +25,17 @@ public class DietController {
 	
 	@RequestMapping("/diet/reco_index")
 	public String reco_index(Model model) {
-
+		
 		return "/diet/reco_index";
+	}
+	@RequestMapping("/diet/test")
+	public String test(HttpServletRequest request, Model model) {
+		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
+		DietDao ddao = sqlSession.getMapper(DietDao.class);
+		PeopleDto pdto = ddao.get_people_nut(nut_id);
+		PeopleDto pdto1 = DietMaker.divideByPercent(pdto, 30);
+		
+		return "/diet/test";
 	}
 	@RequestMapping("/diet/reco_view")
 	public String reco_view(HttpServletRequest request, Model model) {
@@ -34,9 +43,9 @@ public class DietController {
 		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
 		DietDao ddao = sqlSession.getMapper(DietDao.class);
 		PeopleDto pdto = ddao.get_people_nut(nut_id);
-		PeopleDto pdto1 = DietMaker.divideByPercent(pdto, 30);
-		PeopleDto pdto2 = DietMaker.divideByPercent(pdto, 40);
-		PeopleDto pdto3 = DietMaker.divideByPercent(pdto, 30);
+		PeopleDto pdto1 = DietMaker.divideByPercent(ddao.get_people_nut(nut_id), 30);
+		PeopleDto pdto2 = DietMaker.divideByPercent(ddao.get_people_nut(nut_id), 50);
+		PeopleDto pdto3 = DietMaker.divideByPercent(ddao.get_people_nut(nut_id), 30);
 		
 		model.addAttribute("pdto", pdto);	
 		
@@ -58,20 +67,20 @@ public class DietController {
 			model.addAttribute("meal_A"+(i+1)+"_cate",mealsA.get(i).getFood_cate3());
 			model.addAttribute("meal_A"+(i+1), DietMaker.transFdtoToDouble(mealsA, i));
 		}
-		ArrayList<FoodDto> mealsB = DietMaker.get_meal(ddao, pdto2);
-		model.addAttribute("mealsB",mealsB);
-		for (int i=0; i<6; i++) {
-			model.addAttribute("meal_B"+(i+1)+"_name",mealsB.get(i).getFood_name());
-			model.addAttribute("meal_B"+(i+1)+"_cate",mealsB.get(i).getFood_cate3());
-			model.addAttribute("meal_B"+(i+1), DietMaker.transFdtoToDouble(mealsB, i));
-		}
-		ArrayList<FoodDto> mealsC = DietMaker.get_meal(ddao, pdto3);
-		model.addAttribute("mealsC",mealsC);
-		for (int i=0; i<6; i++) {
-			model.addAttribute("meal_C"+(i+1)+"_name",mealsC.get(i).getFood_name());
-			model.addAttribute("meal_C"+(i+1)+"_cate",mealsC.get(i).getFood_cate3());
-			model.addAttribute("meal_C"+(i+1), DietMaker.transFdtoToDouble(mealsC, i));
-		}
+//		ArrayList<FoodDto> mealsB = DietMaker.get_meal(ddao, pdto2);
+//		model.addAttribute("mealsB",mealsB);
+//		for (int i=0; i<6; i++) {
+//			model.addAttribute("meal_B"+(i+1)+"_name",mealsB.get(i).getFood_name());
+//			model.addAttribute("meal_B"+(i+1)+"_cate",mealsB.get(i).getFood_cate3());
+//			model.addAttribute("meal_B"+(i+1), DietMaker.transFdtoToDouble(mealsB, i));
+//		}
+//		ArrayList<FoodDto> mealsC = DietMaker.get_meal(ddao, pdto3);
+//		model.addAttribute("mealsC",mealsC);
+//		for (int i=0; i<6; i++) {
+//			model.addAttribute("meal_C"+(i+1)+"_name",mealsC.get(i).getFood_name());
+//			model.addAttribute("meal_C"+(i+1)+"_cate",mealsC.get(i).getFood_cate3());
+//			model.addAttribute("meal_C"+(i+1), DietMaker.transFdtoToDouble(mealsC, i));
+//		}
 
 		return "/diet/reco_view";
 	}
