@@ -147,54 +147,69 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
-
 							<div class="">
-								<ul class="to_do">
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 성장기 어린이
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 활동량 많은 청소년
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 성인 젊은 남성
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 성인 젊은 여성
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 저염식
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 임신부
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 고단백 저칼로리
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 노인 건강식
-										</p>
-									</li>
-									<li>
-										<p>
-											<input type="checkbox" class="flat"> 유기농 야채식
-										</p>
-									</li>
-								</ul>
+							<ul class="to_do">
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "0" onclick='getTargetMeal(this.value)'> 성장기
+									어린이
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "1" onclick='getTargetMeal(this.value)'>활동량
+									많은 청소년
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "2" onclick='getTargetMeal(this.value)'>성인 젊은
+									남성
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "3" onclick='getTargetMeal(this.value)'> 성인 젊은
+									여성
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "4" onclick='getTargetMeal(this.value)'>저염식
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "5" onclick='getTargetMeal(this.value)'>임신부
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "6" onclick='getTargetMeal(this.value)'>고단백
+									저칼로리
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "7" onclick='getTargetMeal(this.value)'>노인
+									건강식
+								</p>
+							</li>
+							<li>
+								<p>
+									<input type="radio" name="meal_age" class="flat"
+									value = "8" onclick='getTargetMeal(this.value)'>유기농
+									야채식
+								</p>
+							</li>
+						</ul>
 							</div>
 						</div>
 					</div>
@@ -699,6 +714,12 @@
 			}
 		}
 	});
-	
-	
+
+</script>
+<!-- 빠른식단 -->
+<script>
+	function getTargetMeal(e){
+		alert(e)
+		document.getElementById("result").innerText = e
+	}
 </script>
