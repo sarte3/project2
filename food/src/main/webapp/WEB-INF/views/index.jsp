@@ -215,21 +215,29 @@
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				<div class="x_content" id="notice">
-					<h4><a href="<%=request.getContextPath()%>/notice/list">리스트 보러가기</a></h4>
-					<table align="center">
-					  <tr>
-						 	<td width=60%>제목</td>
-						 	<td width=40% align="right">작성일</td>
-						 </tr>
-						
-						 <c:forEach items="${inlist }" var="ndto">
-						  <tr>
-						     <td><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></td>
-						     <td>${ndto.notice_writeday}</td>
-						  </tr>
-						 </c:forEach>
-				</table>
+				<div class="x_content" id="notice" style="overflow:auto; height:100%;" >
+					<h4><a href="<%=request.getContextPath()%>/notice/list">모든공지 보러가기</a></h4>
+					<ul class="list-unstyled timeline widget">
+						<c:forEach items="${inlist }" var="ndto">
+							<li>
+								<div class="block">
+									<div class="block_content">
+										<h2 class="title">
+											<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
+										</h2>
+										<div class="byline">
+											<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
+										</div>
+										<p class="excerpt">
+											${ndto.notice_content}
+											<a href="notice/content?notice_id=${ndto.notice_id}">Read&nbsp;More</a>
+										</p>
+									</div>
+								</div>
+							</li>
+							</c:forEach>
+						</ul>
+					
 				</div>
 			</div>
 				</div>
