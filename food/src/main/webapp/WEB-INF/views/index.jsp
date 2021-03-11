@@ -283,7 +283,7 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="temperature">
-										<b>3월 2째주</b>, 07:30 AM 
+										<b>3월 2째주</b>
 									</div>
 								</div>
 							</div>
@@ -315,8 +315,6 @@
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Mon</h2>
-										<h3 class="degrees">25</h3>
-										<canvas id="clear-day" width="32" height="32"></canvas>
 										<h3 class="day">아침</h3>
 										<h6>${meal1.food_1}</h6>
 										<h6>${meal1.food_2}</h6>
@@ -343,40 +341,131 @@
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Tue</h2>
-										<h3 class="degrees">25</h3>
-										<canvas height="32" width="32" id="rain"></canvas>
-
+										<h3 class="day">아침</h3>
+										<h6>${meal4.food_1}</h6>
+										<h6>${meal4.food_2}</h6>
+										<h6>${meal4.food_3}</h6>
+										<h6>${meal4.food_4}</h6>
+										<h6>${meal4.food_5}</h6>
+										<h6>${meal4.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal5.food_1}</h6>
+										<h6>${meal5.food_2}</h6>
+										<h6>${meal5.food_3}</h6>
+										<h6>${meal5.food_4}</h6>
+										<h6>${meal5.food_5}</h6>
+										<h6>${meal5.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal6.food_1}</h6>
+										<h6>${meal6.food_2}</h6>
+										<h6>${meal6.food_3}</h6>
+										<h6>${meal6.food_4}</h6>
+										<h6>${meal6.food_5}</h6>
+										<h6>${meal6.food_6}</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Wed</h2>
-										<h3 class="degrees">27</h3>
-										<canvas height="32" width="32" id="snow"></canvas>
+										<h3 class="day">아침</h3>
+										<h6>${meal7.food_1}</h6>
+										<h6>${meal7.food_2}</h6>
+										<h6>${meal7.food_3}</h6>
+										<h6>${meal7.food_4}</h6>
+										<h6>${meal7.food_5}</h6>
+										<h6>${meal7.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal8.food_1}</h6>
+										<h6>${meal8.food_2}</h6>
+										<h6>${meal8.food_3}</h6>
+										<h6>${meal8.food_4}</h6>
+										<h6>${meal8.food_5}</h6>
+										<h6>${meal8.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal9.food_1}</h6>
+										<h6>${meal9.food_2}</h6>
+										<h6>${meal9.food_3}</h6>
+										<h6>${meal9.food_4}</h6>
+										<h6>${meal9.food_5}</h6>
+										<h6>${meal9.food_6}</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Thu</h2>
-										<h3 class="degrees">28</h3>
-										<canvas height="32" width="32" id="sleet"></canvas>
-
+										<h3 class="day">아침</h3>
+										<h6>${meal10.food_1}</h6>
+										<h6>${meal10.food_2}</h6>
+										<h6>${meal10.food_3}</h6>
+										<h6>${meal10.food_4}</h6>
+										<h6>${meal10.food_5}</h6>
+										<h6>${meal10.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal11.food_1}</h6>
+										<h6>${meal11.food_2}</h6>
+										<h6>${meal11.food_3}</h6>
+										<h6>${meal11.food_4}</h6>
+										<h6>${meal11.food_5}</h6>
+										<h6>${meal11.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal12.food_1}</h6>
+										<h6>${meal12.food_2}</h6>
+										<h6>${meal12.food_3}</h6>
+										<h6>${meal12.food_4}</h6>
+										<h6>${meal12.food_5}</h6>
+										<h6>${meal12.food_6}</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Fri</h2>
-										<h3 class="degrees">28</h3>
-										<canvas height="32" width="32" id="wind"></canvas>
-	
+										<h3 class="day">아침</h3>
+										<h6>${meal13.food_1}</h6>
+										<h6>${meal13.food_2}</h6>
+										<h6>${meal13.food_3}</h6>
+										<h6>${meal13.food_4}</h6>
+										<h6>${meal13.food_5}</h6>
+										<h6>${meal13.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal14.food_1}</h6>
+										<h6>${meal14.food_2}</h6>
+										<h6>${meal14.food_3}</h6>
+										<h6>${meal14.food_4}</h6>
+										<h6>${meal14.food_5}</h6>
+										<h6>${meal14.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal15.food_1}</h6>
+										<h6>${meal15.food_2}</h6>
+										<h6>${meal15.food_3}</h6>
+										<h6>${meal15.food_4}</h6>
+										<h6>${meal15.food_5}</h6>
+										<h6>${meal15.food_6}</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Sat</h2>
-										<h3 class="degrees">26</h3>
-										<canvas height="32" width="32" id="cloudy"></canvas>
-
+										<h3 class="day">아침</h3>
+										<h6>${meal16.food_1}</h6>
+										<h6>${meal16.food_2}</h6>
+										<h6>${meal16.food_3}</h6>
+										<h6>${meal16.food_4}</h6>
+										<h6>${meal16.food_5}</h6>
+										<h6>${meal16.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal17.food_1}</h6>
+										<h6>${meal17.food_2}</h6>
+										<h6>${meal17.food_3}</h6>
+										<h6>${meal17.food_4}</h6>
+										<h6>${meal17.food_5}</h6>
+										<h6>${meal17.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal18.food_1}</h6>
+										<h6>${meal18.food_2}</h6>
+										<h6>${meal18.food_3}</h6>
+										<h6>${meal18.food_4}</h6>
+										<h6>${meal18.food_5}</h6>
+										<h6>${meal18.food_6}</h6>
 									</div>
 								</div>
 

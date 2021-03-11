@@ -60,7 +60,7 @@ public class IndexController {
 		WeekDao wdao = sqlSession.getMapper(WeekDao.class);
 		for (int i=0; i<18; i++) {
 			WeekDto meal = wdao.getMeal(i+1);
-			String model_name = "meal"+i;
+			String model_name = "meal"+(i+1);
 			model.addAttribute(model_name.toString(), meal);
 		}
 
