@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="resources/chartjs/dist/Chart.js"></script>
 <!-- page content -->
@@ -213,9 +214,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="x_panel tile fixed_height_320">
+			<div class="x_panel tile fixed_height_320">
 				<div class="x_title">
-					<h2>공지 사항</h2>
+					<h2>나에게 필요한 영양소 비율</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -231,30 +232,11 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content" id="notice" style="overflow:auto; height:100%;" >
-					<h4><a href="<%=request.getContextPath()%>/notice/list">모든공지 보러가기</a></h4>
-					<ul class="list-unstyled timeline widget">
-						<c:forEach items="${inlist }" var="ndto">
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
-										</h2>
-										<div class="byline">
-											<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
-										</div>
-										<p class="excerpt">
-											${ndto.notice_content}
-											<a href="notice/content?notice_id=${ndto.notice_id}">...Read&nbsp;More</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							</c:forEach>
-						</ul>
+					<canvas id="myChart"></canvas>
 					
 				</div>
 			</div>
+			
 				</div>
 		
 				<!-- 주간식단표 -->
@@ -546,12 +528,50 @@
 
 	</div>
 	<div class="row">
-	
 
-	<div class="col-md-4 col-sm-4 col-xs-12">
-			
-		</div>
 		<div class="col-md-4 col-sm-4 col-xs-12">
+		<div class="x_panel tile fixed_height_320">
+				<div class="x_title">
+					<h2>공지 사항</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false"><i
+								class="fa fa-wrench"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Settings 1</a></li>
+								<li><a href="#">Settings 2</a></li>
+							</ul></li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content" id="notice" style="overflow:auto; height:100%;" >
+					<h4><a href="<%=request.getContextPath()%>/notice/list">모든공지 보러가기</a></h4>
+					<ul class="list-unstyled timeline widget">
+						<c:forEach items="${inlist }" var="ndto">
+							<li>
+								<div class="block">
+									<div class="block_content">
+										<h2 class="title">
+											<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
+										</h2>
+										<div class="byline">
+											<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
+										</div>
+										<p class="excerpt">
+											${ndto.notice_content}
+											<a href="notice/content?notice_id=${ndto.notice_id}">...Read&nbsp;More</a>
+										</p>
+									</div>
+								</div>
+							</li>
+							</c:forEach>
+						</ul>
+					
+				</div>
+			</div>
 			<div class="x_panel">
 				<div class="x_title">
 					<h2>
@@ -658,60 +678,7 @@
 		<div class="col-md-8 col-sm-8 col-xs-12">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="x_panel">
-						<div class="x_title">
-							<h2>
-								Visitors location <small>geo-presentation</small>
-							</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i
-										class="fa fa-chevron-up"></i></a></li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-expanded="false"><i
-										class="fa fa-wrench"></i></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Settings 1</a></li>
-										<li><a href="#">Settings 2</a></li>
-									</ul></li>
-								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<div class="dashboard-widget-content">
-								<div class="col-md-4 hidden-small">
-									<h2 class="line_30">125.7k Views from 60 countries</h2>
-
-									<table class="countries_list">
-										<tbody>
-											<tr>
-												<td>United States</td>
-												<td class="fs15 fw700 text-right">33%</td>
-											</tr>
-											<tr>
-												<td>France</td>
-												<td class="fs15 fw700 text-right">27%</td>
-											</tr>
-											<tr>
-												<td>Germany</td>
-												<td class="fs15 fw700 text-right">16%</td>
-											</tr>
-											<tr>
-												<td>Spain</td>
-												<td class="fs15 fw700 text-right">11%</td>
-											</tr>
-											<tr>
-												<td>Britain</td>
-												<td class="fs15 fw700 text-right">10%</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12"
-									style="height: 230px;"></div>
-							</div>
-						</div>
-					</div>
+					팀장님 여기에다가 FAQ넣어주세요
 				</div>
 
 			</div>
@@ -863,4 +830,27 @@ new Chart(document.getElementById("price_canvas"),
 	/* window.onload=function aa(){
 		alert(food1_name.size);
 	}  */
+	
+/* 나에게 필요한 필수영양소 비율 차트*/
+var ctx = document.getElementById('myChart');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: ['탄수화물', '단백질', '지방'],
+        datasets: [{
+            label: '탄수화물',
+            backgroundColor: 'rgb(255, 99, 132)', 
+            data: [20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+	
+	
+	
 </script>
