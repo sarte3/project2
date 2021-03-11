@@ -832,24 +832,35 @@ new Chart(document.getElementById("price_canvas"),
 	}  */
 	
 /* 나에게 필요한 필수영양소 비율 차트*/
-var ctx = document.getElementById('myChart');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'doughnut',
+var ctx3 = document.getElementById('myChart');
+	var pieLabels2 = ["탄수화물", "단백질", "지방"];
 
-    // The data for our dataset
-    data: {
-        labels: ['탄수화물', '단백질', '지방'],
-        datasets: [{
-            label: '탄수화물',
-            backgroundColor: 'rgb(255, 99, 132)', 
-            data: [20, 30, 45]
-        }]
-    },
+	var pieData2 = [10,4,1];
+	
+	var pieColors2 = [
+	  "rgb(153,21,0)",
+	  "rgb(189,90,45)",
+	  "rgb(208,255,113)",
+	];
+	
+	var pieChart2 = new Chart(ctx3, {
+	  type: 'doughnut',
+	  data: {
+	    labels: pieLabels2,
+	    datasets: [
+	      {
+	        data: pieData2,
+	        backgroundColor: pieColors2      
+	      }
+	    ]
+	  },
+	  options: {    //ma...
+	    
+	    
+	  }
+	});
 
-    // Configuration options go here
-    options: {}
-});
+
 	
 	
 	
