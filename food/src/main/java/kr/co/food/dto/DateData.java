@@ -13,6 +13,7 @@ public class DateData {
 	String date = "";
 	String value = "";
 	String diet_type;
+	String schedule;
 
 	
 	
