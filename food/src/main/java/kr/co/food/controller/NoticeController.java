@@ -34,7 +34,7 @@ public String write() {
 @RequestMapping("/notice/write_ok")
 public String pwrite_ok(HttpServletRequest request,NoticeDto ndto) throws IOException 
 {
-	String path=request.getRealPath("/resources/noticeimg");
+	String path=request.getRealPath("resources/noticeimg");
 	int max=1024*1024*10;
 	MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());	
 	NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		

@@ -230,7 +230,7 @@
 										</div>
 										<p class="excerpt">
 											${ndto.notice_content}
-											<a href="notice/content?notice_id=${ndto.notice_id}">Read&nbsp;More</a>
+											<a href="notice/content?notice_id=${ndto.notice_id}">...Read&nbsp;More</a>
 										</p>
 									</div>
 								</div>
@@ -450,7 +450,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-9 col-sm-9 col-xs-12">
 					<div id="chart_plot_01" class="demo-placeholder"></div>
 				</div>
