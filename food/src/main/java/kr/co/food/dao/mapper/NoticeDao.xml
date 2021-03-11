@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 <!-- 인덱스용 list -->
 <select id="inlist" resultType="kr.co.food.dto.NoticeDto">
-select * from notice order by notice_id desc limit 6
+SELECT notice_id,notice_title,notice_name,notice_writeday, LEFT(notice_content,30) as notice_content from notice order by notice_id desc limit 6
 </select>
   
   <!-- 페이징처리 한 list --> 
