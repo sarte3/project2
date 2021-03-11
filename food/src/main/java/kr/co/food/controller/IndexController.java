@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.food.dao.IndexDao;
 import kr.co.food.dao.NoticeDao;
 import kr.co.food.dao.TrendDao;
+import kr.co.food.dao.WeekDao;
 import kr.co.food.dto.NoticeDto;
 import kr.co.food.dto.TrendDto;
+import kr.co.food.dto.WeekDto;
 
 @Controller
 public class IndexController {
@@ -23,6 +25,10 @@ public class IndexController {
 	@RequestMapping("/")
 	public String home() {
 		return "redirect:/index";
+	}
+	@RequestMapping("/sample")
+	public String sampe() {
+		return "/sample";
 	}
 
 	@RequestMapping("/index")
@@ -50,8 +56,14 @@ public class IndexController {
 		ArrayList<TrendDto> tlist = dao.getList();
 		model.addAttribute("tlist", tlist);
 		
-	
-	
+		/*주간식단*/
+		WeekDao wdao = sqlSession.getMapper(WeekDao.class);
+		for (int i=0; i<18; i++) {
+			WeekDto meal = wdao.getMeal(i+1);
+			String model_name = "meal"+i;
+			model.addAttribute(model_name.toString(), meal);
+		}
+
 		return "/index";
 
 	}

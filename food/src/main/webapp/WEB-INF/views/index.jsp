@@ -124,8 +124,8 @@
 	
 	<br />
 
+	<!-- 빠른 식단 -->
 	<div class="row">
-
 			<div class="col-md-4 col-sm-4 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
@@ -234,7 +234,7 @@
 			</div>
 				</div>
 		
-	
+				<!-- 주간식단표 -->
 				<div class="col-md-8 col-sm-8 col-xs-12" height="800">
 					<div class="x_panel">
 						<div class="x_title">
@@ -256,15 +256,15 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
-							<!-- 
+							
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="temperature">
-										<b>Monday</b>, 07:30 AM <span>F</span> <span><b>C</b></span>
+										<b>3월 2째주</b>, 07:30 AM 
 									</div>
 								</div>
 							</div>
-							
+							<!-- 
 							<div class="row">
 								<div class="col-sm-4">
 									<div class="weather-icon">
@@ -294,11 +294,27 @@
 										<h2 class="day">Mon</h2>
 										<h3 class="degrees">25</h3>
 										<canvas id="clear-day" width="32" height="32"></canvas>
-										<h6>팥밥</h6>
-										<h6>돼지고기김치찌개</h6>
-										<h6>고등어구이</h6>
-										<h6>무말랭이무침</h6>
-										<h6>오징어젓갈</h6>
+										<h3 class="day">아침</h3>
+										<h6>${meal1.food_1}</h6>
+										<h6>${meal1.food_2}</h6>
+										<h6>${meal1.food_3}</h6>
+										<h6>${meal1.food_4}</h6>
+										<h6>${meal1.food_5}</h6>
+										<h6>${meal1.food_6}</h6>
+										<h3 class="day">점심</h3>
+										<h6>${meal2.food_1}</h6>
+										<h6>${meal2.food_2}</h6>
+										<h6>${meal2.food_3}</h6>
+										<h6>${meal2.food_4}</h6>
+										<h6>${meal2.food_5}</h6>
+										<h6>${meal2.food_6}</h6>
+										<h3 class="day">저녁</h3>
+										<h6>${meal3.food_1}</h6>
+										<h6>${meal3.food_2}</h6>
+										<h6>${meal3.food_3}</h6>
+										<h6>${meal3.food_4}</h6>
+										<h6>${meal3.food_5}</h6>
+										<h6>${meal3.food_6}</h6>
 									</div>
 								</div>
 								<div class="col-sm-2">
@@ -340,82 +356,7 @@
 
 									</div>
 								</div>
-								
-								<ul class="list-unstyled timeline widget">
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-										</h2>
-										<div class="byline">
-											<span>13 hours ago</span> by <a>Jane Smith</a>
-										</div>
-										<p class="excerpt">
-											Film festivals used to be do-or-die moments for movie makers.
-											They were where you met the producers that could fund your
-											project, and if the buyers liked your flick, they’d pay to
-											Fast-forward and… <a>Read&nbsp;More</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-										</h2>
-										<div class="byline">
-											<span>13 hours ago</span> by <a>Jane Smith</a>
-										</div>
-										<p class="excerpt">
-											Film festivals used to be do-or-die moments for movie makers.
-											They were where you met the producers that could fund your
-											project, and if the buyers liked your flick, they’d pay to
-											Fast-forward and… <a>Read&nbsp;More</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-										</h2>
-										<div class="byline">
-											<span>13 hours ago</span> by <a>Jane Smith</a>
-										</div>
-										<p class="excerpt">
-											Film festivals used to be do-or-die moments for movie makers.
-											They were where you met the producers that could fund your
-											project, and if the buyers liked your flick, they’d pay to
-											Fast-forward and… <a>Read&nbsp;More</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-										</h2>
-										<div class="byline">
-											<span>13 hours ago</span> by <a>Jane Smith</a>
-										</div>
-										<p class="excerpt">
-											Film festivals used to be do-or-die moments for movie makers.
-											They were where you met the producers that could fund your
-											project, and if the buyers liked your flick, they’d pay to
-											Fast-forward and… <a>Read&nbsp;More</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							
-						</ul>
+
 								<div class="clearfix"></div>
 							</div>
 						</div>
