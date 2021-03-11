@@ -5,7 +5,8 @@
 <script src="../resources/chartjs/dist/Chart.js"></script>
 
 <div id="section" class="right_col">
-  <canvas id="canvas" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
+  <h1> 가격 변화 그래프 </h1>
+  <canvas id="price_canvas" width="1100"></canvas>
   <table class="table">
     <tbody>
 		<tr>
@@ -14,12 +15,12 @@
 			<th> 가 격 </th>
 			<th> 가격 증감률 </th>
 		</tr>
-		<c:forEach var="pdto" items="${list}">
+		<c:forEach var="plist" items="${plist}">
 		<tr>
-			<td> ${pdto.food_name} </td>
-			<td> ${pdto.unit} </td>
-			<td> ${pdto.food_price} </td>
-			<td style="color:blue"> ${pdto.price_percent} ▼ </td>
+			<td> ${plist.food_name} </td>
+			<td> ${plist.unit} </td>
+			<td> ${plist.food_price} </td>
+			<td style="color:blue"> ${plist.price_percent} ▼ </td>
 		</tr>
 		</c:forEach> 
 	</tbody>
@@ -69,16 +70,16 @@ var food5_name= new Set();
 </c:forEach>
 food5_price=food5_price.reverse();
 
-new Chart(document.getElementById("canvas"),
+new Chart(document.getElementById("price_canvas"),
 		{"type":"line",
 		"data":{"labels":label,
-			"datasets":[{"label":food1_name.values().next().value,"data":food1_price,"fill":false,"borderColor":"blue","lineTension":0.1},
-			{"label":food2_name.values().next().value,"data":food2_price,"fill":false,"borderColor":"red","lineTension":0.1},
-			{"label":food3_name.values().next().value,"data":food3_price,"fill":false,"borderColor":"yellow","lineTension":0.1},
-			{"label":food4_name.values().next().value,"data":food4_price,"fill":false,"borderColor":"green","lineTension":0.1},
-			{"label":food5_name.values().next().value,"data":food5_price,"fill":false,"borderColor":"grey","lineTension":0.1},
+			"datasets":[{"label":food1_name.values().next().value,"data":food1_price,"fill":false,"borderColor":"#17a2b8","lineTension":0.1},
+			{"label":food2_name.values().next().value,"data":food2_price,"fill":false,"borderColor":"#20c997","lineTension":0.1},
+			{"label":food3_name.values().next().value,"data":food3_price,"fill":false,"borderColor":"#fd7e14","lineTension":0.1},
+			{"label":food4_name.values().next().value,"data":food4_price,"fill":false,"borderColor":"#e83e8c","lineTension":0.1},
+			{"label":food5_name.values().next().value,"data":food5_price,"fill":false,"borderColor":"#6f42c1","lineTension":0.1},
 			]},
-		"options":{responsive:false}});
+		"options":{title: {display:true, text:"저렴해진 재료 추천 top5"},responsive:false}});
 	/* window.onload=function aa(){
 		alert(food1_name.size);
 	}  */

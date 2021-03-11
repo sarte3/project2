@@ -10,6 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>
   
   <select id="getPrice" parameterType="String" resultType="kr.co.food.dto.PriceDto">
-    select * from price where food_name=#{param1} ORDER BY price_date desc LIMIT 14;
+    select * from price where food_name=#{param1} ORDER BY price_date desc LIMIT 30;
   </select>
 </mapper>

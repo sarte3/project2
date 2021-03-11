@@ -100,7 +100,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> 가격정보 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">차트현황</a></li>
+                      <li><a href="/food/price/price_chart">차트현황</a></li>
                       <li><a href="form_advanced.html">모든 품목 가격</a></li>
                     </ul>
                   </li>

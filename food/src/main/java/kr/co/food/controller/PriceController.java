@@ -21,12 +21,12 @@ public class PriceController {
 	public String price_chart(Model model)
 	{
 		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
-		ArrayList<PriceDto> list=pdao.getTop5();
-		model.addAttribute("list", list);
+		ArrayList<PriceDto> plist=pdao.getTop5();
+		model.addAttribute("plist", plist);
 		
 		ArrayList foodlist=new ArrayList();
-		for(int i=0;i<list.size();i++) {
-			String foodname=list.get(i).getFood_name();
+		for(int i=0;i<plist.size();i++) {
+			String foodname=plist.get(i).getFood_name();
 			foodlist.add(foodname);
 		}
 		//System.out.println(foodlist);

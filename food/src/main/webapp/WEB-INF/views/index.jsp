@@ -478,25 +478,18 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-12 col-sm-12 col-xs-12" height="500">
 			<div class="dashboard_graph">
 
 				<div class="row x_title">
 					<div class="col-md-6">
 						<h3>
-							Network Activities <small>Graph title sub-title</small>
+							가격 변화 그래프
 						</h3>
-					</div>
-					<div class="col-md-6">
-						<div id="reportrange" class="pull-right"
-							style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-							<i class="glyphicon glyphicon-calendar fa fa-calendar"></i> <span>December
-								30, 2014 - January 28, 2015</span> <b class="caret"></b>
-						</div>
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-9 col-xs-12">
-					<div id="chart_plot_01" class="demo-placeholder"></div>
+					<canvas id="price_canvas" style="height:400px;"></canvas>
 				</div>
 				<div class="col-md-3 col-sm-3 col-xs-12 bg-white">
 					<div class="x_title">
@@ -811,4 +804,63 @@
 		alert(e)
 		document.getElementById("result").innerText = e
 	}
+</script>
+<!-- 가격차트 -->
+<script>
+var label = new Array();
+var food1_price = new Array();
+var food1_name= new Set();
+<c:forEach var="food1" items="${food1}">
+	label.push("${food1.price_date}");
+	food1_price.push("${food1.food_price}");
+	food1_name.add("${food1.food_name}");
+</c:forEach>
+food1_price=food1_price.reverse();
+label=label.reverse();
+
+var food2_price = new Array();
+var food2_name= new Set();
+<c:forEach var="food2" items="${food2}">
+	food2_price.push("${food2.food_price}");
+	food2_name.add("${food2.food_name}");
+</c:forEach>
+food2_price=food2_price.reverse();
+
+var food3_price = new Array();
+var food3_name= new Set();
+<c:forEach var="food3" items="${food3}">
+	food3_price.push("${food3.food_price}");
+	food3_name.add("${food3.food_name}");
+</c:forEach>
+food3_price=food3_price.reverse();
+
+var food4_price = new Array();
+var food4_name= new Set();
+<c:forEach var="food4" items="${food4}">
+	food4_price.push("${food4.food_price}");
+	food4_name.add("${food4.food_name}");
+</c:forEach>
+food4_price=food4_price.reverse();
+
+var food5_price = new Array();
+var food5_name= new Set();
+<c:forEach var="food5" items="${food5}">
+	food5_price.push("${food5.food_price}");
+	food5_name.add("${food5.food_name}");
+</c:forEach>
+food5_price=food5_price.reverse();
+
+new Chart(document.getElementById("price_canvas"),
+		{"type":"line",
+		"data":{"labels":label,
+			"datasets":[{"label":food1_name.values().next().value,"data":food1_price,"fill":false,"borderColor":"#17a2b8","lineTension":0.1},
+			{"label":food2_name.values().next().value,"data":food2_price,"fill":false,"borderColor":"#20c997","lineTension":0.1},
+			{"label":food3_name.values().next().value,"data":food3_price,"fill":false,"borderColor":"#fd7e14","lineTension":0.1},
+			{"label":food4_name.values().next().value,"data":food4_price,"fill":false,"borderColor":"#e83e8c","lineTension":0.1},
+			{"label":food5_name.values().next().value,"data":food5_price,"fill":false,"borderColor":"#6f42c1","lineTension":0.1},
+			]},
+		"options":{title: {display:true, text:"저렴해진 재료 추천 top5"},responsive:false}});
+	/* window.onload=function aa(){
+		alert(food1_name.size);
+	}  */
 </script>
