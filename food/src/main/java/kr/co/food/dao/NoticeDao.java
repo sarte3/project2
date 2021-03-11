@@ -15,5 +15,6 @@ public interface NoticeDao {
 	public void update_ok(NoticeDto ndto);
 	public void delete(String notice_id);
 
-
+	//인덱스용
+	public ArrayList<NoticeDto> inlist();
 }

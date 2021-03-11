@@ -27,11 +27,6 @@ public class IndexController {
 
 	@RequestMapping("/index")
 	public String index(Model model) {
-		/*트렌드*/
-		TrendDao dao = sqlSession.getMapper(TrendDao.class);
-		ArrayList<TrendDto> tlist = dao.getList();
-		model.addAttribute("tlist", tlist);
-		
 		/*Total현황*/
 		IndexDao idao = sqlSession.getMapper(IndexDao.class);
 		int food=idao.getFoodCnt();
@@ -45,7 +40,18 @@ public class IndexController {
 		model.addAttribute("recipe", recipe);
 		model.addAttribute("trend", trend);
 		model.addAttribute("price", price);
+		/*공지사항*/
+		NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
+		ArrayList<NoticeDto> inlist = ndao.inlist();
+		model.addAttribute("inlist", inlist);
 		
+		/*트렌드*/
+		TrendDao dao = sqlSession.getMapper(TrendDao.class);
+		ArrayList<TrendDto> tlist = dao.getList();
+		model.addAttribute("tlist", tlist);
+		
+	
+	
 		return "/index";
 
 	}

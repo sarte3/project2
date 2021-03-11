@@ -8,8 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  insert into notice(notice_title,notice_content,notice_name,notice_type,notice_file,notice_writeday)
   values(#{notice_title},#{notice_content},#{notice_name},#{notice_type},#{notice_file},now())
 </insert>
-
-  <!--select * from board order by id desc  -->
+<!-- 인덱스용 list -->
+<select id="inlist" resultType="kr.co.food.dto.NoticeDto">
+select * from notice order by notice_id desc limit 6
+</select>
+  
   <!-- 페이징처리 한 list --> 
 <select id="list" resultType="kr.co.food.dto.NoticeDto">
 		select * from notice where notice_title like concat('%',#{param1},'%') order by

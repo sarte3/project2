@@ -220,14 +220,12 @@
 					<table align="center">
 					  <tr>
 						 	<td width=60%>제목</td>
-						 	<td width=20%>관리자명</td>
-						 	<td width=15% align="right">작성일</td>
+						 	<td width=40% align="right">작성일</td>
 						 </tr>
 						
-						 <c:forEach items="${list }" var="ndto">
+						 <c:forEach items="${inlist }" var="ndto">
 						  <tr>
 						     <td><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></td>
-						     <td>${ndto.notice_name}</td>
 						     <td>${ndto.notice_writeday}</td>
 						  </tr>
 						 </c:forEach>
