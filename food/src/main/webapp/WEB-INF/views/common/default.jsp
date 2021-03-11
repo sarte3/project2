@@ -231,46 +231,46 @@
 <decorator:body/>
 <!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
     <!-- jQuery -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jquery/dist/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="https:/code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Bootstrap -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/fastclick/lib/fastclick.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/nprogress/nprogress.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/iCheck/icheck.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/skycons/skycons.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Flot/jquery.flot.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Flot/jquery.flot.time.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Flot/jquery.flot.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/Flot/jquery.flot.resize.js"></script>
     <!-- Flot plugins -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/DateJS/build/date.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/DateJS/build/date.js"></script>
     <!-- JQVMap -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/moment/min/moment.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/moment/min/moment.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap//build/js/custom.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script>
 	
 	<!-- 자동완성 -->
 	<script src="/food/resources/js/autocomplete.js"></script>

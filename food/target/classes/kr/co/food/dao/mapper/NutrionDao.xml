@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 select * from food where food_code=#{param1}
  </select>
 <select id="list" resultType="kr.co.food.dto.NutrionDto">
-select * from food where food_name like concat('%',#{param1},'%') order by
-food_code desc limit #{param2},10;
+select * from food where food_name like concat('%',#{param1},'%') order by 
+food_code asc limit #{param2},14;
 </select>
 <select id="getCnt" resultType="Integer">
 select count(*) from food where food_name like concat('%', #{param1}, '%')
@@ -17,7 +17,7 @@ select count(*) from food where food_name like concat('%', #{param1}, '%')
  
  <!-- 검색부분 -->
  <select id="slist" resultType="kr.co.food.dto.NutrionDto">
-  select * from food where ${param1} like concat('%',#{param2},'%') order by food_code desc limit #{param3},15;
+  select * from food where ${param1} like concat('%',#{param2},'%') order by food_code asc limit #{param3},15;
  </select>
  
  <select id="e_list" resultType="kr.co.food.dto.EnutritionDto">
