@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
- 
+
 </style>
 <script src="../resources/chartjs/dist/Chart.js"></script>
 <div id="section" class="right_col">
 <h2>reco_index.jsp</h2>
-<form method="post" action="test_view">
+<form method="post" action="reco_view">
 	<table class="table">
 	<tbody>
 		<tr>

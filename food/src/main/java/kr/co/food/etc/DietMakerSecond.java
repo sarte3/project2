@@ -48,7 +48,7 @@ public class DietMakerSecond {
 			}
 			check_nut(people.nut_lb, cur_nut, people.nut_ub, ddao);
 			i += 1;
-			System.out.println(i+"++++++++++++++++++++++++++++++");
+			System.out.println(i+"번try++++++++++++++++++++++++++++++");
 		}
 		return meals;
 	}
@@ -74,11 +74,11 @@ public class DietMakerSecond {
 			if(cur_nut[i]>= nut_lb[i]) {
 				continue;
 			}
-			FoodDto food = get_food(i);
+			FoodDto food = get_food(i, ddao);
 			//System.out.println("후보음식: "+ food.getFood_name());
 			if(is_under_ub(nut_ub, food)) {
 				System.out.println("영양성분 만족 ====>"+food.getFood_name()+food.getFood_cate3());
-				add_food(food);
+				add_food(food, ddao);
 				return true;
 			} else if(meals.size()==0) {
 				del_from_foodlist(food, cate_idx, ddao);
@@ -97,13 +97,16 @@ public class DietMakerSecond {
 	}
 	
 	
-	public static void add_food(FoodDto fdto) {
+	public static void add_food(FoodDto fdto, DietDao ddao) {
 		for (int i=0; i<cur_nut.length; i++) {
 			cur_nut[i] += getFoodNutByIndex(fdto,i);
 		}
 		meals.add(fdto);
 		cur_cate[cate_idx] = true;
 		food_list.get(cate_idx).remove(fdto);
+		if(food_list.get(cate_idx).size()<10) {
+			food_list = get_100_foods(ddao);
+		}
 	}
 	
 	
@@ -116,7 +119,7 @@ public class DietMakerSecond {
 			}
 			if(cur_nut[i]+getFoodNutByIndex(fdto,i)>nut_ub[i]) {
 				add_rejection(i);
-				//System.out.println(nut_list[i]+"초과===>"+(cnt_rejection[i])+"회 거절");
+				System.out.println(nut_list[i]+"초과 ===> "+(cnt_rejection[i])+"회 거절");
 				status = false;
 			}
 		}
@@ -127,7 +130,6 @@ public class DietMakerSecond {
 		if(cnt_rejection[nut_idx]==4) {
 			if(meals.size()==0) {
 				cnt_rejection = new int[27];
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 				return;
 			}
 			double max_value = 0.0;
@@ -153,7 +155,7 @@ public class DietMakerSecond {
 			}
 			cur_cate[cate_idx] = false;
 			cnt_rejection[nut_idx] = 0;
-			System.out.println(nut_list[nut_idx]+", 4회초과"+topfood.getFood_name()+"삭제");
+			System.out.println(nut_list[nut_idx]+", 4회초과=> <"+topfood.getFood_name()+"> 삭제");
 //			for (int i=0; i<cur_nut.length; i++) {
 //				System.out.println(cur_nut[i]);
 //			}
@@ -164,7 +166,7 @@ public class DietMakerSecond {
 		
 	}
 	
-	public static FoodDto get_food(int nut_idx) {
+	public static FoodDto get_food(int nut_idx, DietDao ddao) {
 		ArrayList<FoodDto> cate3 = new ArrayList<FoodDto>();
 		for (int i=0; i < cur_cate.length; i++) {
 			if(cur_cate[i]) {
@@ -183,8 +185,8 @@ public class DietMakerSecond {
 				max_i = i;
 			}
 		}
+
 //		System.out.println(cate3.size());
-//		System.out.println(cate3.get(max_i));
 		return cate3.get(max_i);
 	}
 	
@@ -239,12 +241,5 @@ public class DietMakerSecond {
 		food_list.add(cate6);
 		return food_list;
 	}
-	
 
-	
-	
-	
-	
-	
-	
 }
