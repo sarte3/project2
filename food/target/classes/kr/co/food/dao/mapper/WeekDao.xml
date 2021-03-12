@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from week where week_type = #{param1} order by week_no
 	</select>
 	<select id="getMeal" resultType="kr.co.food.dto.WeekDto">
-		select * from week where week_no = #{param1}
+		select * from week where week_no = #{param1} and week_type = #{param2}
 	</select>
 
 </mapper>

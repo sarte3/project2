@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.DietDao;
+import kr.co.food.dao.WeekDao;
 import kr.co.food.dto.FoodDto;
 import kr.co.food.dto.PeopleDto;
+import kr.co.food.dto.WeekDto;
 import kr.co.food.etc.DietMaker;
 import kr.co.food.etc.DietMakerSecond;
 import kr.co.food.etc.People;
@@ -28,8 +30,17 @@ public class DietController {
 		return "/diet/reco_index";
 	}
 	@RequestMapping("/diet/test")
-	public String test(Model model) {
-		
+	public String test(Model model, HttpServletRequest request) {
+		WeekDao wdao = sqlSession.getMapper(WeekDao.class);
+		int week_type = 1;
+		if(request.getParameter("week_type")!=null) {
+			week_type = Integer.parseInt(request.getParameter("week_type"));
+		}
+		for (int i=0; i<18; i++) {
+			WeekDto meal = wdao.getMeal((i+1), week_type);
+			String model_name = "meal"+(i+1);
+			model.addAttribute(model_name.toString(), meal);
+		}
 		return "/diet/test";
 	}
 	@RequestMapping("/diet/reco_view")

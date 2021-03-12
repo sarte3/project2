@@ -7,6 +7,6 @@ import kr.co.food.dto.WeekDto;
 public interface WeekDao {
 
 	public ArrayList<WeekDto> getList(int type);
-	public WeekDto getMeal (int week_no);
+	public WeekDto getMeal (int week_no, int week_type);
 
 }

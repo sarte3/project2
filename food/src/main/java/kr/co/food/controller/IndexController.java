@@ -59,12 +59,12 @@ public class IndexController {
 		model.addAttribute("tlist", tlist);
 		
 		/*주간식단*/
-		WeekDao wdao = sqlSession.getMapper(WeekDao.class);
-		for (int i=0; i<18; i++) {
-			WeekDto meal = wdao.getMeal(i+1);
-			String model_name = "meal"+(i+1);
-			model.addAttribute(model_name.toString(), meal);
-		}
+		//WeekDao wdao = sqlSession.getMapper(WeekDao.class);
+		//for (int i=0; i<18; i++) {
+		//	WeekDto meal = wdao.getMeal(i+1);
+		//	String model_name = "meal"+(i+1);
+		//	model.addAttribute(model_name.toString(), meal);
+		//}
 		
 		/*가격정보*/
 		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
