@@ -36,7 +36,7 @@ public interface AdminDao
 	
 	public ArrayList<NutrionDto> getFoodList(int index);
 	
-	public ArrayList<RecipeDto> getRecipeList();
+	public ArrayList<RecipeDto> getRecipeList(int index);
 	
 	public void memberOut(String member_id);
 	
@@ -64,4 +64,11 @@ public interface AdminDao
 	
 	public void noticeDelete(String notice_id);
 	
+	public void recipeWrite(RecipeDto dto);
+	
+	public RecipeDto recipeContent(String id);
+	
+	public void recipeUpdate(RecipeDto dto);
+	
+	public void recipeDelete(String id);
 }
