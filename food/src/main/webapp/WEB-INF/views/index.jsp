@@ -165,7 +165,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "0" onclick='getTargetMeal(this.value)' id="0"> <label for="0">성장기</label>
+									value = "0" onclick='getTargetMeal(this.value)' id="0"><label for="0">성장기</label>
 								</p>
 							</li>
 							<li>
@@ -875,8 +875,8 @@ var pieChart2 = new Chart(ctx2, {
     cutoutPercentage: 90
   }
 });
-
-$('input').change(function(){
+$(document).ready(function(){
+	$('input').change(function(){
    var userCheck = $(this).val();
   if(userCheck == '0'){
     addData(pieChart2,pieLabels0,pieData0);
@@ -893,6 +893,7 @@ $('input').change(function(){
   }
   
     
+})
 });
 
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
