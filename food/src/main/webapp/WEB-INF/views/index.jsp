@@ -165,54 +165,54 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "0" onclick='getTargetMeal(this.value)'> <label for="0">성장기</label>
+									value = "0" onclick='getTargetMeal(this.value)' id="0"> <label for="0">성장기</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "1" onclick='getTargetMeal(this.value)'><label for="1">활동량많은 청소년</label>
+									value = "1" onclick='getTargetMeal(this.value)' id="1"><label for="1">활동량많은 청소년</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "2" onclick='getTargetMeal(this.value)'><label for="2">성인 젊은 남성</label>
+									value = "2" onclick='getTargetMeal(this.value)' id="2"><label for="2">성인 젊은 남성</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "3" onclick='getTargetMeal(this.value)'> <label for="3">성인 젊은 여성</label>
+									value = "3" onclick='getTargetMeal(this.value)' id="3"> <label for="3">성인 젊은 여성</label>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "4" onclick='getTargetMeal(this.value)'><label for="4">저염식</label>
+									value = "4" onclick='getTargetMeal(this.value)' id="4"><label for="4">저염식</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "5" onclick='getTargetMeal(this.value)'><label for="5">임신부</label>
+									value = "5" onclick='getTargetMeal(this.value)' id="5"><label for="5">임신부</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "6" onclick='getTargetMeal(this.value)'><label for="6">고단백 저칼로리</label>
+									value = "6" onclick='getTargetMeal(this.value)' id="6"><label for="6">고단백 저칼로리</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "7" onclick='getTargetMeal(this.value)'><label for="7">노인 건강식</label>
+									value = "7" onclick='getTargetMeal(this.value)' id="7"><label for="7">노인 건강식</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "8" onclick='getTargetMeal(this.value)'><label for="8">유기농 야채식</label>
+									value = "8" onclick='getTargetMeal(this.value)' id="8"><label for="8">유기농 야채식</label>
 								</p>
 							</li>
 						</ul>
@@ -842,11 +842,14 @@ Chart.defaults.global.legend.labels.fontStyle = "italic";
 var ctx = $("#pie-chart");
 
 var pieLabels = ["탄수화물", "단백질", "지방"];
-var pieData = [10,10,8];
+
+var pieData = [100,50,80];
+
 var pieColors = [
   "rgb(153,21,0)",
   "rgb(189,90,45)",
   "rgb(208,255,113)",
+
 ];
 
 
@@ -888,32 +891,33 @@ $('input').change(function(){
   }else if(userCheck == '7'){
     addData(pieChart2,pieLabels7,pieData7);
   }
+  
     
 });
 
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
-var pieData0 = [10,10,8];
-var pieLabels1 = ["탄수화물", "단백질", "지방"];
-var pieData1 = [100,5,10];
-var pieLabels2 = ["탄수화물", "단백질", "지방"];
-var pieData2 = [100,5,10];
+var pieData0 = [100,35,25];
+
+var pieLabels1= ["탄수화물", "단백질", "지방"];
+var pieData1 = [100,60,30];
+
+var pieLabels2= ["탄수화물", "단백질", "지방"];
+var pieData2 = [100,65,30];
+
 var pieLabels3 = ["탄수화물", "단백질", "지방"];
-var pieData3 = [100,5,10];
+var pieData3 = [100,55,25];
+
 var pieLabels5 = ["탄수화물", "단백질", "지방"];
-var pieData5 = [100,5,10];
+var pieData5 = [160,80,25];
+
 var pieLabels7 = ["탄수화물", "단백질", "지방"];
-var pieData7 = [100,5,10];
+var pieData7 = [100,60,25];
 
 function addData(chart, label, data) {
     chart.data.labels = label;
-    chart.data.datasets.forEach((dataset)=> {
+    chart.data.datasets.forEach((dataset) =>{
         dataset.data=data;
     });
     chart.update();
 }
-
-
-	
-	
-	
 </script>
