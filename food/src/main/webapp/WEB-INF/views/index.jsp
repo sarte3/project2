@@ -13,11 +13,12 @@
 }
 
 .chart-container.dark {
-	background-color: #2A3F54;
+	background-color: transparent;
 }
 
 #pie_input {
-	background-color: #2A3F54;
+	background-color: transparent;
+	color: #73879C;
 }
 </style>
 
@@ -785,9 +786,9 @@ var pieLabels = ["탄수화물", "단백질", "지방"];
 var pieData = [100,50,80];
 
 var pieColors = [
-  "rgb(153,21,0)",
-  "rgb(189,90,45)",
-  "rgb(208,255,113)",
+  "#3498DB",
+  "#E74C3C",
+  "#26B99A",
 
 ];
 
@@ -801,17 +802,17 @@ var pieChart2 = new Chart(ctx2, {
       {
         data: pieData,
         backgroundColor: pieColors,
-        borderColor: "#333"
+        borderColor: "transparent"
       }
     ]
   },
   options: {
     legend: {
       labels: {
-        fontColor: "#ddd"
+        fontColor: "#73879C"
       }
     },    
-    cutoutPercentage: 60
+    cutoutPercentage: 50
   }
 });
 

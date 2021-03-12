@@ -41,7 +41,7 @@ table {
 .first {
     
     float: left;
-    width:30%;
+    width:40%;
     box-sizing: border-box;
 }
 
@@ -49,7 +49,7 @@ table {
     border: 1px solid black;
     float: left;
     margin-left: 5%;
-    width:30%;
+    width:40%;
     box-sizing: border-box;
 }
 </style>
@@ -119,44 +119,7 @@ table {
 	 <!-- 성분표 나옴 -->
 	</nutrition>
 </div>
-<div class="col-md-4 col-sm-4 col-xs-12">
-	<div class="x_panel">
-	<div class="x_title">
-		<h2>Sonar</h2>
-		<ul class="nav navbar-right panel_toolbox">
-			<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-			</li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" role="button" aria-expanded="false"><i
-					class="fa fa-wrench"></i></a>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Settings 1</a></li>
-					<li><a href="#">Settings 2</a></li>
-				</ul></li>
-			<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-		</ul>
-		<div class="clearfix"></div>
-	</div>
-	<div class="x_content">
 
-		<div id="echart_sonar"
-			style="height: 370px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;"
-			_echarts_instance_="ec_1615431945534">
-			<div
-				style="position: relative; overflow: hidden; width: 485px; height: 370px; cursor: default;">
-				<canvas width="485" height="370" data-zr-dom-id="zr_0"
-					style="position: absolute; left: 0px; top: 0px; width: 485px; height: 370px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
-			</div>
-			<div
-				style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.5); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px Arial, Verdana, sans-serif; padding: 5px; left: 193.016px; top: 97px;">
-				Allocated Budget<br>Sales : 4300<br>Administration : 10000<br>Information
-				Techology : 28000<br>Customer Support : 35000<br>Development
-				: 50000<br>Marketing : 19000
-			</div>
-		</div>
-
-	</div>
-</div>
 </div>
 
 
