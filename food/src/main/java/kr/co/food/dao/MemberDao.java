@@ -13,4 +13,8 @@ public interface MemberDao {
 	public void mypage_update(MemberDto dto);
 	
 	public void member_out(String userid);
+	
+	public Integer get_userid_chk(String userid);
+	
+	public Integer get_email_chk(String email);
 }

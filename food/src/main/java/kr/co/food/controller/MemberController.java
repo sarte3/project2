@@ -1,5 +1,7 @@
 package kr.co.food.controller;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -148,6 +150,24 @@ public class MemberController
 		session.invalidate();
 		
 		return "redirect:/index";
+	}
+	
+	@RequestMapping("/member/userid_dupcheck")
+	public void userid(HttpServletRequest request, PrintWriter out)
+	{
+		String userid=request.getParameter("userid");
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		int n=mdao.get_userid_chk(userid);
+		out.print(n);
+	}
+	
+	@RequestMapping("/member/email_dupcheck")
+	public void email(HttpServletRequest request, PrintWriter out)
+	{
+		String email=request.getParameter("email");
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		int n=mdao.get_email_chk(email);
+		out.print(n);
 	}
 }
 

@@ -20,4 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <delete id="member_out">
 	delete from member where userid=#{param1}
 </delete>
+ <select id="get_userid_chk" resultType="Integer">
+  select count(*) from member where userid=#{param1}
+ </select>
+ 
+ <select id="get_email_chk" resultType="Integer">
+  select count(*) from member where email=#{param1}
+ </select>
 </mapper>
