@@ -2,6 +2,8 @@ package kr.co.food.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.food.dao.PriceDao;
 import kr.co.food.dto.PriceDto;
+
 
 @Controller
 public class PriceController {
@@ -42,5 +45,49 @@ public class PriceController {
 		model.addAttribute("food5",food5);
 		
 		return "/price/price_chart";
+	}
+	@RequestMapping("/price/price_list")
+	public String price_list(Model model, HttpServletRequest req)
+	{
+		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
+		int page,index;
+		if(req.getParameter("page")==null)
+		{
+			index=0;
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(req.getParameter("page"));
+			index=(page-1)*10;
+		}
+
+		int pstart=page/10;
+		if(page%10 ==0)
+			pstart=pstart-1;
+		pstart=(pstart*10)+1;
+		int pend=pstart+9;
+
+		String sword=req.getParameter("sword");
+		if(sword==null)sword="";
+		
+		int chong=pdao.getPriceCnt(sword);
+		int page_cnt=chong/10;
+		
+		
+		if(chong%10 !=0)
+			page_cnt++;
+		
+		if(pend>page_cnt)
+			pend=page_cnt;
+		
+		ArrayList<PriceDto> plist=pdao.getAllPriceList(sword, index);
+		model.addAttribute("plist",plist);
+		model.addAttribute("pend",pend);
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("page",page);
+		model.addAttribute("page_cnt",page_cnt);
+		model.addAttribute("sword",sword);
+		return "/price/price_list";
 	}
 }

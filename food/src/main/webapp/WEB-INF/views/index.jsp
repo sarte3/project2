@@ -544,7 +544,24 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content" id="notice">
-							여기안에 재근님 top5넣으시면 됩니다.
+							<table class="table">
+							    <tbody>
+									<tr>
+										<th> 재료명 </th>
+										<th> 단 위 </th>
+										<th> 가 격 </th>
+										<th> 가격 증감률 </th>
+									</tr>
+									<c:forEach var="plist" items="${plist}">
+									<tr>
+										<td> ${plist.food_name} </td>
+										<td> ${plist.unit} </td>
+										<td> ${plist.food_price} </td>
+										<td style="color:blue"> ${plist.price_percent} %▼ </td>
+									</tr>
+									</c:forEach> 
+								</tbody>
+							</table>
 
 						</div>
 
@@ -770,7 +787,8 @@ new Chart(document.getElementById("price_canvas"),
 			{"label":food4_name.values().next().value,"data":food4_price,"fill":false,"borderColor":"#e83e8c","lineTension":0.1},
 			{"label":food5_name.values().next().value,"data":food5_price,"fill":false,"borderColor":"#6f42c1","lineTension":0.1},
 			]},
-		"options":{title: {display:true, text:"저렴해진 재료 추천 top5"},responsive:false}});
+		"options":{title: {display:true, text:"저렴해진 재료 추천 top5"},responsive:false, 
+			legend: {position:'right',"labels":{padding:20}} }});
 	/* window.onload=function aa(){
 		alert(food1_name.size);
 	}  */

@@ -10,6 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>
   
   <select id="getPrice" parameterType="String" resultType="kr.co.food.dto.PriceDto">
-    select * from price where food_name=#{param1} ORDER BY price_date desc LIMIT 30;
+    select * from price where food_name=#{param1} ORDER BY price_date desc LIMIT 10;
   </select>
+  
+  <select id="getAllPriceList" resultType="kr.co.food.dto.PriceDto">
+    select * from price where food_name like concat('%',#{param1},'%') order by price_date desc limit #{param2},10;
+  </select>
+  
+  <select id="getPriceCnt" resultType="Integer">
+    select count(*) from price where food_name like concat('%', #{param1}, '%')
+  </select>  
+  
 </mapper>
