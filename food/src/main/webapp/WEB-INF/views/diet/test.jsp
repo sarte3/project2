@@ -5,9 +5,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="../resources/chartjs/dist/Chart.js"></script>
-<script type="text/javascript">
 
-/*빠른 식단 라디오버튼 함수*/
+
+<script type="text/javascript">
 $(document).ready(function(){
 	var returnValue;
 	var url = location.href;
@@ -24,8 +24,8 @@ $(document).ready(function(){
 		location.href = 'test?week_type='+people_id
 	})
 })
-
 </script>
+
 <!-- page content -->
 <div class="right_col" role="main">
 	<div class="col-md-4 col-sm-4 col-xs-12">

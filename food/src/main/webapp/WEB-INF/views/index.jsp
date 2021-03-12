@@ -164,61 +164,61 @@
 						</div>
 						<div class="x_content">
 							<div class="">
-							<ul class="to_do">
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "0" onclick='getTargetMeal(this.value)' id="0"><label for="0">성장기</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "1" onclick='getTargetMeal(this.value)' id="1"><label for="1">활동량많은 청소년</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "2" onclick='getTargetMeal(this.value)' id="2"><label for="2">성인 젊은 남성</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "3" onclick='getTargetMeal(this.value)' id="3"> <label for="3">성인 젊은 여성</label>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "4" onclick='getTargetMeal(this.value)' id="4"><label for="4">저염식</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "5" onclick='getTargetMeal(this.value)' id="5"><label for="5">임신부</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "6" onclick='getTargetMeal(this.value)' id="6"><label for="6">고단백 저칼로리</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "7" onclick='getTargetMeal(this.value)' id="7"><label for="7">노인 건강식</label>
-								</p>
-							</li>
-							<li>
-								<p>
-									<input type="radio" name="meal_age" class="flat"
-									value = "8" onclick='getTargetMeal(this.value)' id="8"><label for="8">유기농 야채식</label>
-								</p>
-							</li>
-						</ul>
+					<ul class="to_do">
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="1">
+								<label for="0">성장기</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="2">
+								<label for="1">활동량많은 청소년</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="3">
+								<label for="2">성인 젊은 남성</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="4"> 
+								<label for="3">성인 젊은 여성</label>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="5">
+								<label for="4">저염식</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="6">
+								<label for="5">임신부</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="7">
+								<label for="6">고단백 저칼로리</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="8">
+								<label for="7">노인 건강식</label>
+							</p>
+						</li>
+						<li>
+							<p>
+								<input type="radio" name="meal_age" class="flat" value="9">
+								<label for="8">유기농 야채식</label>
+							</p>
+						</li>
+					</ul>
 							</div>
 						</div>
 					</div>
@@ -773,11 +773,23 @@
 
 </script>
 <!-- 빠른식단 -->
-<script>
-	function getTargetMeal(e){
-		alert(e)
-		document.getElementById("result").innerText = e
-	}
+<script type="text/javascript">
+$(document).ready(function(){
+	var returnValue;
+	var url = location.href;
+	var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+	var week_type = 1
+	if (!isNaN(parameters[0].substring(10,11))){
+		week_type = parameters[0].substring(10,11)
+	} 
+	
+	$("input:radio[name='meal_age']:radio[value='"+week_type+"']").attr("checked",true);
+	
+	$('input').on('ifChecked', function(event){
+		var people_id  = $(this).val()
+		location.href = 'index?week_type='+people_id
+	})
+})
 </script>
 <!-- 가격차트 -->
 <script>

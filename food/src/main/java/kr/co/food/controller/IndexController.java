@@ -2,6 +2,8 @@ package kr.co.food.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +36,7 @@ public class IndexController {
 	}
 
 	@RequestMapping("/index")
-	public String index(Model model) {
+	public String index(Model model, HttpServletRequest request) {
 		/*Total현황*/
 		IndexDao idao = sqlSession.getMapper(IndexDao.class);
 		int food=idao.getFoodCnt();
@@ -59,12 +61,16 @@ public class IndexController {
 		model.addAttribute("tlist", tlist);
 		
 		/*주간식단*/
-		//WeekDao wdao = sqlSession.getMapper(WeekDao.class);
-		//for (int i=0; i<18; i++) {
-		//	WeekDto meal = wdao.getMeal(i+1);
-		//	String model_name = "meal"+(i+1);
-		//	model.addAttribute(model_name.toString(), meal);
-		//}
+		WeekDao wdao = sqlSession.getMapper(WeekDao.class);
+		int week_type = 1;
+		if(request.getParameter("week_type")!=null) {
+			week_type = Integer.parseInt(request.getParameter("week_type"));
+		}
+		for (int i=0; i<18; i++) {
+			WeekDto meal = wdao.getMeal((i+1), week_type);
+			String model_name = "meal"+(i+1);
+			model.addAttribute(model_name.toString(), meal);
+		}
 		
 		/*가격정보*/
 		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
