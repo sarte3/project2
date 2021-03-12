@@ -15,6 +15,9 @@
   background-color: #333;
 }
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="resources/chartjs/dist/Chart.js"></script>
 <!-- page content -->
@@ -875,8 +878,8 @@ var pieChart2 = new Chart(ctx2, {
     cutoutPercentage: 90
   }
 });
-$(document).ready(function(){
-	$('input').change(function(){
+
+$('input').change(function(){
    var userCheck = $(this).val();
   if(userCheck == '0'){
     addData(pieChart2,pieLabels0,pieData0);
@@ -893,7 +896,6 @@ $(document).ready(function(){
   }
   
     
-})
 });
 
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
@@ -916,7 +918,7 @@ var pieData7 = [100,60,25];
 
 function addData(chart, label, data) {
     chart.data.labels = label;
-    chart.data.datasets.forEach((dataset) =>{
+    chart.data.datasets.forEach((dataset)=>{ //df
         dataset.data=data;
     });
     chart.update();
