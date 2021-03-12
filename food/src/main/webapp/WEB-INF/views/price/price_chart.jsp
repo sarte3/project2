@@ -5,7 +5,7 @@
 <script src="../resources/chartjs/dist/Chart.js"></script>
 
 <div id="section" class="right_col">
-  <h1> 가격 변화 그래프 </h1>
+  <h1> 가격 차트 </h1>
   <canvas id="price_canvas" width="1100"></canvas>
   <table class="table">
     <tbody>
