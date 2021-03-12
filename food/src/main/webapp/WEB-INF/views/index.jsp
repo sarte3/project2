@@ -3,65 +3,70 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
-<!--파이차트css-->
-.chart-container { 
-  width: 400px;
-  height: 400px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 4px;
+<!--
+파이차트css-->.chart-container {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 4px;
 }
+
 .chart-container.dark {
-  background-color: #333;
+	background-color: #333;
 }
-#pie_input{
-background-color: #333;
+
+#pie_input {
+	background-color: #333;
 }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="resources/chartjs/dist/Chart.js"></script>
 <!-- page content -->
 <div class="right_col" role="main">
 	<!-- top tiles -->
 	<div class="row tile_count">
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> Total Users Count</span>
+			<span class="count_top"><i class="fa fa-user"></i> Total Users
+				Count</span>
 			<div class="count">${user }</div>
 			<span class="count_bottom"><i class="green">4% </i> From last
 				Week</span>
 		</div>
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-clock-o"></i>Total Recipe Count</span>
+			<span class="count_top"><i class="fa fa-clock-o"></i>Total
+				Recipe Count</span>
 			<div class="count">${recipe }</div>
 			<span class="count_bottom"><i class="green"><i
 					class="fa fa-sort-asc"></i>3% </i> From last Week</span>
 		</div>
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> Total Diet Count</span>
+			<span class="count_top"><i class="fa fa-user"></i> Total Diet
+				Count</span>
 			<div class="count green">${diet }</div>
 			<span class="count_bottom"><i class="green"><i
 					class="fa fa-sort-asc"></i>34% </i> From last Week</span>
 		</div>
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> Total
-				Food Count</span>
+			<span class="count_top"><i class="fa fa-user"></i> Total Food
+				Count</span>
 			<div class="count">${food }</div>
 			<span class="count_bottom"><i class="red"><i
 					class="fa fa-sort-desc"></i>12% </i> From last Week</span>
 		</div>
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> Total
-				Trend Data</span>
+			<span class="count_top"><i class="fa fa-user"></i> Total Trend
+				Data</span>
 			<div class="count">${trend }</div>
 			<span class="count_bottom"><i class="green"><i
 					class="fa fa-sort-asc"></i>34% </i> From last Week</span>
 		</div>
 		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> Total
-				Price Data</span>
+			<span class="count_top"><i class="fa fa-user"></i> Total Price
+				Data</span>
 			<div class="count">${price }</div>
 			<span class="count_bottom"><i class="green"><i
 					class="fa fa-sort-asc"></i>34% </i> From last Week</span>
@@ -90,8 +95,9 @@ background-color: #333;
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					
-					<canvas id="canvas" class="col-md-12 col-sm-12 col-xs-12" style="height:250px;"></canvas>
+
+					<canvas id="canvas" class="col-md-12 col-sm-12 col-xs-12"
+						style="height: 250px;"></canvas>
 
 				</div>
 			</div>
@@ -156,150 +162,151 @@ background-color: #333;
 					<div class="clearfix"></div>
 				</div>
 				<div class="chart-container dark">
-				  <canvas id="pie-chart2"></canvas>
+					<canvas id="pie-chart2"></canvas>
 				</div>
 				<div id="pie_input">
-				<input type="radio" value="0" name="nu" id="0" ><label for="0">영 유 아</label>
-				<input type="radio" value="1" name="nu" id="1" ><label for="1">10대 남 성</label>
-				<input type="radio" value="2" name="nu" id="2" ><label for="2">10대 여 성</label>
-				<input type="radio" value="3" name="nu" id="3" ><label for="3">20대 남 성</label>
-				<input type="radio" value="4" name="nu" id="4" ><label for="4">20대 여 성</label>
-				<input type="radio" value="5" name="nu" id="5" ><label for="5">30대 남 성</label>
-				<p/><input type="radio" value="6" name="nu" id="6" ><label for="6">30대 여 성</label>
-				<input type="radio" value="7" name="nu" id="7" ><label for="7">40대 남 성</label>
-				<input type="radio" value="8" name="nu" id="8" ><label for="8">40대 여 성</label>
-				<input type="radio" value="9" name="nu" id="9" ><label for="9">50대 남 성</label>
-				<input type="radio" value="10" name="nu" id="10" ><label for="10">50대 여 성</label>
-				<input type="radio" value="11" name="nu" id=11 ><label for="11">60대 남 성</label>
-				<p/><input type="radio" value="12" name="nu" id="12" ><label for="12">60대 여 성</label>
-				<input type="radio" value="13" name="nu" id="13" ><label for="13">20대 임 산 부</label>
-				<input type="radio" value="14" name="nu" id="14" ><label for="14">30대 임 산 부</label>
+					<input type="radio" value="0" name="nu" id="0"><label
+						for="0">영 유 아</label> <input type="radio" value="1" name="nu"
+						id="1"><label for="1">10대 남 성</label> <input type="radio"
+						value="2" name="nu" id="2"><label for="2">10대 여 성</label>
+					<input type="radio" value="3" name="nu" id="3"><label
+						for="3">20대 남 성</label> <input type="radio" value="4" name="nu"
+						id="4"><label for="4">20대 여 성</label> <input type="radio"
+						value="5" name="nu" id="5"><label for="5">30대 남 성</label>
+					<p />
+					<input type="radio" value="6" name="nu" id="6"><label
+						for="6">30대 여 성</label> <input type="radio" value="7" name="nu"
+						id="7"><label for="7">40대 남 성</label> <input type="radio"
+						value="8" name="nu" id="8"><label for="8">40대 여 성</label>
+					<input type="radio" value="9" name="nu" id="9"><label
+						for="9">50대 남 성</label> <input type="radio" value="10" name="nu"
+						id="10"><label for="10">50대 여 성</label> <input
+						type="radio" value="11" name="nu" id=11><label for="11">60대
+						남 성</label>
+					<p />
+					<input type="radio" value="12" name="nu" id="12"><label
+						for="12">60대 여 성</label> <input type="radio" value="13" name="nu"
+						id="13"><label for="13">20대 임 산 부</label> <input
+						type="radio" value="14" name="nu" id="14"><label for="14">30대
+						임 산 부</label>
 				</div>
-		
-								
+
+
 			</div>
-	</div>
+		</div>
 
-	
-	<br />
 
-	<!-- 빠른 식단 -->
-	<div class="row">
+		<br />
+
+		<!-- 빠른 식단 -->
+		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="x_panel">
-						<div class="x_title">
-							<h2>
-								빠른 식단 <small>나에게 꼭 맞는 추천식단</small>
-							</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i
-										class="fa fa-chevron-up"></i></a></li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-expanded="false"><i
-										class="fa fa-wrench"></i></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Settings 1</a></li>
-										<li><a href="#">Settings 2</a></li>
-									</ul></li>
-								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<div class="">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							빠른 식단 <small>나에게 꼭 맞는 추천식단</small>
+						</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false"><i
+									class="fa fa-wrench"></i></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Settings 1</a></li>
+									<li><a href="#">Settings 2</a></li>
+								</ul></li>
+							<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div class="">
 					<ul class="to_do">
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="1">
 								<label for="0">성장기</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="2">
 								<label for="1">활동량많은 청소년</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="3">
 								<label for="2">성인 젊은 남성</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" > 
+								<input type="radio" name="meal_age" class="flat" value="4"> 
 								<label for="3">성인 젊은 여성</label>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="5">
 								<label for="4">저염식</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="6">
 								<label for="5">임신부</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="7">
 								<label for="6">고단백 저칼로리</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" >
+								<input type="radio" name="meal_age" class="flat" value="8">
 								<label for="7">노인 건강식</label>
 							</p>
 						</li>
-						<li>
-							<p>
-								<input type="radio" name="meal_age" class="flat" >
-								<label for="8">유기농 야채식</label>
-							</p>
-						</li>
 					</ul>
-							</div>
 						</div>
 					</div>
-			
-			
 				</div>
-		
-				<!-- 주간식단표 -->
-				<div class="col-md-8 col-sm-8 col-xs-12" height="800">
-					<div class="x_panel">
-						<div class="x_title">
-							<h2>
-								주간 식단표 <small>한눈에 알아보기</small>
-							</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i
-										class="fa fa-chevron-up"></i></a></li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-expanded="false"><i
-										class="fa fa-wrench"></i></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Settings 1</a></li>
-										<li><a href="#">Settings 2</a></li>
-									</ul></li>
-								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="temperature">
-										<b>3월 2째주</b>
-									</div>
+
+
+			</div>
+
+			<!-- 주간식단표 -->
+			<div class="col-md-8 col-sm-8 col-xs-12" height="800">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							주간 식단표 <small>한눈에 알아보기</small>
+						</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false"><i
+									class="fa fa-wrench"></i></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Settings 1</a></li>
+									<li><a href="#">Settings 2</a></li>
+								</ul></li>
+							<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="temperature">
+									<b>3월 2째주</b>
 								</div>
 							</div>
-							<!-- 
+						</div>
+						<!-- 
 							<div class="row">
 								<div class="col-sm-4">
 									<div class="weather-icon">
@@ -323,25 +330,25 @@ background-color: #333;
 
 							<div class="clearfix"></div>
 							-->
-							<div class="row weather-days">
-								<div class="col-sm-2">
-									<div class="daily-weather">
+						<div class="row weather-days">
+							<div class="col-sm-2">
+								<div class="daily-weather">
 										<h2 class="day">Mon</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal1.food_1}</h6>
 										<h6>${meal1.food_2}</h6>
 										<h6>${meal1.food_3}</h6>
 										<h6>${meal1.food_4}</h6>
 										<h6>${meal1.food_5}</h6>
 										<h6>${meal1.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal2.food_1}</h6>
 										<h6>${meal2.food_2}</h6>
 										<h6>${meal2.food_3}</h6>
 										<h6>${meal2.food_4}</h6>
 										<h6>${meal2.food_5}</h6>
 										<h6>${meal2.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal3.food_1}</h6>
 										<h6>${meal3.food_2}</h6>
 										<h6>${meal3.food_3}</h6>
@@ -353,21 +360,21 @@ background-color: #333;
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Tue</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal4.food_1}</h6>
 										<h6>${meal4.food_2}</h6>
 										<h6>${meal4.food_3}</h6>
 										<h6>${meal4.food_4}</h6>
 										<h6>${meal4.food_5}</h6>
 										<h6>${meal4.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal5.food_1}</h6>
 										<h6>${meal5.food_2}</h6>
 										<h6>${meal5.food_3}</h6>
 										<h6>${meal5.food_4}</h6>
 										<h6>${meal5.food_5}</h6>
 										<h6>${meal5.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal6.food_1}</h6>
 										<h6>${meal6.food_2}</h6>
 										<h6>${meal6.food_3}</h6>
@@ -379,21 +386,21 @@ background-color: #333;
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Wed</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal7.food_1}</h6>
 										<h6>${meal7.food_2}</h6>
 										<h6>${meal7.food_3}</h6>
 										<h6>${meal7.food_4}</h6>
 										<h6>${meal7.food_5}</h6>
 										<h6>${meal7.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal8.food_1}</h6>
 										<h6>${meal8.food_2}</h6>
 										<h6>${meal8.food_3}</h6>
 										<h6>${meal8.food_4}</h6>
 										<h6>${meal8.food_5}</h6>
 										<h6>${meal8.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal9.food_1}</h6>
 										<h6>${meal9.food_2}</h6>
 										<h6>${meal9.food_3}</h6>
@@ -405,21 +412,21 @@ background-color: #333;
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Thu</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal10.food_1}</h6>
 										<h6>${meal10.food_2}</h6>
 										<h6>${meal10.food_3}</h6>
 										<h6>${meal10.food_4}</h6>
 										<h6>${meal10.food_5}</h6>
 										<h6>${meal10.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal11.food_1}</h6>
 										<h6>${meal11.food_2}</h6>
 										<h6>${meal11.food_3}</h6>
 										<h6>${meal11.food_4}</h6>
 										<h6>${meal11.food_5}</h6>
 										<h6>${meal11.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal12.food_1}</h6>
 										<h6>${meal12.food_2}</h6>
 										<h6>${meal12.food_3}</h6>
@@ -431,21 +438,21 @@ background-color: #333;
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Fri</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal13.food_1}</h6>
 										<h6>${meal13.food_2}</h6>
 										<h6>${meal13.food_3}</h6>
 										<h6>${meal13.food_4}</h6>
 										<h6>${meal13.food_5}</h6>
 										<h6>${meal13.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal14.food_1}</h6>
 										<h6>${meal14.food_2}</h6>
 										<h6>${meal14.food_3}</h6>
 										<h6>${meal14.food_4}</h6>
 										<h6>${meal14.food_5}</h6>
 										<h6>${meal14.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal15.food_1}</h6>
 										<h6>${meal15.food_2}</h6>
 										<h6>${meal15.food_3}</h6>
@@ -457,186 +464,185 @@ background-color: #333;
 								<div class="col-sm-2">
 									<div class="daily-weather">
 										<h2 class="day">Sat</h2>
-										<h3 class="day">아침</h3>
+										<h3 class="day"><b>아침</b></h3>
 										<h6>${meal16.food_1}</h6>
 										<h6>${meal16.food_2}</h6>
 										<h6>${meal16.food_3}</h6>
 										<h6>${meal16.food_4}</h6>
 										<h6>${meal16.food_5}</h6>
 										<h6>${meal16.food_6}</h6>
-										<h3 class="day">점심</h3>
+										<h3 class="day"><b>점심</b></h3>
 										<h6>${meal17.food_1}</h6>
 										<h6>${meal17.food_2}</h6>
 										<h6>${meal17.food_3}</h6>
 										<h6>${meal17.food_4}</h6>
 										<h6>${meal17.food_5}</h6>
 										<h6>${meal17.food_6}</h6>
-										<h3 class="day">저녁</h3>
+										<h3 class="day"><b>저녁</b></h3>
 										<h6>${meal18.food_1}</h6>
 										<h6>${meal18.food_2}</h6>
 										<h6>${meal18.food_3}</h6>
 										<h6>${meal18.food_4}</h6>
 										<h6>${meal18.food_5}</h6>
 										<h6>${meal18.food_6}</h6>
-									</div>
 								</div>
-
-								<div class="clearfix"></div>
 							</div>
+
+							<div class="clearfix"></div>
 						</div>
 					</div>
-
 				</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-6 col-sm-6" >
-			<div class="dashboard_graph">
-
-				<div class="row x_title">
-					<div class="col-md-6">
-						<h3 style="font-size:18px">
-							가격 차트
-						</h3>
-						
-					</div>
-				</div>
-				<div class="col-md-9 col-sm-9 col-xs-12">
-					<canvas id="price_canvas" style="height:400px;"></canvas>
-				</div>
-				
-
-				<div class="clearfix"></div>
 			</div>
 		</div>
 
-		<div class="col-md-6 col-sm-6" >
-			<div class="dashboard_graph">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<div class="dashboard_graph">
 
-				<div class="row x_title">
-					<div class="col-md-6">
-						<h3 style="font-size:18px">
-						Top Campaign Performance				
-						</h3>
-						<div class="clearfix"></div>
-					</div>
+					<div class="row x_title">
+						<div class="col-md-6">
+							<h3 style="font-size: 18px">가격 차트</h3>
 
-					<div class="col-md-12 col-sm-12 col-xs-6">
-						<div>
-							<p>Facebook Campaign</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="80"></div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<p>Twitter Campaign</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="60"></div>
-								</div>
-							</div>
 						</div>
 					</div>
-					<div class="col-md-12 col-sm-12 col-xs-6">
-						<div>
-							<p>Conventional Media</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="40"></div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<p>Bill boards</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="50"></div>
-								</div>
-							</div>
-						</div>
-					</div>	
-		</div>
-	</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6 col-sm-6" >
-		<div class="x_panel tile fixed_height_320">
-				<div class="x_title">
-					<h2>공지 사항</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						</li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"><i
-								class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a></li>
-								<li><a href="#">Settings 2</a></li>
-							</ul></li>
-						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-					</ul>
+					<div class="col-md-9 col-sm-9 col-xs-12">
+						<canvas id="price_canvas" style="height: 400px;"></canvas>
+					</div>
+
+
 					<div class="clearfix"></div>
 				</div>
-				<div class="x_content" id="notice" style="overflow:auto; height:100%;" >
-					<h4><a href="<%=request.getContextPath()%>/notice/list">모든공지 보러가기</a></h4>
-					<ul class="list-unstyled timeline widget">
-						<c:forEach items="${inlist }" var="ndto">
-							<li>
-								<div class="block">
-									<div class="block_content">
-										<h2 class="title">
-											<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
-										</h2>
-										<div class="byline">
-											<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
-										</div>
-										<p class="excerpt">
-											${ndto.notice_content}
-											<a href="notice/content?notice_id=${ndto.notice_id}">...Read&nbsp;More</a>
-										</p>
+			</div>
+
+			<div class="col-md-6 col-sm-6">
+				<div class="dashboard_graph">
+
+					<div class="row x_title">
+						<div class="col-md-6">
+							<h3 style="font-size: 18px">Top Campaign Performance</h3>
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="col-md-12 col-sm-12 col-xs-6">
+							<div>
+								<p>Facebook Campaign</p>
+								<div class="">
+									<div class="progress progress_sm" style="width: 76%;">
+										<div class="progress-bar bg-green" role="progressbar"
+											data-transitiongoal="80"></div>
 									</div>
 								</div>
-							</li>
-							</c:forEach>
-						</ul>
-					
+							</div>
+							<div>
+								<p>Twitter Campaign</p>
+								<div class="">
+									<div class="progress progress_sm" style="width: 76%;">
+										<div class="progress-bar bg-green" role="progressbar"
+											data-transitiongoal="60"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6">
+							<div>
+								<p>Conventional Media</p>
+								<div class="">
+									<div class="progress progress_sm" style="width: 76%;">
+										<div class="progress-bar bg-green" role="progressbar"
+											data-transitiongoal="40"></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<p>Bill boards</p>
+								<div class="">
+									<div class="progress progress_sm" style="width: 76%;">
+										<div class="progress-bar bg-green" role="progressbar"
+											data-transitiongoal="50"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			
-		</div>
-
-
-		<div class="col-md-8 col-sm-8 col-xs-12">
 			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					팀장님 여기에다가 FAQ넣어주세요
+				<div class="col-md-6 col-sm-6">
+					<div class="x_panel tile fixed_height_320">
+						<div class="x_title">
+							<h2>공지 사항</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li><a class="collapse-link"><i
+										class="fa fa-chevron-up"></i></a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false"><i
+										class="fa fa-wrench"></i></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Settings 1</a></li>
+										<li><a href="#">Settings 2</a></li>
+									</ul></li>
+								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content" id="notice"
+							style="overflow: auto; height: 100%;">
+							<h4>
+								<a href="<%=request.getContextPath()%>/notice/list">모든공지
+									보러가기</a>
+							</h4>
+							<ul class="list-unstyled timeline widget">
+								<c:forEach items="${inlist }" var="ndto">
+									<li>
+										<div class="block">
+											<div class="block_content">
+												<h2 class="title">
+													<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
+												</h2>
+												<div class="byline">
+													<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
+												</div>
+												<p class="excerpt">
+													${ndto.notice_content} <a
+														href="notice/content?notice_id=${ndto.notice_id}">...Read&nbsp;More</a>
+												</p>
+											</div>
+										</div>
+									</li>
+								</c:forEach>
+							</ul>
+
+						</div>
+					</div>
+
 				</div>
 
-			</div>
-			<div class="row">
+
+				<div class="col-md-8 col-sm-8 col-xs-12">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">팀장님 여기에다가
+							FAQ넣어주세요</div>
+
+					</div>
+					<div class="row">
 
 
-				<!-- Start to do list -->
-				
-				<!-- End to do list -->
+						<!-- Start to do list -->
 
-				<!-- start of weather widget -->
+						<!-- End to do list -->
 
-				<!-- end of weather widget -->
+						<!-- start of weather widget -->
+
+						<!-- end of weather widget -->
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-<!-- /page content -->
+		<!-- /page content -->
 
-<!-- 트렌드 차트 -->
-<script>
+		<!-- 트렌드 차트 -->
+		<script>
 	window.chartColors = {
 		red : 'rgb(255, 99, 132)',
 		orange : 'rgb(255, 159, 64)',
@@ -702,8 +708,8 @@ background-color: #333;
 	});
 
 </script>
-<!-- 빠른식단 -->
-<script type="text/javascript">
+		<!-- 빠른식단 -->
+		<script type="text/javascript">
 $(document).ready(function(){
 	var returnValue;
 	var url = location.href;
@@ -721,8 +727,8 @@ $(document).ready(function(){
 	})
 })
 </script>
-<!-- 가격차트 -->
-<script>
+		<!-- 가격차트 -->
+		<script>
 var label = new Array();
 var food1_price = new Array();
 var food1_name= new Set();
