@@ -3,7 +3,7 @@ package kr.co.food.dto;
 public class RecipeDto {
 	
 	private int id;
-	private String recipe_code, recipe_name, recipe_ingredients, recipe_content, recipe_img;
+	private String recipe_code, recipe_name, recipe_ingredients, recipe_content, food_name;
 	public int getId() {
 		return id;
 	}
@@ -34,13 +34,11 @@ public class RecipeDto {
 	public void setRecipe_content(String recipe_content) {
 		this.recipe_content = recipe_content;
 	}
-	public String getRecipe_img() {
-		return recipe_img;
+	public String getFood_name() {
+		return food_name;
 	}
-	public void setRecipe_img(String recipe_img) {
-		this.recipe_img = recipe_img;
-	}
-	
-	
+	public void setFood_name(String food_name) {
+		this.food_name = food_name;
+	}	
 	
 }

@@ -18,6 +18,7 @@ import kr.co.food.dto.FnqDto;
 import kr.co.food.dto.MemberDto;
 import kr.co.food.dto.NoticeDto;
 import kr.co.food.dto.NutrionDto;
+import kr.co.food.dto.RecipeDto;
 import kr.co.food.dto.TrendDto;
 
 @Controller
@@ -624,4 +625,124 @@ public class AdminController {
 	}
 	
 
+	@RequestMapping("/admin/recipe_list")
+	public String recipe_list(Model model, HttpServletRequest req, HttpSession session)
+	{
+		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		int page,index;
+		if(req.getParameter("page")==null)
+		{
+			index=0;
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(req.getParameter("page"));
+			index=(page-1)*10;
+		}
+
+		int pstart=page/10;
+		if(page%10 ==0)
+			pstart=pstart-1;
+		pstart=(pstart*10)+1;
+		int pend=pstart+9;
+
+		int chong=dao.getRecipeCnt();
+		int page_cnt=chong/10;
+		
+		if(chong%10 !=0)
+			page_cnt++;
+		
+		if(pend>page_cnt)
+			pend=page_cnt;
+		
+		ArrayList<RecipeDto> list=dao.getRecipeList(index);
+		model.addAttribute("list",list);
+		model.addAttribute("pend",pend);
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("page",page);
+		model.addAttribute("page_cnt",page_cnt);
+
+		return "/admin/recipe_list";
+	}
+
+	@RequestMapping("/admin/recipe_content")
+	public String recipe_content(Model model, HttpServletRequest req, HttpSession session)
+	{
+		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		RecipeDto dto = dao.recipeContent(req.getParameter("id"));
+		model.addAttribute("dto", dto);
+		
+		return "/admin/recipe_content";
+	}
+	
+	
+	@RequestMapping("/admin/recipe_write")
+	public String recipe_write(HttpSession session)
+	{
+		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		return "/admin/recipe_write";
+	}
+	
+	@RequestMapping("/admin/recipe_write_ok")
+	public String recipe_write_ok(RecipeDto dto, HttpSession session)
+	{
+		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		dao.recipeWrite(dto);
+		
+		return "redirect:/admin/recipe_list";
+	}
+	
+	@RequestMapping("/admin/recipe_update")
+	public String recipe_update(HttpSession session, Model model, HttpServletRequest req)
+	{
+		if(session.getAttribute("userid")==null||!session.getAttribute("userid").equals("admin")) 
+		{
+			return "redirect:/member/login";
+		}
+		
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		RecipeDto dto = dao.recipeContent(req.getParameter("id"));
+		model.addAttribute("dto", dto);
+		
+		return "/admin/recipe_update";
+	}
+
+	@RequestMapping("/admin/recipe_update_ok")
+	public String recipe_update_ok(RecipeDto dto)
+	{
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		dao.recipeUpdate(dto);
+		
+		return "redirect:/admin/recipe_content?id="+dto.getId();
+	}
+	
+	@RequestMapping("/admin/recipe_delete")
+	public String recipe_delete(HttpServletRequest req)
+	{
+		AdminDao dao = sqlSession.getMapper(AdminDao.class);
+		dao.recipeDelete(req.getParameter("id"));
+		
+		return "redirect:/admin/recipe_list";
+	}
+	
 }

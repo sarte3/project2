@@ -43,6 +43,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getFoodList" resultType="kr.co.food.dto.NutrionDto">
 		select * from food order by food_no desc limit #{param1},10;
 	</select>
+	<select id="getRecipeList" resultType="kr.co.food.dto.RecipeDto">
+		select * from recipe_info order by id desc limit #{param1},10;
+	</select>
 	<delete id="memberOut">
 		delete from member where member_id=#{param1}
 	</delete>
@@ -85,5 +88,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<delete id="noticeDelete">
 		delete from notice where notice_id=#{param1}
+	</delete>
+	<insert id="recipeWrite" parameterType="kr.co.food.dto.RecipeDto">
+		insert into recipe_info(food_name, recipe_code, recipe_name, recipe_ingredients, recipe_content) values(
+		#{food_name}, #{recipe_code}, #{recipe_name}, #{recipe_ingredients}, #{recipe_content}
+		)
+	</insert>
+	<select id="recipeContent" resultType="kr.co.food.dto.RecipeDto">
+		select * from recipe_info where id=#{param1}
+	</select>	
+	<update id="recipeUpdate" parameterType="kr.co.food.dto.RecipeDto">
+		update recipe_info set food_name=#{food_name}, recipe_code=#{recipe_code}, recipe_name=#{recipe_name}, recipe_ingredients=#{recipe_ingredients}, recipe_content=#{recipe_content} 
+		where id=#{id}
+	</update>
+	<delete id="recipeDelete">
+		delete from recipe_info where id=#{param1}
 	</delete>
 </mapper>

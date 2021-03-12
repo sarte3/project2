@@ -46,3 +46,59 @@
 		</div>
 	</form>
 </div>
+<script>
+function userid_dupcheck(form)
+{
+	 
+	   var chk=new XMLHttpRequest();
+	   chk.open("get","userid_dupcheck?userid="+form.userid.value);
+	   chk.send();
+	   chk.onreadystatechange=function()
+	   {
+		   if(chk.readyState==4) // 동작이 완료되면
+		   {
+		         if(chk.responseText==0) // 레코드가 없다 => 사용가능
+		         {
+		        	 alert("아이디 사용가능"); 
+		        	 document.getElementById("uid").innerText="아이디 중복 확인 ";
+		        	 document.getElementById("uid").style.color="blue";
+		        	 form.userid_chk.value=1;
+		         }
+		         else
+		         {
+		        	 alert("아이디 사용 불가능")
+		        	 document.getElementById("uid").innerText="아이디 중복 확인 ";
+		        	 document.getElementById("uid").style.color="red";
+		        	 form.userid_chk.value=0;
+		         }
+		   }	   
+	   }
+}
+
+function email_dupcheck(form)
+{
+	   var chk=new XMLHttpRequest();
+	   chk.open("get","email_dupcheck?email="+form.email.value);
+	   chk.send();
+	   chk.onreadystatechange=function()
+	   {
+		   if(chk.readyState==4)
+		   {
+			   if(chk.responseText==0)
+		         {
+		        	 alert("이메일 사용가능"); 
+		        	 document.getElementById("ema").innerText="이메일 중복 확인 ";
+		        	 document.getElementById("ema").style.color="blue";
+		        	 form.email_chk.value=1;
+		         }
+		         else
+		         {
+		        	 alert("이메일 사용 불가능")
+		        	 document.getElementById("ema").innerText="이메일 중복 확인 ";
+		        	 document.getElementById("ema").style.color="red";
+		        	 form.email_chk.value=0;
+		         } 
+		   }	   
+	   }
+}
+</script>
