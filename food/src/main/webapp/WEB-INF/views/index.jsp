@@ -188,7 +188,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "4" onclick='getTargetMeal(this.value)'>저염식
+									value = "4" onclick='getTargetMeal(this.value)'><label for="4">저염식</label>
 								</p>
 							</li>
 							<li>
@@ -200,8 +200,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "6" onclick='getTargetMeal(this.value)'>고단백
-									저칼로리
+									value = "6" onclick='getTargetMeal(this.value)'><label for="6">고단백 저칼로리</label>
 								</p>
 							</li>
 							<li>
@@ -213,8 +212,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "8" onclick='getTargetMeal(this.value)'>유기농
-									야채식
+									value = "8" onclick='getTargetMeal(this.value)'><label for="8">유기농 야채식</label>
 								</p>
 							</li>
 						</ul>
@@ -844,9 +842,7 @@ Chart.defaults.global.legend.labels.fontStyle = "italic";
 var ctx = $("#pie-chart");
 
 var pieLabels = ["탄수화물", "단백질", "지방"];
-
 var pieData = [10,10,8];
-
 var pieColors = [
   "rgb(153,21,0)",
   "rgb(189,90,45)",
@@ -877,16 +873,16 @@ var pieChart2 = new Chart(ctx2, {
   }
 });
 
-$('flat').change(function(){
+$('input').change(function(){
    var userCheck = $(this).val();
   if(userCheck == '0'){
-    addData(pieChart1,pieLabels1,pieData1);
+    addData(pieChart2,pieLabels0,pieData0);
   } else if(userCheck == '1'){
-    addData(pieChart2,pieLabels2,pieData2);
+    addData(pieChart2,pieLabels1,pieData1);
   }else if(userCheck == '2'){
-    addData(pieChart2,pieLabels3,pieData3);
+    addData(pieChart2,pieLabels2,pieData2);
   }else if(userCheck == '3'){
-    addData(pieChart2,pieLabels4,pieData4);
+    addData(pieChart2,pieLabels3,pieData3);
   }else if(userCheck == '5'){
     addData(pieChart2,pieLabels5,pieData5);
   }else if(userCheck == '7'){
@@ -898,15 +894,15 @@ $('flat').change(function(){
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
 var pieData0 = [10,10,8];
 var pieLabels1 = ["탄수화물", "단백질", "지방"];
-var pieData1 = [4,5,10];
+var pieData1 = [100,5,10];
 var pieLabels2 = ["탄수화물", "단백질", "지방"];
-var pieData2 = [4,5,10];
+var pieData2 = [100,5,10];
 var pieLabels3 = ["탄수화물", "단백질", "지방"];
-var pieData3 = [4,5,10];
+var pieData3 = [100,5,10];
 var pieLabels5 = ["탄수화물", "단백질", "지방"];
-var pieData5 = [4,5,10];
+var pieData5 = [100,5,10];
 var pieLabels7 = ["탄수화물", "단백질", "지방"];
-var pieData7 = [4,5,10];
+var pieData7 = [100,5,10];
 
 function addData(chart, label, data) {
     chart.data.labels = label;

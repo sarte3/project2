@@ -9,7 +9,7 @@
 #logo_container{height:100px; padding:10px 0px 10px 48px;}
 #logo_dietmite{width:150px; }
 </style>
-<script>
+<script> 
   function fetchPage(name){ 
     fetch(name).then(function(response){
       response.text().then(function(text){
