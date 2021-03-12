@@ -17,7 +17,7 @@
 }
 
 #pie_input {
-	background-color: transparent;
+	background-color: #F3F3F3;
 	color: #73879C;
 }
 </style>
@@ -165,30 +165,25 @@
 				<div class="chart-container dark">
 					<canvas id="pie-chart2"></canvas>
 				</div>
-				<div id="pie_input">
-					<input type="radio" value="0" name="nu" id="0"><label
-						for="0">영유아</label> <input type="radio" value="1" name="nu"
-						id="1"><label for="1">10대남성</label> <input type="radio"
-						value="2" name="nu" id="2"><label for="2">10대여성</label>
-					<input type="radio" value="3" name="nu" id="3"><label
-						for="3">20대남성</label> <input type="radio" value="4" name="nu"
-						id="4"><label for="4">20대여성</label> <input type="radio"
-						value="5" name="nu" id="5"><label for="5">30대남성</label>
+				<div id="pie_input" align="center">
 					<p />
-					<input type="radio" value="6" name="nu" id="6"><label
-						for="6">30대여성</label> <input type="radio" value="7" name="nu"
-						id="7"><label for="7">40대남성</label> <input type="radio"
-						value="8" name="nu" id="8"><label for="8">40대여성</label>
-					<input type="radio" value="9" name="nu" id="9"><label
-						for="9">50대 남 성</label> <input type="radio" value="10" name="nu"
-						id="10"><label for="10">50대여성</label> <input
-						type="radio" value="11" name="nu" id=11><label for="11">60대남성</label>
+					<input type="radio" value="0" name="nu" id="0">영유아 
+					<input type="radio" value="1" name="nu" id="1">10대남성 
+					<input type="radio"	value="2" name="nu" id="2">10대여성
+					<input type="radio" value="3" name="nu" id="3">20대남성
+					<input type="radio" value="4" name="nu" id="4">20대여성
 					<p />
-					<input type="radio" value="12" name="nu" id="12"><label
-						for="12">60대여성</label> <input type="radio" value="13" name="nu"
-						id="13"><label for="13">20대 임산부</label> <input
-						type="radio" value="14" name="nu" id="14"><label for="14">30대
-						임산부</label>
+					<input type="radio" value="5" name="nu" id="5">30대남성
+					<input type="radio" value="6" name="nu" id="6">30대여성
+					<input type="radio" value="7" name="nu" id="7">40대남성 
+					<input type="radio" value="8" name="nu" id="8">40대여성
+					<input type="radio" value="9" name="nu" id="9">50대 남 성
+					<p />
+					<input type="radio" value="10" name="nu" id="10">50대여성
+					<input type="radio" value="11" name="nu" id=11>60대남성
+					<input type="radio" value="12" name="nu" id="12">60대여성
+					<input type="radio" value="13" name="nu" id="13">20대 임산부
+					<input type="radio" value="14" name="nu" id="14">30대 임산부
 				</div>
 
 
@@ -526,7 +521,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4">
-					<div class="x_panel tile fixed_height_600">
+					<div class="x_panel tile fixed_height_600" >
 						<div class="x_title">
 							<h2>가격top5</h2>
 							<ul class="nav navbar-right panel_toolbox">
@@ -803,12 +798,14 @@ var pieLabels = ["탄수화물", "단백질", "지방"];
 
 var pieData = [100,50,80];
 
+
 var pieColors = [
   "#3498DB",
   "#E74C3C",
   "#26B99A",
 
 ];
+
 
 
 var ctx2 = $("#pie-chart2");
