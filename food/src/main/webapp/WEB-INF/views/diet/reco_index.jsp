@@ -4,14 +4,44 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 tbody {font-size:17px;}
-
 #t_container {padding-left:300px; width:1600px;}
-
+#loadingBar{
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	position:fixed;
+	display:block;
+	opacity:0.7;
+	background-color:#fff;
+	z-index:99;
+	text-align:center;
+}
+#loading-image{
+	position:absolute;
+	top:30%;
+	left:45%;
+	z-index:100;
+}
 </style>
-<script src="../resources/chartjs/dist/Chart.js"></script>
+<script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#testFrm").submit(function(event){
+		$("#loadingBar").show()
+		return true
+	})
+	$("#lodingBar").hide()
+
+})
+</script>
 <div id="section" class="right_col">
+	<div id="loadingBar" style="display:none;">
+		<img id="loading-image" src="../resources/img/loadingImg.gif">
+		<h1>식단 생성중...</h1>
+	</div>
 <h2>조건 입력</h2>
-<form method="post" action="reco_view">
+<form method="post" action="reco_view" id="testFrm">
 	<div id="t_container">
 	<table class="table">
 	<tbody>
@@ -86,5 +116,6 @@ tbody {font-size:17px;}
 	</table>
 	</div>
 </form>
-
 </div>
+
+

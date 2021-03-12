@@ -32,7 +32,7 @@ public class DietMakerSecond {
 		food_list = get_100_foods(ddao);
 		int i = 0;
 		while(true) {
-			if (i==1000) break;
+			if (i==10000) break;
 //			if (i % 100 == 0) {
 //				cur_cate = new Boolean[6];
 //				Arrays.fill(cur_cate, false);

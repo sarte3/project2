@@ -27,6 +27,11 @@ public class DietController {
 		
 		return "/diet/reco_index";
 	}
+	@RequestMapping("/diet/test")
+	public String test(Model model) {
+		
+		return "/diet/test";
+	}
 	@RequestMapping("/diet/reco_view")
 	public String reco_view(HttpServletRequest request, Model model) {
 		int nut_id = Integer.parseInt(request.getParameter("nut_id"));
