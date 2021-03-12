@@ -472,8 +472,8 @@
 
 				<div class="row x_title">
 					<div class="col-md-6">
-						<h3>
-							가격 변화 그래프
+						<h3 style="font-size:18px">
+							가격 차트
 						</h3>
 					</div>
 				</div>
