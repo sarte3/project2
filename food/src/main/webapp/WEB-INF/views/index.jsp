@@ -2,7 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<style>
+<!--파이차트css-->
+.chart-container { 
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+.chart-container.dark {
+  background-color: #333;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="resources/chartjs/dist/Chart.js"></script>
 <!-- page content -->
@@ -153,29 +165,25 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "0" onclick='getTargetMeal(this.value)'> 성장기
-									어린이
+									value = "0" onclick='getTargetMeal(this.value)'> <label for="0">성장기</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "1" onclick='getTargetMeal(this.value)'>활동량
-									많은 청소년
+									value = "1" onclick='getTargetMeal(this.value)'><label for="1">활동량많은 청소년</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "2" onclick='getTargetMeal(this.value)'>성인 젊은
-									남성
+									value = "2" onclick='getTargetMeal(this.value)'><label for="2">성인 젊은 남성</label>
 								</p>
 							</li>
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "3" onclick='getTargetMeal(this.value)'> 성인 젊은
-									여성
+									value = "3" onclick='getTargetMeal(this.value)'> <label for="3">성인 젊은 여성</label>
 							</li>
 							<li>
 								<p>
@@ -186,7 +194,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "5" onclick='getTargetMeal(this.value)'>임신부
+									value = "5" onclick='getTargetMeal(this.value)'><label for="5">임신부</label>
 								</p>
 							</li>
 							<li>
@@ -199,8 +207,7 @@
 							<li>
 								<p>
 									<input type="radio" name="meal_age" class="flat"
-									value = "7" onclick='getTargetMeal(this.value)'>노인
-									건강식
+									value = "7" onclick='getTargetMeal(this.value)'><label for="7">노인 건강식</label>
 								</p>
 							</li>
 							<li>
@@ -231,9 +238,8 @@
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				<div class="x_content" id="notice" style="overflow:auto; height:100%;" >
-					<canvas id="myChart"></canvas>
-					
+				<div class="chart-container dark">
+				  <canvas id="pie-chart2"></canvas>
 				</div>
 			</div>
 			
@@ -832,33 +838,83 @@ new Chart(document.getElementById("price_canvas"),
 	}  */
 	
 /* 나에게 필요한 필수영양소 비율 차트*/
-var ctx3 = document.getElementById('myChart');
-	var pieLabels2 = ["탄수화물", "단백질", "지방"];
+Chart.defaults.global.maintainAspectRatio = false;
+Chart.defaults.global.legend.labels.fontStyle = "italic";
 
-	var pieData2 = [10,4,1];
-	
-	var pieColors2 = [
-	  "rgb(153,21,0)",
-	  "rgb(189,90,45)",
-	  "rgb(208,255,113)",
-	];
-	
-	var pieChart2 = new Chart(ctx3, {
-	  type: 'doughnut',
-	  data: {
-	    labels: pieLabels2,
-	    datasets: [
-	      {
-	        data: pieData2,
-	        backgroundColor: pieColors2      
-	      }
-	    ]
-	  },
-	  options: {    //ma...
-	    
-	    
-	  }
-	});
+var ctx = $("#pie-chart");
+
+var pieLabels = ["탄수화물", "단백질", "지방"];
+
+var pieData = [10,10,8];
+
+var pieColors = [
+  "rgb(153,21,0)",
+  "rgb(189,90,45)",
+  "rgb(208,255,113)",
+];
+
+
+var ctx2 = $("#pie-chart2");
+var pieChart2 = new Chart(ctx2, {
+  type: 'doughnut',
+  data: {
+    labels: pieLabels,
+    datasets: [
+      {
+        data: pieData,
+        backgroundColor: pieColors,
+        borderColor: "#333"
+      }
+    ]
+  },
+  options: {
+    legend: {
+      labels: {
+        fontColor: "#ddd"
+      }
+    },    
+    cutoutPercentage: 90
+  }
+});
+
+$('flat').change(function(){
+   var userCheck = $(this).val();
+  if(userCheck == '0'){
+    addData(pieChart1,pieLabels1,pieData1);
+  } else if(userCheck == '1'){
+    addData(pieChart2,pieLabels2,pieData2);
+  }else if(userCheck == '2'){
+    addData(pieChart2,pieLabels3,pieData3);
+  }else if(userCheck == '3'){
+    addData(pieChart2,pieLabels4,pieData4);
+  }else if(userCheck == '5'){
+    addData(pieChart2,pieLabels5,pieData5);
+  }else if(userCheck == '7'){
+    addData(pieChart2,pieLabels7,pieData7);
+  }
+    
+});
+
+var pieLabels0 = ["탄수화물", "단백질", "지방"];
+var pieData0 = [10,10,8];
+var pieLabels1 = ["탄수화물", "단백질", "지방"];
+var pieData1 = [4,5,10];
+var pieLabels2 = ["탄수화물", "단백질", "지방"];
+var pieData2 = [4,5,10];
+var pieLabels3 = ["탄수화물", "단백질", "지방"];
+var pieData3 = [4,5,10];
+var pieLabels5 = ["탄수화물", "단백질", "지방"];
+var pieData5 = [4,5,10];
+var pieLabels7 = ["탄수화물", "단백질", "지방"];
+var pieData7 = [4,5,10];
+
+function addData(chart, label, data) {
+    chart.data.labels = label;
+    chart.data.datasets.forEach((dataset)=> {
+        dataset.data=data;
+    });
+    chart.update();
+}
 
 
 	
