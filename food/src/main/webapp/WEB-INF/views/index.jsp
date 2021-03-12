@@ -5,14 +5,17 @@
 <style>
 <!--파이차트css-->
 .chart-container { 
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 4px;
 }
 .chart-container.dark {
   background-color: #333;
+}
+#pie_input{
+background-color: #333;
 }
 </style>
 
@@ -155,13 +158,23 @@
 				<div class="chart-container dark">
 				  <canvas id="pie-chart2"></canvas>
 				</div>
-				<input type="radio" name="nu" id="0" ><label for="0">성장기</label>
-				<input type="radio" name="nu" id="1" ><label for="1">성장기</label>
-				<input type="radio" name="nu" id="2" ><label for="2">성장기</label>
-				<input type="radio" name="nu" id="3" ><label for="3">성장기</label>
-				<input type="radio" name="nu" id="4" ><label for="4">성장기</label>
-				<input type="radio" name="nu" id="5" ><label for="5">성장기</label>
-	
+				<div id="pie_input">
+				<input type="radio" value="0" name="nu" id="0" ><label for="0">영 유 아</label>
+				<input type="radio" value="1" name="nu" id="1" ><label for="1">10대 남 성</label>
+				<input type="radio" value="2" name="nu" id="2" ><label for="2">10대 여 성</label>
+				<input type="radio" value="3" name="nu" id="3" ><label for="3">20대 남 성</label>
+				<input type="radio" value="4" name="nu" id="4" ><label for="4">20대 여 성</label>
+				<input type="radio" value="5" name="nu" id="5" ><label for="5">30대 남 성</label>
+				<p/><input type="radio" value="6" name="nu" id="6" ><label for="6">30대 여 성</label>
+				<input type="radio" value="7" name="nu" id="7" ><label for="7">40대 남 성</label>
+				<input type="radio" value="8" name="nu" id="8" ><label for="8">40대 여 성</label>
+				<input type="radio" value="9" name="nu" id="9" ><label for="9">50대 남 성</label>
+				<input type="radio" value="10" name="nu" id="10" ><label for="10">50대 여 성</label>
+				<input type="radio" value="11" name="nu" id=11 ><label for="11">60대 남 성</label>
+				<p/><input type="radio" value="12" name="nu" id="12" ><label for="12">60대 여 성</label>
+				<input type="radio" value="13" name="nu" id="13" ><label for="13">20대 임 산 부</label>
+				<input type="radio" value="14" name="nu" id="14" ><label for="14">30대 임 산 부</label>
+				</div>
 		
 								
 			</div>
@@ -897,7 +910,7 @@ var pieChart2 = new Chart(ctx2, {
         fontColor: "#ddd"
       }
     },    
-    cutoutPercentage: 90
+    cutoutPercentage: 60
   }
 });
 
@@ -915,28 +928,59 @@ $('input').change(function(){
 	  addData(pieChart2,pieLabels4,pieData4);
   }else if(userCheck == '5'){
     addData(pieChart2,pieLabels5,pieData5);
+  }else if(userCheck == '6'){
+    addData(pieChart2,pieLabels6,pieData6);
+  }else if(userCheck == '7'){
+    addData(pieChart2,pieLabels7,pieData7);
+  }else if(userCheck == '8'){
+    addData(pieChart2,pieLabels8,pieData8);
+  }else if(userCheck == '9'){
+    addData(pieChart2,pieLabels9,pieData9);
+  }else if(userCheck == '10'){
+    addData(pieChart2,pieLabels10,pieData10);
+  }else if(userCheck == '11'){
+    addData(pieChart2,pieLabels11,pieData11);
+  }else if(userCheck == '12'){
+    addData(pieChart2,pieLabels12,pieData12);
+  }else if(userCheck == '13'){
+    addData(pieChart2,pieLabels13,pieData13);
+  }else if(userCheck == '14'){
+    addData(pieChart2,pieLabels14,pieData14);
   }
   
     
 });
 
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
-var pieData0 = [100,35,25];
-
+var pieData0 = [100,25,20];
 var pieLabels1= ["탄수화물", "단백질", "지방"];
-var pieData1 = [100,60,30];
-
+var pieData1 = [100,65,30];
 var pieLabels2= ["탄수화물", "단백질", "지방"];
-var pieData2 = [100,65,30];
-
+var pieData2 = [100,55,25];
 var pieLabels3 = ["탄수화물", "단백질", "지방"];
 var pieData3 = [100,55,25];
-
 var pieLabels4 = ["탄수화물", "단백질", "지방"];
-var pieData4 = [160,80,25];
-
+var pieData4 = [100,65,30];
 var pieLabels5 = ["탄수화물", "단백질", "지방"];
-var pieData5 = [100,60,25];
+var pieData5 = [100,55,20];
+var pieLabels6 = ["탄수화물", "단백질", "지방"];
+var pieData6 = [100,65,30];
+var pieLabels7 = ["탄수화물", "단백질", "지방"];
+var pieData7 = [100,50,20];
+var pieLabels8 = ["탄수화물", "단백질", "지방"];
+var pieData8 = [100,65,30];
+var pieLabels9 = ["탄수화물", "단백질", "지방"];
+var pieData9 = [100,50,20];
+var pieLabels10 = ["탄수화물", "단백질", "지방"];
+var pieData10 = [100,60,30];
+var pieLabels11 = ["탄수화물", "단백질", "지방"];
+var pieData11 = [100,60,30];
+var pieLabels12 = ["탄수화물", "단백질", "지방"];
+var pieData12 = [100,50,20];
+var pieLabels13 = ["탄수화물", "단백질", "지방"];
+var pieData13 = [130,85,20];
+var pieLabels14 = ["탄수화물", "단백질", "지방"];
+var pieData14 = [130,85,25];
 
 function addData(chart, label, data) {
     chart.data.labels = label;
