@@ -68,7 +68,7 @@
 
 	<!-- 트렌드 -->
 	<div class="row">
-		<div class="col-md-8 col-sm-8 col-xs-12">
+		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel tile fixed_height_320">
 				<div class="x_title">
 					<h2>음식 트렌드</h2>
@@ -134,7 +134,37 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="x_panel tile fixed_height_320 overflow_hidden">
+				<div class="x_title">
+					<h2>필수영양소알아보기</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false"><i
+								class="fa fa-wrench"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Settings 1</a></li>
+								<li><a href="#">Settings 2</a></li>
+							</ul></li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="chart-container dark">
+				  <canvas id="pie-chart2"></canvas>
+				</div>
+				<input type="radio" name="nu" id="0" ><label for="0">성장기</label>
+				<input type="radio" name="nu" id="1" ><label for="1">성장기</label>
+				<input type="radio" name="nu" id="2" ><label for="2">성장기</label>
+				<input type="radio" name="nu" id="3" ><label for="3">성장기</label>
+				<input type="radio" name="nu" id="4" ><label for="4">성장기</label>
+				<input type="radio" name="nu" id="5" ><label for="5">성장기</label>
+	
+		
+								
+			</div>
 	</div>
 
 	
@@ -167,54 +197,54 @@
 					<ul class="to_do">
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="1">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="0">성장기</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="2">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="1">활동량많은 청소년</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="3">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="2">성인 젊은 남성</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="4"> 
+								<input type="radio" name="meal_age" class="flat" > 
 								<label for="3">성인 젊은 여성</label>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="5">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="4">저염식</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="6">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="5">임신부</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="7">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="6">고단백 저칼로리</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="8">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="7">노인 건강식</label>
 							</p>
 						</li>
 						<li>
 							<p>
-								<input type="radio" name="meal_age" class="flat" value="9">
+								<input type="radio" name="meal_age" class="flat" >
 								<label for="8">유기농 야채식</label>
 							</p>
 						</li>
@@ -222,27 +252,7 @@
 							</div>
 						</div>
 					</div>
-			<div class="x_panel tile fixed_height_320">
-				<div class="x_title">
-					<h2>나에게 필요한 영양소 비율</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						</li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"><i
-								class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a></li>
-								<li><a href="#">Settings 2</a></li>
-							</ul></li>
-						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="chart-container dark">
-				  <canvas id="pie-chart2"></canvas>
-				</div>
-			</div>
+			
 			
 				</div>
 		
@@ -901,10 +911,10 @@ $('input').change(function(){
     addData(pieChart2,pieLabels2,pieData2);
   }else if(userCheck == '3'){
     addData(pieChart2,pieLabels3,pieData3);
+  }else if(userCheck == '4'){
+	  addData(pieChart2,pieLabels4,pieData4);
   }else if(userCheck == '5'){
     addData(pieChart2,pieLabels5,pieData5);
-  }else if(userCheck == '7'){
-    addData(pieChart2,pieLabels7,pieData7);
   }
   
     
@@ -922,11 +932,11 @@ var pieData2 = [100,65,30];
 var pieLabels3 = ["탄수화물", "단백질", "지방"];
 var pieData3 = [100,55,25];
 
-var pieLabels5 = ["탄수화물", "단백질", "지방"];
-var pieData5 = [160,80,25];
+var pieLabels4 = ["탄수화물", "단백질", "지방"];
+var pieData4 = [160,80,25];
 
-var pieLabels7 = ["탄수화물", "단백질", "지방"];
-var pieData7 = [100,60,25];
+var pieLabels5 = ["탄수화물", "단백질", "지방"];
+var pieData5 = [100,60,25];
 
 function addData(chart, label, data) {
     chart.data.labels = label;
