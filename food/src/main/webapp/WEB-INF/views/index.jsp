@@ -13,11 +13,11 @@
 }
 
 .chart-container.dark {
-	background-color: #333;
+	background-color: #2A3F54;
 }
 
 #pie_input {
-	background-color: #333;
+	background-color: #2A3F54;
 }
 </style>
 
@@ -166,29 +166,28 @@
 				</div>
 				<div id="pie_input">
 					<input type="radio" value="0" name="nu" id="0"><label
-						for="0">영 유 아</label> <input type="radio" value="1" name="nu"
-						id="1"><label for="1">10대 남 성</label> <input type="radio"
-						value="2" name="nu" id="2"><label for="2">10대 여 성</label>
+						for="0">영유아</label> <input type="radio" value="1" name="nu"
+						id="1"><label for="1">10대남성</label> <input type="radio"
+						value="2" name="nu" id="2"><label for="2">10대여성</label>
 					<input type="radio" value="3" name="nu" id="3"><label
-						for="3">20대 남 성</label> <input type="radio" value="4" name="nu"
-						id="4"><label for="4">20대 여 성</label> <input type="radio"
-						value="5" name="nu" id="5"><label for="5">30대 남 성</label>
+						for="3">20대남성</label> <input type="radio" value="4" name="nu"
+						id="4"><label for="4">20대여성</label> <input type="radio"
+						value="5" name="nu" id="5"><label for="5">30대남성</label>
 					<p />
 					<input type="radio" value="6" name="nu" id="6"><label
-						for="6">30대 여 성</label> <input type="radio" value="7" name="nu"
-						id="7"><label for="7">40대 남 성</label> <input type="radio"
-						value="8" name="nu" id="8"><label for="8">40대 여 성</label>
+						for="6">30대여성</label> <input type="radio" value="7" name="nu"
+						id="7"><label for="7">40대남성</label> <input type="radio"
+						value="8" name="nu" id="8"><label for="8">40대여성</label>
 					<input type="radio" value="9" name="nu" id="9"><label
 						for="9">50대 남 성</label> <input type="radio" value="10" name="nu"
-						id="10"><label for="10">50대 여 성</label> <input
-						type="radio" value="11" name="nu" id=11><label for="11">60대
-						남 성</label>
+						id="10"><label for="10">50대여성</label> <input
+						type="radio" value="11" name="nu" id=11><label for="11">60대남성</label>
 					<p />
 					<input type="radio" value="12" name="nu" id="12"><label
-						for="12">60대 여 성</label> <input type="radio" value="13" name="nu"
-						id="13"><label for="13">20대 임 산 부</label> <input
+						for="12">60대여성</label> <input type="radio" value="13" name="nu"
+						id="13"><label for="13">20대 임산부</label> <input
 						type="radio" value="14" name="nu" id="14"><label for="14">30대
-						임 산 부</label>
+						임산부</label>
 				</div>
 
 
@@ -497,75 +496,59 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6 col-sm-6">
-				<div class="dashboard_graph">
-
-					<div class="row x_title">
-						<div class="col-md-6">
-							<h3 style="font-size: 18px">가격 차트</h3>
-
-						</div>
-					</div>
-					<div class="col-md-9 col-sm-9 col-xs-12">
-						<canvas id="price_canvas" style="height: 400px;"></canvas>
-					</div>
-
-
-					<div class="clearfix"></div>
-				</div>
-			</div>
-
-			<div class="col-md-6 col-sm-6">
-				<div class="dashboard_graph">
-
-					<div class="row x_title">
-						<div class="col-md-6">
-							<h3 style="font-size: 18px">Top Campaign Performance</h3>
+			<div class="col-md-8 col-sm-8">
+				<div class="x_panel tile fixed_height_600">
+						<div class="x_title">
+							<h2>가격차트</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li><a class="collapse-link"><i
+										class="fa fa-chevron-up"></i></a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false"><i
+										class="fa fa-wrench"></i></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Settings 1</a></li>
+										<li><a href="#">Settings 2</a></li>
+									</ul></li>
+								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+							</ul>
 							<div class="clearfix"></div>
 						</div>
+						<div class="x_content" id="notice">
+							<div class="dashboard_graph">
+			                  <canvas id="price_canvas" style="height: 400px;"></canvas>
+			            
+			               <div class="clearfix"></div>
+			            </div>
+									</div>
 
-						<div class="col-md-12 col-sm-12 col-xs-6">
-							<div>
-								<p>Facebook Campaign</p>
-								<div class="">
-									<div class="progress progress_sm" style="width: 76%;">
-										<div class="progress-bar bg-green" role="progressbar"
-											data-transitiongoal="80"></div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<p>Twitter Campaign</p>
-								<div class="">
-									<div class="progress progress_sm" style="width: 76%;">
-										<div class="progress-bar bg-green" role="progressbar"
-											data-transitiongoal="60"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 col-sm-12 col-xs-6">
-							<div>
-								<p>Conventional Media</p>
-								<div class="">
-									<div class="progress progress_sm" style="width: 76%;">
-										<div class="progress-bar bg-green" role="progressbar"
-											data-transitiongoal="40"></div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<p>Bill boards</p>
-								<div class="">
-									<div class="progress progress_sm" style="width: 76%;">
-										<div class="progress-bar bg-green" role="progressbar"
-											data-transitiongoal="50"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+					<div class="x_panel tile fixed_height_600">
+						<div class="x_title">
+							<h2>가격top5</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li><a class="collapse-link"><i
+										class="fa fa-chevron-up"></i></a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false"><i
+										class="fa fa-wrench"></i></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Settings 1</a></li>
+										<li><a href="#">Settings 2</a></li>
+									</ul></li>
+								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content" id="notice">
+							여기안에 재근님 top5넣으시면 됩니다.
+
+						</div>
+
+				</div>
+			</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
@@ -617,26 +600,31 @@
 					</div>
 
 				</div>
-
-
-				<div class="col-md-8 col-sm-8 col-xs-12">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">팀장님 여기에다가
-							FAQ넣어주세요</div>
-
+				<div class="col-md-6 col-sm-6">
+					<div class="x_panel tile fixed_height_320">
+						<div class="x_title">
+							<h2>FAQ</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li><a class="collapse-link"><i
+										class="fa fa-chevron-up"></i></a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false"><i
+										class="fa fa-wrench"></i></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Settings 1</a></li>
+										<li><a href="#">Settings 2</a></li>
+									</ul></li>
+								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content" id="notice" style="overflow: auto; height: 100%;">
+							
+						</div>
 					</div>
-					<div class="row">
 
-
-						<!-- Start to do list -->
-
-						<!-- End to do list -->
-
-						<!-- start of weather widget -->
-
-						<!-- end of weather widget -->
-					</div>
 				</div>
+
 			</div>
 		</div>
 		<!-- /page content -->
