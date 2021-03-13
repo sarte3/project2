@@ -48,7 +48,7 @@ public class DietMakerSecond {
 			}
 			check_nut(people.nut_lb, cur_nut, people.nut_ub, ddao);
 			i += 1;
-			System.out.println(i+"번try++++++++++++++++++++++++++++++");
+			System.out.println(i+"번 try++++++++++++++++++++++++++++++");
 		}
 		return meals;
 	}
@@ -56,7 +56,7 @@ public class DietMakerSecond {
 	public static void out_meal() {
 		System.out.println("=================오늘의 식단=================");
 		for (FoodDto fdto: meals) {
-			System.out.println(fdto.getFood_cate3()+" "+fdto.getFood_name());
+			System.out.println("["+fdto.getFood_cate3()+"] "+fdto.getFood_name());
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class DietMakerSecond {
 			FoodDto food = get_food(i, ddao);
 			//System.out.println("후보음식: "+ food.getFood_name());
 			if(is_under_ub(nut_ub, food)) {
-				System.out.println("영양성분 만족 ====>"+food.getFood_name()+food.getFood_cate3());
+				System.out.println("영양성분 만족 ====> ["+food.getFood_cate3()+"] "+food.getFood_name());
 				add_food(food, ddao);
 				return true;
 			} else if(meals.size()==0) {
@@ -119,7 +119,7 @@ public class DietMakerSecond {
 			}
 			if(cur_nut[i]+getFoodNutByIndex(fdto,i)>nut_ub[i]) {
 				add_rejection(i);
-				System.out.println(nut_list[i]+"초과 ===> "+(cnt_rejection[i])+"회 거절");
+				System.out.println(nut_list[i]+" 초과 ===> "+(cnt_rejection[i])+"회 거절");
 				status = false;
 			}
 		}
@@ -155,7 +155,7 @@ public class DietMakerSecond {
 			}
 			cur_cate[cate_idx] = false;
 			cnt_rejection[nut_idx] = 0;
-			System.out.println(nut_list[nut_idx]+", 4회초과=> <"+topfood.getFood_name()+"> 삭제");
+			System.out.println(nut_list[nut_idx]+", 4회 초과=> <"+topfood.getFood_name()+"> 삭제");
 //			for (int i=0; i<cur_nut.length; i++) {
 //				System.out.println(cur_nut[i]);
 //			}

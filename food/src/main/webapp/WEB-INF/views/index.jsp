@@ -96,10 +96,8 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-
 					<canvas id="canvas" class="col-md-12 col-sm-12 col-xs-12"
 						style="height: 250px;"></canvas>
-
 				</div>
 			</div>
 		</div>
@@ -144,6 +142,8 @@
 				</div>
 			</div>
 		</div>
+		<!--/ 트렌드 -->
+		<!-- 필수영양소 -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel tile fixed_height_320 overflow_hidden">
 				<div class="x_title">
@@ -185,13 +185,9 @@
 					<input type="radio" value="13" name="nu" id="13">20대 임산부
 					<input type="radio" value="14" name="nu" id="14">30대 임산부
 				</div>
-
-
 			</div>
 		</div>
-
-
-		<br />
+		<!-- /필수영양소 -->
 
 		<!-- 빠른 식단 -->
 		<div class="row">
@@ -268,12 +264,11 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
+			<!-- /빠른 식단 -->
 
 			<!-- 주간식단표 -->
-			<div class="col-md-8 col-sm-8 col-xs-12" height="800">
+			<div class="col-md-8 col-sm-8 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
 						<h2>
@@ -301,30 +296,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- 
-							<div class="row">
-								<div class="col-sm-4">
-									<div class="weather-icon">
-										<canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-									</div>
-								</div>
-								<div class="col-sm-8">
-									<div class="weather-text">
-										<h2>
-											Texas <br> <i>Partly Cloudy Day</i>
-										</h2>
-									</div>
-								</div>
-							</div>
-							 
-							<div class="col-sm-12">
-								<div class="weather-text pull-right">
-									<h3 class="degrees">23</h3>
-								</div>
-							</div>
-
-							<div class="clearfix"></div>
-							-->
 						<div class="row weather-days">
 							<div class="col-sm-2">
 								<div class="daily-weather">
@@ -482,15 +453,15 @@
 										<h6>${meal18.food_6}</h6>
 								</div>
 							</div>
-
 							<div class="clearfix"></div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
+		<!-- /주간식단표 -->
 
+		<!-- 가격차트 -->
 		<div class="row">
 			<div class="col-md-8 col-sm-8">
 				<div class="x_panel tile fixed_height_600">
@@ -516,10 +487,12 @@
 			            
 			               <div class="clearfix"></div>
 			            </div>
-									</div>
-
+					</div>
 				</div>
 			</div>
+			<!-- /가격차트 -->
+			
+			<!-- 가격top5 -->
 			<div class="col-md-4 col-sm-4">
 					<div class="x_panel tile fixed_height_600" >
 						<div class="x_title">
@@ -557,13 +530,14 @@
 									</c:forEach> 
 								</tbody>
 							</table>
-
 						</div>
-
+					</div>
 				</div>
 			</div>
-			</div>
+			<!-- /가격top5 -->
+			
 			<div class="row">
+				<!-- 공지사항 -->
 				<div class="col-md-6 col-sm-6">
 					<div class="x_panel tile fixed_height_320">
 						<div class="x_title">
@@ -594,7 +568,7 @@
 										<div class="block">
 											<div class="block_content">
 												<h2 class="title">
-													<a><a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a></a>
+													<a href="notice/content?notice_id=${ndto.notice_id}">${ndto.notice_title}</a>
 												</h2>
 												<div class="byline">
 													<span>${ndto.notice_writeday}</span> by <a>${ndto.notice_name}</a>
@@ -608,11 +582,12 @@
 									</li>
 								</c:forEach>
 							</ul>
-
 						</div>
 					</div>
-
 				</div>
+				<!-- /공지사항 -->
+				
+				<!-- FAQ -->
 				<div class="col-md-6 col-sm-6">
 					<div class="x_panel tile fixed_height_320">
 						<div class="x_title">
@@ -632,85 +607,86 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content" id="notice" style="overflow: auto; height: 100%;">
-							
 						</div>
 					</div>
-
 				</div>
-
+				<!-- /FAQ -->
 			</div>
+			<!-- row -->
 		</div>
-		<!-- /page content -->
+		<!-- 전체row -->
+	</div>
+	<!-- /page content -->
 
-		<!-- 트렌드 차트 -->
-		<script>
+<!-- 트렌드 차트 -->
+<script>
 	window.chartColors = {
-		red : 'rgb(255, 99, 132)',
-		orange : 'rgb(255, 159, 64)',
-		yellow : 'rgb(255, 205, 86)',
-		green : 'rgb(75, 192, 192)',
-		blue : 'rgb(54, 162, 235)',
-		purple : 'rgb(153, 102, 255)',
-		grey : 'rgb(201, 203, 207)',
-		deepgray: '#73879c'
-	};
+	red : 'rgb(255, 99, 132)',
+	orange : 'rgb(255, 159, 64)',
+	yellow : 'rgb(255, 205, 86)',
+	green : 'rgb(75, 192, 192)',
+	blue : 'rgb(54, 162, 235)',
+	purple : 'rgb(153, 102, 255)',
+	grey : 'rgb(201, 203, 207)',
+	deepgray: '#73879c'
+};
 
-	var label = new Array();
-	var trend_month_vol = new Array();
-	var trend_blog_vol = new Array();
-	var trend_view_vol = new Array();
-	<c:forEach var="dto" items="${tlist}">
-	label.push("${dto.trend_keyword}");
-	trend_month_vol.push("${dto.trend_month_vol}");
-	trend_blog_vol.push("${dto.trend_blog_vol}");
-	trend_view_vol.push("${dto.trend_view_vol}");
-	</c:forEach>
+var label = new Array();
+var trend_month_vol = new Array();
+var trend_blog_vol = new Array();
+var trend_view_vol = new Array();
+<c:forEach var="dto" items="${tlist}">
+label.push("${dto.trend_keyword}");
+trend_month_vol.push("${dto.trend_month_vol}");
+trend_blog_vol.push("${dto.trend_blog_vol}");
+trend_view_vol.push("${dto.trend_view_vol}");
+</c:forEach>
 
-	var barChartData = {
-		labels : label,
-		datasets : [ {
-			label : '월간 검색량',
-			backgroundColor : window.chartColors.deepgray,
-			data : trend_month_vol
-		}, {
-			label : '블로그 월간 작성량',
-			backgroundColor : window.chartColors.blue,
-			data : trend_blog_vol
-		}, {
-			label : 'View 월간 작성량',
-			backgroundColor : window.chartColors.green,
-			data : trend_view_vol
-		} ]
+var barChartData = {
+	labels : label,
+	datasets : [ {
+		label : '월간 검색량',
+		backgroundColor : window.chartColors.deepgray,
+		data : trend_month_vol
+	}, {
+		label : '블로그 월간 작성량',
+		backgroundColor : window.chartColors.blue,
+		data : trend_blog_vol
+	}, {
+		label : 'View 월간 작성량',
+		backgroundColor : window.chartColors.green,
+		data : trend_view_vol
+	} ]
 
-	};
-	var ctx = document.getElementById('canvas').getContext('2d');
-	window.myBar = new Chart(ctx, {
-		type : 'bar',
-		data : barChartData,
-		options : {
-			title : {
-				display : false,
-				text : '음식 트렌드'
-			},
-			tooltips : {
-				mode : 'index',
-				intersect : false
-			},
-			responsive : false,
-			scales : {
-				xAxes : [ {
-					stacked : true,
-				} ],
-				yAxes : [ {
-					stacked : true
-				} ]
-			}
+};
+var ctx = document.getElementById('canvas').getContext('2d');
+window.myBar = new Chart(ctx, {
+	type : 'bar',
+	data : barChartData,
+	options : {
+		title : {
+			display : false,
+			text : '음식 트렌드'
+		},
+		tooltips : {
+			mode : 'index',
+			intersect : false
+		},
+		responsive : false,
+		scales : {
+			xAxes : [ {
+				stacked : true,
+			} ],
+			yAxes : [ {
+				stacked : true
+			} ]
 		}
-	});
-
+	}
+});
 </script>
-		<!-- 빠른식단 -->
-		<script type="text/javascript">
+
+<!-- 빠른식단 -->
+<script type="text/javascript">
 $(document).ready(function(){
 	var returnValue;
 	var url = location.href;
@@ -728,8 +704,9 @@ $(document).ready(function(){
 	})
 })
 </script>
-		<!-- 가격차트 -->
-		<script>
+
+<!-- 가격차트 -->
+<script>
 var label = new Array();
 var food1_price = new Array();
 var food1_name= new Set();
@@ -793,20 +770,13 @@ Chart.defaults.global.maintainAspectRatio = false;
 Chart.defaults.global.legend.labels.fontStyle = "italic";
 
 var ctx = $("#pie-chart");
-
 var pieLabels = ["탄수화물", "단백질", "지방"];
-
 var pieData = [100,50,80];
-
-
 var pieColors = [
   "#3498DB",
   "#E74C3C",
   "#26B99A",
-
 ];
-
-
 
 var ctx2 = $("#pie-chart2");
 var pieChart2 = new Chart(ctx2, {
@@ -864,8 +834,6 @@ $('input').change(function(){
   }else if(userCheck == '14'){
     addData(pieChart2,pieLabels14,pieData14);
   }
-  
-    
 });
 
 var pieLabels0 = ["탄수화물", "단백질", "지방"];
