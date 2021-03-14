@@ -210,51 +210,51 @@
 						</ul>
 						<div class="clearfix"></div>
 					</div>
-					<div class="x_content">
+					<div class="x_content" style="height: 600px;">
 						<div class="">
 					<ul class="to_do">
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="1">
 								<label for="0">성장기</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="2">
 								<label for="1">활동량많은 청소년</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;"> 
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="3">
 								<label for="2">성인 젊은 남성</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="4"> 
 								<label for="3">성인 젊은 여성</label>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="5">
 								<label for="4">저염식</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="6">
 								<label for="5">임신부</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="7">
 								<label for="6">고단백 저칼로리</label>
 							</p>
 						</li>
-						<li>
+						<li style="height: 70px;">
 							<p>
 								<input type="radio" name="meal_age" class="flat" value="8">
 								<label for="7">노인 건강식</label>
@@ -512,7 +512,7 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content" id="notice">
-							<table class="table">
+							<table class="table" style="height: 400px;">
 							    <tbody>
 									<tr>
 										<th> 재료명 </th>
