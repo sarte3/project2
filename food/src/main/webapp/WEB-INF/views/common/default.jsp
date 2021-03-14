@@ -106,7 +106,7 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 레시피 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">레시피 보기</a></li>
+                      <li><a href="/food/recipe_info/recipe_info_list">레시피 보기</a></li>
                       <li><a href="<%=request.getContextPath()%>/nutrition/list">음식 및 식품 영양성분보기</a></li>
                     </ul>
                   </li>  
