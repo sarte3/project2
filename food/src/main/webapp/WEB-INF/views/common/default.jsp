@@ -236,6 +236,14 @@
         </div>
 <decorator:body/>
 <!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
+<footer>
+<div class="pull-right">
+DietMight made by-Park junwu,Lee jeongsam,Lee jaeguen,Yoo jaeseok,Ji seungwon,Choi hongjun 
+<p/>Gentelella-Bootstrap
+<a href="https://colorlib.com"></a>
+</div>
+<div class="clearfix"></div>
+</footer>
     <!-- jQuery -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script>
     <script src="https:/code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
