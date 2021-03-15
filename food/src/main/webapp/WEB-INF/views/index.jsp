@@ -228,47 +228,55 @@
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="1">
 										<label for="0">성장기</label>
+										<p/><span>6~10세 아이 기준이며 총 열량 1700Kcal에 대한 식단 입니다.</span>
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="2">
 										<label for="1">활동량많은 청소년</label>
+										<p/><span>15~19세 기준이며 총 열량 2700Kcal에 대한 식단 입니다.</span>	
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="3">
 										<label for="2">성인 젊은 남성</label>
+										<p/><span>19~29세 기준이며 총 열량 2600Kcal에 대한 식단 입니다.</span>
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="4">
 										<label for="3">성인 젊은 여성</label>
+										<p/><span>19~29세 기준이며 총 열량 2000Kcal에 대한 식단 입니다.</span>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="5">
 										<label for="4">저염식</label>
+										<p/><span>고혈압,당뇨 등의 만성질환환자에게 적합하며, 나트륨을 최소화 하였습니다.</span>
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="6">
 										<label for="5">임신부</label>
+										<p/><span>20~39 기준이며 총 열량 2000Kcal에 대한 식단 입니다 + 임신여부에따라 영양섭취 해주시길 바랍니다. </span>
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="7">
 										<label for="6">고단백 저칼로리</label>
+										<p/><span>고단백질 식품으로 구성된 식단이 반영됩니다.</span>
 									</p>
 								</li>
 								<li style="height: 70px;">
 									<p>
 										<input type="radio" name="meal_age" class="flat" value="8">
 										<label for="7">노인 건강식</label>
+										<p/><span>60~70세 기준이며 1600Kcal에 대한 영양성분 입니다.+건강여부에 따라 영양섭취 해주시길 바랍니다.</span>
 									</p>
 								</li>
 							</ul>
