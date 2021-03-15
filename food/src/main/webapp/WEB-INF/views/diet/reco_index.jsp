@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 tbody {font-size:17px;}
-#t_container {padding-left:300px; width:1600px;}
+#t_container {padding-left:300px; width:1700px;}
 #loadingBar{
 	width:100%;
 	height:100%;
@@ -64,47 +64,47 @@ $(document).ready(function(){
 		<tr>
 			<td>기간 선택</td>
 			<td colspan="2">
-				<input type="radio" name="" value="0">한끼 (1끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="1">하루치(3끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="2">3일치 (9끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="3">일주일치 - 주말미포함(15끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="4">일주일치 - 주말미포함(15끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="5">일주일치 - 주말포함(21끼)&nbsp;&nbsp;
-				<input type="radio" name="" value="6">한달치 (90끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="0">한끼 (1끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="1">하루치(3끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="2">3일치 (9끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="3">일주일치 - 주말미포함(15끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="4">일주일치 - 주말미포함(15끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="5">일주일치 - 주말포함(21끼)&nbsp;&nbsp;
+				<input type="radio" name="imsi_1" value="6">한달치 (90끼)&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
 			<td>음식 가짓수</td>
 			<td colspan="2">
-				<input type="radio" name="" value="0">제한없음&nbsp;&nbsp;
-				<input type="radio" name="" value="1">밥1, 국1, 반찬2&nbsp;&nbsp;
-				<input type="radio" name="" value="2">밥1, 국1, 반찬3&nbsp;&nbsp;
-				<input type="radio" name="" value="3">밥1, 국1, 반찬3, 부식&nbsp;&nbsp;
+				<input type="radio" name="imsi_2" value="0">제한없음&nbsp;&nbsp;
+				<input type="radio" name="imsi_2" value="1">밥1, 국1, 반찬2&nbsp;&nbsp;
+				<input type="radio" name="imsi_2" value="2">밥1, 국1, 반찬3&nbsp;&nbsp;
+				<input type="radio" name="imsi_2" value="3">밥1, 국1, 반찬3, 부식&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
 			<td>알레르기 유무</td>
 			<td colspan="2">
-				<input type="radio" name="" value="0">선택안함&nbsp;&nbsp;
-				<input type="radio" name="" value="1">갑각류&nbsp;&nbsp;
-				<input type="radio" name="" value="2">견과&nbsp;&nbsp;
-				<input type="radio" name="" value="3">달걀&nbsp;&nbsp;
-				<input type="radio" name="" value="4">밀&nbsp;&nbsp;
-				<input type="radio" name="" value="5">우유&nbsp;&nbsp;
-				<input type="radio" name="" value="6">조개&nbsp;&nbsp;
-				<input type="radio" name="" value="7">콩&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="0">선택안함&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="1">갑각류&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="2">견과&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="3">달걀&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="4">밀&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="5">우유&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="6">조개&nbsp;&nbsp;
+				<input type="radio" name="imsi_3" value="7">콩&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
 			<td>특별식단 유무</td>
 			<td colspan="2">
-				<input type="radio" name="" value="0">선택안함&nbsp;&nbsp;
-				<input type="radio" name="" value="1">당뇨식&nbsp;&nbsp;
-				<input type="radio" name="" value="2">임신성 당뇨&nbsp;&nbsp;
-				<input type="radio" name="" value="3">고단백면역(치료중)&nbsp;&nbsp;
-				<input type="radio" name="" value="4">고단백면역(치료후)&nbsp;&nbsp;
-				<input type="radio" name="" value="5">건강관리&nbsp;&nbsp;
-				<input type="radio" name="" value="6">베지테리안&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="0">선택안함&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="1">당뇨식&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="2">임신성 당뇨&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="3">고단백면역(치료중)&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="4">고단백면역(치료후)&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="5">건강관리&nbsp;&nbsp;
+				<input type="radio" name="imsi_4" value="6">베지테리안&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
