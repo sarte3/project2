@@ -537,7 +537,7 @@
 					</div>
 					<div class="x_content" id="notice">
 						<div class="dashboard_graph">
-							<canvas id="price_canvas" style="height: 400px;"></canvas>
+							<canvas id="price_canvas" style="height: 400px; width:1050px;"></canvas>
 
 							<div class="clearfix"></div>
 						</div>
