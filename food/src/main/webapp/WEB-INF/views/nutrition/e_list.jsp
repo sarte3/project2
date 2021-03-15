@@ -7,7 +7,8 @@
     padding: 10px;
     width : 5%;
   }
-  th{background-color:white;}
+  th{background-color:white;
+  	align: center;}
   thead {
   position: fixed;
   top:90px;

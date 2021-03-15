@@ -237,7 +237,7 @@
 <decorator:body/>
 <!-- 모든 문서의 내용이 전부 여기 나옵니다.. -->
 <footer>
-<div class="pull-right">
+<div class="pull-right" align="center">
 DietMight made by-Park junwu,Lee jeongsam,Lee jaeguen,Yoo jaeseok,Ji seungwon,Choi hongjun 
 <p/>Gentelella-Bootstrap
 <a href="https://colorlib.com"></a>
