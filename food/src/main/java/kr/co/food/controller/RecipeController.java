@@ -69,6 +69,18 @@ public class RecipeController {
 		model.addAttribute("recipe_word", recipe_word);
 		
 		return "/recipe_info/recipe_info_list";
+		
+		
+	}
+	@RequestMapping("/recipe_info/recipe_info_content")
+	public String recipe_info_content(Model model, HttpServletRequest request) {
+		String recipe_name = request.getParameter("recipe_name");
+		RecipeDao dao = sqlSession.getMapper(RecipeDao.class);
+		dao.recipe_info_content(recipe_name);
+		ArrayList<RecipeDto> dto = dao.recipe_info_content(recipe_name);
+		model.addAttribute("dto", dto);
+		return "/recipe_info/recipe_info_content";
+		
 	}
 
 }

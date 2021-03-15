@@ -27,4 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getRecipeCnt" resultType="java.lang.Integer">
 		select count(*) from recipe_info; 
 	</select>
+	<select id="recipe_info_content" resultType="kr.co.food.dto.RecipeDto">
+		select * from recipe_info where recipe_name=#{param1};
+	</select>
 </mapper>

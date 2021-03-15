@@ -18,4 +18,6 @@ public interface RecipeDao {
 	
 	public Integer getRecipeCnt();
 	
+	public ArrayList<RecipeDto> recipe_info_content(String recipe_name);
+	
 }

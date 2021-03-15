@@ -1,9 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+/*영양성분 content*/
+function fetchPage(name){
+	    fetch(name).then(function(response){
+	      response.text().then(function(text){
+	        document.querySelector('recipe').innerHTML = text;
+	      })
+	    });
+	  }
+
+  </script>
+    <!-- Bootstrap -->
+    <link href="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<%=request.getContextPath()%>/resources/bootstrap/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<%=request.getContextPath()%>/resources/bootstrap/vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="<%=request.getContextPath()%>/resources/bootstrap/build/css/custom.min.css" rel="stylesheet">
+<style>
+table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+  }
+.first {
+    
+    float: left;
+    width:40%;
+    box-sizing: border-box;
+}
+
+.second{
+    border: 1px solid black;
+    float: left;
+    margin-left: 5%;
+    width:40%;
+    box-sizing: border-box;
+}
+</style>
 <div id="section" class="right_col">
-	<h1>레시피 전체 리스트</h1>
-<div id="search">
+	<h1 align="left">레시피 전체 리스트</h1>
+<div class="first">
+<div id="search" align="right">
   <form class="form-inline" method="post" action="recipe_info_list">
   <input type="text" class="form-control" value="${recipe_word}" name="recipe_word" placeholder="레시피검색" aria-label="food_name" aria-describedby="button">
   <button class="btn btn-primary" type="submit" id="button">검색</button>
@@ -18,7 +70,8 @@
 			<c:forEach var="dto" items="${list}">
 				<tr>
 					<td>${dto.recipe_code }</td>
-					<td>${dto.recipe_name }</td>
+					<td>
+					<a onmouseover="fetchPage('recipe_info_content?recipe_name=${dto.recipe_name}');">${dto.recipe_name}</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -68,3 +121,27 @@
 }
 </style>
 </div>
+<div class="second">
+	<recipe> 
+	 <!-- 성분표 나옴 -->
+	</recipe>
+</div>
+
+</div>
+
+
+	<!-- jQuery -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/nprogress/nprogress.js"></script>
+    <!-- ECharts -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/echarts/map/js/world.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script>
+	
