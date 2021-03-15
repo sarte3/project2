@@ -9,6 +9,8 @@ public interface RecipeDao {
 	public RecipeDto getRecipeInfo(int recipe_code);
 	
 	public RecipeDto getRecipeInfoByFoodName(String food_name);
+
+	public RecipeDto getRecipeInfoByRecipeName(String recipe_name);
 	
 	public ArrayList<RecipeDto> getRecipeListWithKeyword(String recipe_word, int index);
 	
@@ -18,6 +20,6 @@ public interface RecipeDao {
 	
 	public Integer getRecipeCnt();
 	
-	public ArrayList<RecipeDto> recipe_info_content(String recipe_name);
+
 	
 }

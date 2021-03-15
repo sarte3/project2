@@ -11,6 +11,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from recipe_info where food_name 
 		like concat('%', #{param1}, '%') limit 1
 	</select>
+	<select id="getRecipeInfoByRecipeName" resultType="kr.co.food.dto.RecipeDto">
+		select * from recipe_info where recipe_name=#{param1} limit 1;
+	</select>
 	<select id="getRecipeListWithKeyword" resultType="kr.co.food.dto.RecipeDto">
 		select * from recipe_info where recipe_name 
 		like concat('%', #{param1}, '%') 
@@ -26,8 +29,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getRecipeCnt" resultType="java.lang.Integer">
 		select count(*) from recipe_info; 
-	</select>
-	<select id="recipe_info_content" resultType="kr.co.food.dto.RecipeDto">
-		select * from recipe_info where recipe_name=#{param1};
 	</select>
 </mapper>

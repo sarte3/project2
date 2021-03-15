@@ -76,11 +76,16 @@ public class RecipeController {
 	public String recipe_info_content(Model model, HttpServletRequest request) {
 		String recipe_name = request.getParameter("recipe_name");
 		RecipeDao dao = sqlSession.getMapper(RecipeDao.class);
-		dao.recipe_info_content(recipe_name);
-		ArrayList<RecipeDto> dto = dao.recipe_info_content(recipe_name);
+		RecipeDto dto = dao.getRecipeInfoByRecipeName(recipe_name);
 		model.addAttribute("dto", dto);
 		return "/recipe_info/recipe_info_content";
-		
 	}
-
+	@RequestMapping("/recipe_info/recipe_food_name")
+	public String getRecipeInfoByFoodName(Model model, HttpServletRequest request) {
+		String foodName = request.getParameter("food_name");
+		RecipeDao dao = sqlSession.getMapper(RecipeDao.class);
+		RecipeDto dto = dao.getRecipeInfoByFoodName(foodName);
+		model.addAttribute("dto", dto);
+		return "/recipe_info/recipe_info_content";
+	}
 }

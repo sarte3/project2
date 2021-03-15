@@ -66,42 +66,42 @@
 		</tr>
 		<tr>
 			<td>${meal_A1_cate}</td>
-			<td>${meal_A1_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A1_name}">${meal_A1_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A1[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_A2_cate}</td>
-			<td>${meal_A2_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A2_name}">${meal_A2_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A2[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_A3_cate}</td>
-			<td>${meal_A3_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A3_name}">${meal_A3_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A3[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_A4_cate}</td>
-			<td>${meal_A4_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A4_name}">${meal_A4_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A4[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_A5_cate}</td>
-			<td>${meal_A5_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A5_name}">${meal_A5_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A5[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_A6_cate}</td>
-			<td>${meal_A6_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_A6_name}">${meal_A6_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_A6[i]}</td>
 			</c:forEach>
@@ -126,42 +126,42 @@
 		</tr>
 		<tr>
 			<td>${meal_B1_cate}</td>
-			<td>${meal_B1_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B1_name}">${meal_B1_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B1[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_B2_cate}</td>
-			<td>${meal_B2_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B2_name}">${meal_B2_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B2[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_B3_cate}</td>
-			<td>${meal_B3_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B3_name}">${meal_B3_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B3[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_B4_cate}</td>
-			<td>${meal_B4_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B4_name}">${meal_B4_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B4[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_B5_cate}</td>
-			<td>${meal_B5_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B5_name}">${meal_B5_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B5[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_B6_cate}</td>
-			<td>${meal_B6_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_B6_name}">${meal_B6_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_B6[i]}</td>
 			</c:forEach>
@@ -186,42 +186,42 @@
 		</tr>
 		<tr>
 			<td>${meal_C1_cate}</td>
-			<td>${meal_C1_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C1_name}">${meal_C1_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C1[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_C2_cate}</td>
-			<td>${meal_C2_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C2_name}">${meal_C2_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C2[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_C3_cate}</td>
-			<td>${meal_C3_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C3_name}">${meal_C3_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C3[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_C4_cate}</td>
-			<td>${meal_C4_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C4_name}">${meal_C4_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C4[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_C5_cate}</td>
-			<td>${meal_C5_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C5_name}">${meal_C5_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C5[i]}</td>
 			</c:forEach>
 		</tr>
 		<tr>
 			<td>${meal_C6_cate}</td>
-			<td>${meal_C6_name}</td>
+			<td><a href="/food/recipe_info/recipe_food_name?food_name=${meal_C6_name}">${meal_C6_name}</a></td>
 			<c:forEach var="i" begin="0" end="${fn:length(meal_A1)-1}">
 			<td>${meal_C6[i]}</td>
 			</c:forEach>
