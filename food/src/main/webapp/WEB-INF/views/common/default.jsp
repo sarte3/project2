@@ -148,6 +148,12 @@
                       <li><a href="/food/admin/notice_write">공지사항 입력</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-desktop"></i>자주 묻는 질문<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/food/admin/fnq_list">자주 묻는 질문 보기</a></li>
+                      <li><a href="/food/admin/fnq_write">자주 묻는 질문 입력</a></li>
+                    </ul>
+                  </li> 
                   <li><a><i class="fa fa-user"></i>회원 관리<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/food/admin/member_list">회원 리스트</a></li>
