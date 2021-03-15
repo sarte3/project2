@@ -28,4 +28,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get_email_chk" resultType="Integer">
 		select count(*) from member where email=#{param1}
 	</select>
+	<select id="get_userid" resultType="String">
+		select userid from member where name=#{param1} and email=#{param2}
+	</select>
+	<select id="get_pwd" resultType="String">
+		select pwd from member where userid=#{param1} and name=#{param2} and email=#{param3}
+	</select>
 </mapper>

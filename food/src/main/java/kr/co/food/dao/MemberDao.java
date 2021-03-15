@@ -17,4 +17,8 @@ public interface MemberDao {
 	public Integer get_userid_chk(String userid);
 	
 	public Integer get_email_chk(String email);
+	
+	public String get_userid(String name, String email);
+	
+	public String get_pwd(String userid, String name, String email);
 }

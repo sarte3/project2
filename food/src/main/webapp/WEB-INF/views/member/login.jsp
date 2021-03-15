@@ -20,6 +20,7 @@
 	  			아이디 혹은 비밀번호를 확인해주세요!
 			</div>
 		</c:if>
+		 <div> <a href="./userid_search"> 아이디 찾기 </a>| <a href="./pwd_search"> 비밀번호 찾기 </a></div>
 		<div class="d-grid gap-2"  style="text-align:right;">
   			<button class="btn btn-primary" type="submit">로그인</button>
 		</div>
