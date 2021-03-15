@@ -1,13 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+  function show_graph(food_name)
+  {
+	  fetch(food_name).then(function(response){
+	        response.text().then(function(text){
+	          document.querySelector('article').innerHTML = text; 
+	        })
+	      })
+  }
+</script>
 <div id="section" class="right_col">
 	<h1>가격 리스트</h1>
 <div id="search">
   <form class="form-inline" method="post" action="price_list">
   <input type="text" class="form-control" value="${sword}" name="sword" placeholder="재료검색" aria-label="price_keyword" aria-describedby="button">
   <button class="btn btn-primary" type="submit" id="button">검색</button>
-  </form>
+  </form>  
+</div>
+<div>
+<article> </article>
 </div>
 	<table class="table">
 		<tbody>
@@ -17,6 +30,7 @@
 				<th>가격</th>
 				<th>단위</th>
 				<th>가격 증감률</th>
+				<th width="10%">가격 예측 그래프</th>
 			</tr>
 			<c:forEach var="plist" items="${plist}">
 				<tr>
@@ -25,6 +39,7 @@
 					<td>${plist.food_price}</td>
 					<td>${plist.unit}</td>
 					<td>${plist.price_percent}</td>
+					<td> <input type="button" value="그래프보기" onclick='show_graph("one_price?food_name=${plist.food_name}")'> </td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -70,7 +85,7 @@
 }
 #search
 {
-	float:right;
+	/* float:right; */
 }
 </style>
 </div>

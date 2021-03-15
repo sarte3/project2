@@ -93,4 +93,13 @@ public class PriceController {
 		model.addAttribute("sword",sword);
 		return "/price/price_list";
 	}
+	@RequestMapping("/price/one_price")
+	public String one_price(Model model,HttpServletRequest request)
+	{
+		String food_name=request.getParameter("food_name");
+		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
+		ArrayList<PriceDto> food=pdao.getPrice(food_name);
+		model.addAttribute("food",food);		
+		return "/price/one_price";
+	}
 }
