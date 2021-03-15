@@ -7,4 +7,5 @@ public interface IndexDao {
 	public Integer getTrendCnt();
 	public Integer getNoticeCnt();
 	public Integer getPriceCnt();
+	public Integer getDietCnt();
 }

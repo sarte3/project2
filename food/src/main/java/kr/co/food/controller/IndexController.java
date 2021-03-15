@@ -44,12 +44,14 @@ public class IndexController {
 		int recipe=idao.getRecipeCnt();
 		int trend=idao.getTrendCnt();
 		int price=idao.getPriceCnt();
+		int diet=idao.getDietCnt();
 		
 		model.addAttribute("food", food);
 		model.addAttribute("user", user);
 		model.addAttribute("recipe", recipe);
 		model.addAttribute("trend", trend);
 		model.addAttribute("price", price);
+		model.addAttribute("diet", diet);
 		/*공지사항*/
 		NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
 		ArrayList<NoticeDto> inlist = ndao.inlist();

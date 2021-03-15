@@ -23,4 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getPriceCnt" resultType="Integer">
 		select count(*) from price
 	</select>
+	<select id="getDietCnt" resultType="Integer">
+		select count(*) from custom_diet
+	</select>
 </mapper>
