@@ -5,6 +5,7 @@ import kr.co.food.dto.PriceDto;
 
 public interface PriceDao {
 
+	public ArrayList<PriceDto> getBottom5();
 	public ArrayList<PriceDto> getTop5();
 	public ArrayList<PriceDto> getPrice(String foodname);
 	

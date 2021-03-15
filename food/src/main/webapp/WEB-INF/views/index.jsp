@@ -20,6 +20,14 @@
 	background-color: #F3F3F3;
 	color: #73879C;
 }
+#tabs #left_tab {
+  width:47%;
+  float:left;
+}
+#tabs #right_tab {
+  width:47%;
+  float:right;
+}
 </style>
 
 <script
@@ -549,24 +557,46 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="x_content" id="notice">
-						<table class="table" style="height: 400px;">
-							<tbody>
-								<tr>
-									<th>재료명</th>
-									<th>단 위</th>
-									<th>가 격</th>
-									<th>가격 증감률</th>
-								</tr>
-								<c:forEach var="plist" items="${plist}">
+						  <div id="tabs">
+							  <table class="table" id="left_tab">
+							    <caption style="font-weight:bold;font-size:16px"> 가격이 하락한 품목 top5 </caption> 
+							    <tbody>
 									<tr>
-										<td>${plist.food_name}</td>
-										<td>${plist.unit}</td>
-										<td>${plist.food_price}</td>
-										<td style="color: blue">${plist.price_percent} %▼</td>
+										<th> 재료명 </th>
+										<th> 단 위 </th>
+										<th> 가 격 </th>
+										<th> 가격 증감률 </th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+									<c:forEach var="plist" items="${plist}">
+									<tr>
+										<td> ${plist.food_name} </td>
+										<td> ${plist.unit} </td>
+										<td> ${plist.food_price} </td>
+										<td style="color:blue"> ${plist.price_percent} %▼ </td>
+									</tr>
+									</c:forEach> 
+								</tbody>
+							  </table>
+							  <table class="table" id="right_tab">
+							    <caption style="font-weight:bold;font-size:16px"> 가격이 상승한 품목 top5 </caption>
+							    <tbody>
+									<tr>
+										<th> 재료명 </th>
+										<th> 단 위 </th>
+										<th> 가 격 </th>
+										<th> 가격 증감률 </th>
+									</tr>
+									<c:forEach var="plist2" items="${plist2}">
+									<tr>
+										<td> ${plist2.food_name} </td>
+										<td> ${plist2.unit} </td>
+										<td> ${plist2.food_price} </td>
+										<td style="color:red"> ${plist2.price_percent} %▲ </td>
+									</tr>
+									</c:forEach> 
+								</tbody>
+							  </table>
+						  </div>
 					</div>
 				</div>
 			</div>

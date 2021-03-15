@@ -24,8 +24,11 @@ public class PriceController {
 	public String price_chart(Model model)
 	{
 		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
-		ArrayList<PriceDto> plist=pdao.getTop5();
+		ArrayList<PriceDto> plist=pdao.getBottom5();
 		model.addAttribute("plist", plist);
+		
+		ArrayList<PriceDto> plist2=pdao.getTop5();
+		model.addAttribute("plist2",plist2);
 		
 		ArrayList foodlist=new ArrayList();
 		for(int i=0;i<plist.size();i++) {
