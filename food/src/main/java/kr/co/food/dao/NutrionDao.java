@@ -11,5 +11,6 @@ public interface NutrionDao {
 	public ArrayList<NutrionDto>list(String sword,int index);
 	public Integer getCnt(String sword);
 	public ArrayList<EnutritionDto>e_list();
+	public ArrayList<NutrionDto>fclist();
 }
 

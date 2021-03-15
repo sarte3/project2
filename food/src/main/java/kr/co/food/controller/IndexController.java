@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.food.dao.FnqDao;
 import kr.co.food.dao.IndexDao;
 import kr.co.food.dao.NoticeDao;
+import kr.co.food.dao.NutrionDao;
 import kr.co.food.dao.PriceDao;
 import kr.co.food.dao.TrendDao;
 import kr.co.food.dao.WeekDao;
 import kr.co.food.dto.FnqDto;
 import kr.co.food.dto.NoticeDto;
+import kr.co.food.dto.NutrionDto;
 import kr.co.food.dto.PriceDto;
 import kr.co.food.dto.TrendDto;
 import kr.co.food.dto.WeekDto;
@@ -58,6 +60,11 @@ public class IndexController {
 		NoticeDao ndao = sqlSession.getMapper(NoticeDao.class);
 		ArrayList<NoticeDto> inlist = ndao.inlist();
 		model.addAttribute("inlist", inlist);
+		
+		/*tolltip 사용하려고 만듦*/
+		NutrionDao fcdao = sqlSession.getMapper(NutrionDao.class);
+		ArrayList<NutrionDto> fclist = fcdao.fclist();
+		model.addAttribute("fclist", fclist);
 		
 		/*자주 묻는 질문*/
 		FnqDao fdao = sqlSession.getMapper(FnqDao.class);

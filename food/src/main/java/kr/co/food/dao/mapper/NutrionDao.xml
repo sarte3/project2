@@ -11,6 +11,9 @@ select * from food where food_code=#{param1}
 select * from food where food_name like concat('%',#{param1},'%') order by 
 food_code asc limit #{param2},14;
 </select>
+<select id="fclist" resultType="kr.co.food.dto.NutrionDto">
+select * from food
+</select>
 <select id="getCnt" resultType="Integer">
 select count(*) from food where food_name like concat('%', #{param1}, '%')
 </select>
