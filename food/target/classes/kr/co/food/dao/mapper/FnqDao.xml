@@ -23,4 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete">
 		delete from fnq where fnq_id=#{param1}
 	</delete>
+	<select id="getList5" resultType="kr.co.food.dto.FnqDto">
+		select * from fnq order by fnq_id desc limit 5
+	</select>
 </mapper>

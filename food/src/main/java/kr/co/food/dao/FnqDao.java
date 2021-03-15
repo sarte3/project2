@@ -17,4 +17,6 @@ public interface FnqDao
 	public void update(FnqDto dto);
 	
 	public void delete(String fnq_id);
+	
+	public ArrayList<FnqDto> getList5();
 }
