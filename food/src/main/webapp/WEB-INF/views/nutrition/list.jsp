@@ -136,5 +136,5 @@ table {
     <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/echarts/map/js/world.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script>
+    <%-- <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script> --%>
 	

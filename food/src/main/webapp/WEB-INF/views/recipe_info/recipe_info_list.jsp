@@ -129,7 +129,7 @@ table {
 
 
 	<!-- jQuery -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/jquery/dist/jquery.min.js"></script> 
     <!-- Bootstrap -->
     <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -141,5 +141,5 @@ table {
     <script src="<%=request.getContextPath()%>/resources/bootstrap/vendors/echarts/map/js/world.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script>
-	
+    <%-- <script src="<%=request.getContextPath()%>/resources/bootstrap/build/js/custom.min.js"></script>
+	 --%>
