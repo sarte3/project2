@@ -2,14 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
-  function show_graph(food_name)
-  {
-	  fetch(food_name).then(function(response){
-	        response.text().then(function(text){
-	          document.querySelector('article').innerHTML = text; 
-	        })
-	      })
-  }
+	function show_graph(food_name)
+	{
+		window.open(food_name,"",width=300,height=300);  
+	}
 </script>
 <div id="section" class="right_col">
 	<h1>가격 리스트</h1>
@@ -19,9 +15,7 @@
   <button class="btn btn-primary" type="submit" id="button">검색</button>
   </form>  
 </div>
-<div>
-<article> </article>
-</div>
+
 	<table class="table">
 		<tbody>
 			<tr>
@@ -85,7 +79,7 @@
 }
 #search
 {
-	/* float:right; */
+	float:right; 
 }
 </style>
 </div>

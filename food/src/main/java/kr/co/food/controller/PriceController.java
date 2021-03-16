@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.food.dao.Predict_priceDao;
 import kr.co.food.dao.PriceDao;
+import kr.co.food.dto.Predict_priceDto;
 import kr.co.food.dto.PriceDto;
 
 
@@ -99,7 +101,11 @@ public class PriceController {
 		String food_name=request.getParameter("food_name");
 		PriceDao pdao=sqlSession.getMapper(PriceDao.class);
 		ArrayList<PriceDto> food=pdao.getPrice(food_name);
-		model.addAttribute("food",food);		
+		model.addAttribute("food",food);
+		
+		Predict_priceDao ppdao=sqlSession.getMapper(Predict_priceDao.class);
+		ArrayList<Predict_priceDto> f2=ppdao.getPredictPrice(food_name);
+		model.addAttribute("f2",f2);
 		return "/price/one_price";
 	}
 }

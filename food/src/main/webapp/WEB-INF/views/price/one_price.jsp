@@ -17,6 +17,11 @@ var food_name= new Set();
 food_price=food_price.reverse();
 label=label.reverse();
 
+<c:forEach var="f2" items="${f2}">
+	label.push("${f2.pred_date}"+"예측값")
+	food_price.push("${f2.pred_price}")
+</c:forEach>
+
 new Chart(document.getElementById("one_price_canvas"),
 		{"type":"line",
 		"data":{"labels":label,
