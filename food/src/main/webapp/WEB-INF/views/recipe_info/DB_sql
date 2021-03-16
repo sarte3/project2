@@ -1,0 +1,3 @@
+UPDATE recipe_info a, (SELECT r.id, f.food_name FROM recipe_info r JOIN (SELECT * from food WHERE food_cate1 = '음식') f ON REGEXP_REPLACE(r.recipe_name, CONCAT('(.*)(', f.food_name, ')(.*)'), '\\2') = f.food_name) b
+SET a.food_name = b.food_name
+WHERE a.id = b.id;

@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "kr.co.food.dao.RecipeDao">
 	<select id="getRecipeInfo" resultType="kr.co.food.dto.RecipeDto">
-		select * from recipe_info where recipe_code = ${param1} limit 1
+		select * from recipe_info where recipe_code = ${param1} limit 1;
 	</select>
 	<select id="getRecipeInfoByFoodName" resultType="kr.co.food.dto.RecipeDto">
 		select * from recipe_info where food_name 
-		like concat('%', #{param1}, '%') limit 1
+		like concat('%', #{param1}, '%') limit 1;
 	</select>
 	<select id="getRecipeInfoByRecipeName" resultType="kr.co.food.dto.RecipeDto">
 		select * from recipe_info where recipe_name=#{param1} limit 1;
