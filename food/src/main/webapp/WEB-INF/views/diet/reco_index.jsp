@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 tbody {font-size:17px;}
-#t_container {padding-left:300px; width:1700px;}
+#t_container {padding-left:80px; width:1700px;}
 #loadingBar{
 	width:100%;
 	height:100%;
