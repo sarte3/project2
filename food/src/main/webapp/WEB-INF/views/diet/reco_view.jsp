@@ -29,7 +29,7 @@
 <table class="table">
 	<tbody>
 		<tr>
-			<th>구분</th>
+			<th width="70px">구분</th>
 			<c:forEach var="i" begin="0" end="${fn:length(nut_list)-1}">
 			<th>${nut_list[i]}</th>
 			</c:forEach>
@@ -58,7 +58,7 @@
 <table class="table">
 	<tbody>
 		<tr>
-			<th>구분</th>
+			<th width="70px">구분</th>
 			<th>음식명</th>
 			<c:forEach var="i" begin="0" end="${fn:length(nut_list)-1}">
 			<th>${nut_list[i]}</th>
@@ -118,7 +118,7 @@
 <table class="table">
 	<tbody>
 		<tr>
-			<th>구분</th>
+			<th width="70px">구분</th>
 			<th>음식명</th>
 			<c:forEach var="i" begin="0" end="${fn:length(nut_list)-1}">
 			<th>${nut_list[i]}</th>
@@ -178,7 +178,7 @@
 <table class="table">
 	<tbody>
 		<tr>
-			<th>구분</th>
+			<th width="70px">구분</th>
 			<th>음식명</th>
 			<c:forEach var="i" begin="0" end="${fn:length(nut_list)-1}">
 			<th>${nut_list[i]}</th>
