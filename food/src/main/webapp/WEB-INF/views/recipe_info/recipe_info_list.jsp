@@ -69,7 +69,7 @@ table {
 				<tr>
 					<td>${dto.recipe_code }</td>
 					<td>
-					<a onmouseover="fetchPage('recipe_info_content?recipe_name=${dto.recipe_name}');">${dto.recipe_name}</a></td>
+					<a onmouseover="fetchPage('recipe_info_content2?recipe_name=${dto.recipe_name}');">${dto.recipe_name}</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

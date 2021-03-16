@@ -6,6 +6,7 @@
   <pattern>/auth.do</pattern>
   <pattern>/nutrition/n_view?food_code=*</pattern>
   <pattern>/recipe_info/recipe_info_content?recipe_name=*</pattern>
+  <pattern>/recipe_info/recipe_info_content2?recipe_name=*</pattern>
   <pattern>/price/one_price?food_name=*</pattern>
 
  </excludes>

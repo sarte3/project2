@@ -80,6 +80,14 @@ public class RecipeController {
 		model.addAttribute("dto", dto);
 		return "/recipe_info/recipe_info_content";
 	}
+	@RequestMapping("/recipe_info/recipe_info_content2")
+	public String recipe_info_content2(Model model, HttpServletRequest request) {
+		String recipe_name = request.getParameter("recipe_name");
+		RecipeDao dao = sqlSession.getMapper(RecipeDao.class);
+		RecipeDto dto = dao.getRecipeInfoByRecipeName(recipe_name);
+		model.addAttribute("dto", dto);
+		return "/recipe_info/recipe_info_content2";
+	}
 	@RequestMapping("/recipe_info/recipe_food_name")
 	public String getRecipeInfoByFoodName(Model model, HttpServletRequest request) {
 		String foodName = request.getParameter("food_name");
