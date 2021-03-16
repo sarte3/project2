@@ -38,14 +38,12 @@ table {
     padding: 10px;
   }
 .first {
-    
     float: left;
     width:40%;
     box-sizing: border-box;
 }
 
 .second{
-    border: 1px solid black;
     float: left;
     margin-left: 5%;
     width:40%;
@@ -110,7 +108,7 @@ table {
 			</ul>
 		</nav>
 	</div>
-	<style>
+<style>
 #page_nav {
 	width: 500px;
 	margin: 0 auto;
