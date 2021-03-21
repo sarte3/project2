@@ -10,6 +10,7 @@ https://github.com/sarte3/project2/blob/main/Dietmite_%EB%B0%9C%ED%91%9C%EC%9E%9
 
 ## 발표 영상
 아래 링크를 클릭하시면 발표 영상을 보실 수 있습니다.
+https://youtu.be/7tROkrt39XM
 
 ## 주요 내용
 * "오늘 뭐 먹지?" 라는 질문에서 시작된 서비스입니다. 
