@@ -12,6 +12,9 @@ https://github.com/sarte3/project2/blob/main/Dietmite_%EB%B0%9C%ED%91%9C%EC%9E%9
 아래 링크를 클릭하시면 발표 영상을 보실 수 있습니다.
 https://youtu.be/7tROkrt39XM
 
+## 개발기간
+2021.02 ~ 2021.03(약 2개월)
+
 ## 주요 내용
 * "오늘 뭐 먹지?" 라는 질문에서 시작된 서비스입니다. 
 * KAMIS.org 에서 API 활용해 식재료 가격 10년 치 데이터를 MLP Regressor를 활용하여 머신러닝 모델을 만들어 가격을 예측해 식재료를 추천하는 기능을 구현했습니다. 
